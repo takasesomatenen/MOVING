@@ -74,22 +74,52 @@ def collect_detail_urls(html, base_url, href_re):
     return urls
 
 
+# 所在地の後ろに続きがちな交通/付帯情報。ここで所在地を打ち切る。
+_LOC_CUT_RE = re.compile(
+    r"(交通|アクセス|最寄|沿線|JR|私鉄|バス|駅(?:まで|から|徒歩)|【|（|\(|土地面積|建物面積|"
+    r"面積|価格|間取|築年|\s{2,})"
+)
+
+
+def clean_location(raw: str) -> str:
+    """交通情報等が混入した所在地を、都道府県〜番地までで打ち切る。"""
+    raw = normalize(raw)
+    m = _LOC_CUT_RE.search(raw)
+    if m:
+        raw = raw[: m.start()]
+    return raw.strip(" 　-・,、")[:40]
+
+
+def clean_title(raw: str) -> str:
+    """装飾記号(★等)や区切りを整えたタイトル。"""
+    t = normalize(raw)
+    t = re.sub(r"[★☆■◆▲▼※\-—|｜]{1,}", " ", t)
+    t = re.sub(r"\s{2,}", " ", t).strip()
+    return t[:120]
+
+
 def extract_listing(html, url, source):
     """詳細ページ HTML から Listing を構築(フィルタ前)。"""
     text = html_to_text(html)
     title_m = TITLE_RE.search(html)
-    title = normalize(title_m.group(1)) if title_m else url
+    title = clean_title(title_m.group(1)) if title_m else url
     loc_m = LOCATION_RE.search(text)
-    location = loc_m.group(2).strip() if loc_m else ""
+    location = clean_location(loc_m.group(2)) if loc_m else ""
+    building = parse_building_m2(text)
+    madori = parse_madori(text) or ""
+    # 売地/売土地(上物なし)で間取りが出るのは誤検出。建物が無ければ間取りを外す。
+    is_land_only = building is None and re.search(r"売地|売土地|土地売|地目", text)
+    if is_land_only:
+        madori = ""
     return Listing(
         source=source,
-        title=title[:120],
+        title=title,
         url=url,
         price_man=parse_price_man(text),
-        location=location[:60],
+        location=location,
         land_m2=parse_land_m2(text),
-        building_m2=parse_building_m2(text),
-        madori=parse_madori(text) or "",
+        building_m2=building,
+        madori=madori,
         coastal=is_coastal(text) or is_coastal(title),
         note="",
     )
