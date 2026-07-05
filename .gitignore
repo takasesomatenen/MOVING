@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 scrape.log
 .DS_Store
+# 描画済みバイナリは再生成可能なので追跡しない(index.html は追跡)
+data/report/*.png
+data/report/*.pdf

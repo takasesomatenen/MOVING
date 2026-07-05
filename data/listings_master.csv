@@ -1,11 +1,17 @@
 id,source,title,price_man,location,land_m2,building_m2,madori,coastal,url,first_seen,last_seen,note
 e17aebff938f,websearch-seed,対馬市 4DK 海まで徒歩数秒,100,長崎県対馬市,,115.13,4DK,1,https://www.akiya-athome.jp/buy/42/#seed-7,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
 0e60042a7d6d,websearch-seed,平戸市 海が目の前,100,長崎県平戸市,132.0,,,1,https://www.homes.co.jp/akiyabank/btag/1/nagasaki/hirado/#seed-9,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
+ea9aa15df519,websearch-seed,高知 室戸市 土地95㎡ 海近(格安),100,高知県室戸市,95.86,,,1,https://www.homes.co.jp/akiyabank/kochi/muroto/#seed-13,2026-07-05,2026-07-05,第2弾(WebSearch由来/2026-07) 現物・在庫要確認
 23b87d71157f,websearch-seed,南房総市和田町和田 5DK 中古住宅 海近,180,千葉県南房総市和田町和田,98.02,100.8,5DK,1,https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/list/#seed-1,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
 fcd4d14dd07c,websearch-seed,対馬市 5K 海沿い,200,長崎県対馬市,,71.75,5K,1,https://www.akiya-athome.jp/buy/42/#seed-8,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
 13e12b60a113,websearch-seed,佐伯市 6DK 海沿いの集落,200,大分県佐伯市,,111.74,6DK,1,https://www.akiya-athome.jp/buy/44/#seed-10,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
 943609188ef3,websearch-seed,鴨川市太海浜 2K 木造 オーシャンビュー,220,千葉県鴨川市太海浜,,50.82,2K,1,https://www.homes.co.jp/akiyabank/btag/1/chiba/#seed-3,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
+5a521556e83b,websearch-seed,和歌山 白浜町堅田 1LDK 1984築 海近,248,和歌山県西牟婁郡白浜町堅田,,61.0,1LDK,1,https://www.athome.co.jp/kodate/chuko/wakayama/list/#seed-11,2026-07-05,2026-07-05,第2弾(WebSearch由来/2026-07) 現物・在庫要確認
 9d6705f171f6,websearch-seed,南房総市白浜町白浜 2SDK 灯台/海釣り,280,千葉県南房総市白浜町白浜,31.3,91.7,2SDK,1,https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/list/#seed-2,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
+3a3db4d7b42b,websearch-seed,高知 土佐市新居 6DK 広め 海沿い,290,高知県土佐市新居,181.3,155.61,6DK,1,https://www.athome.co.jp/kodate/chuko/kochi/list/#seed-15,2026-07-05,2026-07-05,第2弾(WebSearch由来/2026-07) 現物・在庫要確認
+e33ae12e11fa,websearch-seed,山口 周防大島町 7DK 木造2階 瀬戸内,290,山口県大島郡周防大島町,,,7DK,1,https://teiju-suo-oshima.com/akiya/akiya_condition_category/oceanview#seed-16,2026-07-05,2026-07-05,第2弾(WebSearch由来/2026-07) 現物・在庫要確認 建物面積要確認
 3b5e3d869792,websearch-seed,志摩市大王町畔名 堤防越しに海,298,三重県志摩市大王町畔名,216.09,111.96,,1,https://www.athome.co.jp/kodate/chuko/mie/shima-city/list/#seed-6,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
 3033d44f92c1,websearch-seed,鴨川市広場 平屋2K スーパー徒歩圏,300,千葉県鴨川市広場,200.0,39.67,2K,1,https://www.athome.co.jp/kodate/chuko/chiba/kamogawa-city/list/#seed-4,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認 海沿い度は要確認
 b3f8d3560739,websearch-seed,匝瑳市 2LDK 新堀浜まで450m,300,千葉県匝瑳市,110.0,,2LDK,1,https://www.akiya-athome.jp/buy/12/#seed-5,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
+e8ad148e168a,websearch-seed,和歌山 由良町大引 高台から海望む リフォーム済,300,和歌山県日高郡由良町大引,,,,1,https://www.wakayamagurashi.jp/house/search/#seed-12,2026-07-05,2026-07-05,第2弾(WebSearch由来/2026-07) 現物・在庫要確認 リフォーム済/建物面積要確認
+2d1bf815aa71,websearch-seed,高知 室戸市 土地111㎡ 海近,300,高知県室戸市,111.82,,,1,https://www.homes.co.jp/akiyabank/kochi/muroto/#seed-14,2026-07-05,2026-07-05,第2弾(WebSearch由来/2026-07) 現物・在庫要確認

@@ -39,6 +39,9 @@ jobs:
         run: |
           python -m scraper.scrape --price-cap "${{ github.event.inputs.price_cap || '300' }}" | tee scrape.log
 
+      - name: Build report HTML
+        run: python -m scraper.report
+
       - name: Commit results
         run: |
           git config user.name  "coastal-scraper-bot"
