@@ -97,45 +97,52 @@ def extract_listing(html, url, source):
 
 # 対象サイト定義 -------------------------------------------------------------
 # detail_href_re: 詳細ページ URL を判定する正規表現。
+# 沿岸の主要県。akiya-athome は JIS 県コード、resort-bukken はローマ字 slug。
+_ATHOME_PREF = {  # 実地ログで /buy/{code}/ は自治体選択ページ = 詳細リンク0だったため
+    12: "chiba", 22: "shizuoka", 24: "mie", 28: "hyogo", 30: "wakayama",
+    35: "yamaguchi", 38: "ehime", 39: "kochi", 42: "nagasaki", 44: "oita",
+    46: "kagoshima", 1: "hokkaido",
+}
+_RESORT_PREF = [  # 実地ログで動作確認済み(chiba で25 detail links取得→パース成功)
+    "chiba", "shizuoka", "mie", "wakayama", "kochi", "ehime", "nagasaki",
+    "kagoshima", "yamaguchi", "oita", "tokushima", "hyogo", "kanagawa",
+    "hiroshima", "okayama",
+]
+
 SOURCES = [
     {
         "name": "athome-akiya",
-        # アットホーム空き家バンク: 海沿いを含む県のトップ(自治体一覧→物件)。
-        # 実運用では県コード(12=千葉,22=静岡,24=三重,38=愛媛,39=高知,42=長崎,44=大分)。
+        # アットホーム空き家バンク: /buy/{県}/ は自治体選択ページで物件0だった(実地ログ)。
+        # 検索結果エンドポイント /bukken/search/list/ に是正(sbt_kbn=house=中古住宅)。
         "list_urls": [
-            "https://www.akiya-athome.jp/buy/12/",
-            "https://www.akiya-athome.jp/buy/22/",
-            "https://www.akiya-athome.jp/buy/24/",
-            "https://www.akiya-athome.jp/buy/39/",
-            "https://www.akiya-athome.jp/buy/42/",
-            "https://www.akiya-athome.jp/buy/44/",
+            f"https://www.akiya-athome.jp/bukken/search/list/"
+            f"?search_type=area&br_kbn=buy&sbt_kbn=house&pref_cd={code}"
+            for code in _ATHOME_PREF
         ],
-        "detail_href_re": re.compile(r"/bukken/(?:detail/)?\d+"),
-        "max_details": 40,
-    },
-    {
-        "name": "homes-akiyabank-umi",
-        # LIFULL HOME'S 空き家バンク「海が見える暮らし」タグ(btag/1)。
-        "list_urls": [
-            "https://www.homes.co.jp/akiyabank/btag/1/chiba/",
-            "https://www.homes.co.jp/akiyabank/btag/1/shizuoka/",
-            "https://www.homes.co.jp/akiyabank/btag/1/mie/",
-            "https://www.homes.co.jp/akiyabank/btag/1/kochi/",
-            "https://www.homes.co.jp/akiyabank/btag/1/nagasaki/",
-        ],
-        "detail_href_re": re.compile(r"/akiyabank/[a-z]+/[a-z\-]+/b-\d+"),
-        "max_details": 40,
+        # 詳細は /bukken/{id}/ 形式を想定(自治体選択 /buy/ は除外)。
+        "detail_href_re": re.compile(r"/bukken/\d{3,}"),
+        "max_details": 30,
     },
     {
         "name": "resort-bukken",
-        # 海(ocean)こだわり検索。県別。
+        # 海(ocean)こだわり検索。実地ログで動作確認済み。全沿岸県へ拡張。
         "list_urls": [
-            "https://resort-bukken.com/search/kodawari:ocean/pref:chiba",
-            "https://resort-bukken.com/search/kodawari:ocean/pref:shizuoka",
-            "https://resort-bukken.com/search/kodawari:ocean/pref:mie",
+            f"https://resort-bukken.com/search/kodawari:ocean/pref:{slug}"
+            for slug in _RESORT_PREF
         ],
         "detail_href_re": re.compile(r"/(?:bukken|detail)/\d+"),
         "max_details": 30,
+    },
+    {
+        "name": "homes-akiyabank-umi",
+        # LIFULL HOME'S 空き家バンク「海が見える」タグ。bot ブロック濃厚(実地0件)。
+        # 縮小して残置(将来の到達性変化に備える)。取得できなくても他ソースに影響なし。
+        "list_urls": [
+            "https://www.homes.co.jp/akiyabank/btag/1/chiba/",
+            "https://www.homes.co.jp/akiyabank/btag/1/nagasaki/",
+        ],
+        "detail_href_re": re.compile(r"/akiyabank/[a-z]+/[a-z\-]+/b-\d+"),
+        "max_details": 20,
     },
 ]
 
