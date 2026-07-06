@@ -39,6 +39,9 @@ def main(argv=None):
     session = make_session()
     all_listings = []
     for src in SOURCES:
+        if not src.get("enabled", True):
+            log(f"[source] {src['name']} (無効化: bot/403のためスキップ)")
+            continue
         log(f"[source] {src['name']}")
         try:
             found = scrape_source(src, session, args.price_cap, log)

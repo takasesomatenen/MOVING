@@ -74,22 +74,52 @@ def collect_detail_urls(html, base_url, href_re):
     return urls
 
 
+# 所在地の後ろに続きがちな交通/付帯情報。ここで所在地を打ち切る。
+_LOC_CUT_RE = re.compile(
+    r"(交通|アクセス|最寄|沿線|JR|私鉄|バス|駅(?:まで|から|徒歩)|【|（|\(|土地面積|建物面積|"
+    r"面積|価格|間取|築年|\s{2,})"
+)
+
+
+def clean_location(raw: str) -> str:
+    """交通情報等が混入した所在地を、都道府県〜番地までで打ち切る。"""
+    raw = normalize(raw)
+    m = _LOC_CUT_RE.search(raw)
+    if m:
+        raw = raw[: m.start()]
+    return raw.strip(" 　-・,、")[:40]
+
+
+def clean_title(raw: str) -> str:
+    """装飾記号(★等)や区切りを整えたタイトル。"""
+    t = normalize(raw)
+    t = re.sub(r"[★☆■◆▲▼※\-—|｜]{1,}", " ", t)
+    t = re.sub(r"\s{2,}", " ", t).strip()
+    return t[:120]
+
+
 def extract_listing(html, url, source):
     """詳細ページ HTML から Listing を構築(フィルタ前)。"""
     text = html_to_text(html)
     title_m = TITLE_RE.search(html)
-    title = normalize(title_m.group(1)) if title_m else url
+    title = clean_title(title_m.group(1)) if title_m else url
     loc_m = LOCATION_RE.search(text)
-    location = loc_m.group(2).strip() if loc_m else ""
+    location = clean_location(loc_m.group(2)) if loc_m else ""
+    building = parse_building_m2(text)
+    madori = parse_madori(text) or ""
+    # 売地/売土地(上物なし)で間取りが出るのは誤検出。建物が無ければ間取りを外す。
+    is_land_only = building is None and re.search(r"売地|売土地|土地売|地目", text)
+    if is_land_only:
+        madori = ""
     return Listing(
         source=source,
-        title=title[:120],
+        title=title,
         url=url,
         price_man=parse_price_man(text),
-        location=location[:60],
+        location=location,
         land_m2=parse_land_m2(text),
-        building_m2=parse_building_m2(text),
-        madori=parse_madori(text) or "",
+        building_m2=building,
+        madori=madori,
         coastal=is_coastal(text) or is_coastal(title),
         note="",
     )
@@ -97,45 +127,55 @@ def extract_listing(html, url, source):
 
 # 対象サイト定義 -------------------------------------------------------------
 # detail_href_re: 詳細ページ URL を判定する正規表現。
+# 沿岸の主要県。akiya-athome は JIS 県コード、resort-bukken はローマ字 slug。
+_ATHOME_PREF = {  # 実地ログで /buy/{code}/ は自治体選択ページ = 詳細リンク0だったため
+    12: "chiba", 22: "shizuoka", 24: "mie", 28: "hyogo", 30: "wakayama",
+    35: "yamaguchi", 38: "ehime", 39: "kochi", 42: "nagasaki", 44: "oita",
+    46: "kagoshima", 1: "hokkaido",
+}
+_RESORT_PREF = [  # 実地ログで動作確認済み(chiba で25 detail links取得→パース成功)
+    "chiba", "shizuoka", "mie", "wakayama", "kochi", "ehime", "nagasaki",
+    "kagoshima", "yamaguchi", "oita", "tokushima", "hyogo", "kanagawa",
+    "hiroshima", "okayama",
+]
+
 SOURCES = [
     {
-        "name": "athome-akiya",
-        # アットホーム空き家バンク: 海沿いを含む県のトップ(自治体一覧→物件)。
-        # 実運用では県コード(12=千葉,22=静岡,24=三重,38=愛媛,39=高知,42=長崎,44=大分)。
-        "list_urls": [
-            "https://www.akiya-athome.jp/buy/12/",
-            "https://www.akiya-athome.jp/buy/22/",
-            "https://www.akiya-athome.jp/buy/24/",
-            "https://www.akiya-athome.jp/buy/39/",
-            "https://www.akiya-athome.jp/buy/42/",
-            "https://www.akiya-athome.jp/buy/44/",
-        ],
-        "detail_href_re": re.compile(r"/bukken/(?:detail/)?\d+"),
-        "max_details": 40,
-    },
-    {
-        "name": "homes-akiyabank-umi",
-        # LIFULL HOME'S 空き家バンク「海が見える暮らし」タグ(btag/1)。
-        "list_urls": [
-            "https://www.homes.co.jp/akiyabank/btag/1/chiba/",
-            "https://www.homes.co.jp/akiyabank/btag/1/shizuoka/",
-            "https://www.homes.co.jp/akiyabank/btag/1/mie/",
-            "https://www.homes.co.jp/akiyabank/btag/1/kochi/",
-            "https://www.homes.co.jp/akiyabank/btag/1/nagasaki/",
-        ],
-        "detail_href_re": re.compile(r"/akiyabank/[a-z]+/[a-z\-]+/b-\d+"),
-        "max_details": 40,
-    },
-    {
         "name": "resort-bukken",
-        # 海(ocean)こだわり検索。県別。
+        # 海(ocean)こだわり検索。実地ログで動作確認済み(唯一 plain requests が通る)。
+        # 元々「海」検索なので assume_coastal=True(本文に海キーワードが無くても海沿い扱い)。
+        "enabled": True,
+        "assume_coastal": True,
         "list_urls": [
-            "https://resort-bukken.com/search/kodawari:ocean/pref:chiba",
-            "https://resort-bukken.com/search/kodawari:ocean/pref:shizuoka",
-            "https://resort-bukken.com/search/kodawari:ocean/pref:mie",
+            f"https://resort-bukken.com/search/kodawari:ocean/pref:{slug}"
+            for slug in _RESORT_PREF
         ],
         "detail_href_re": re.compile(r"/(?:bukken|detail)/\d+"),
         "max_details": 30,
+    },
+    {
+        "name": "athome-akiya",
+        # アットホーム空き家バンク。実地ログで検索結果 /bukken/search/list/ が全URL HTTP403
+        # (bot ブロック)。plain requests では到達不可のため無効化。
+        # 再開するには headless ブラウザ等が必要(将来対応)。
+        "enabled": False,
+        "list_urls": [
+            f"https://www.akiya-athome.jp/bukken/search/list/"
+            f"?search_type=area&br_kbn=buy&sbt_kbn=house&pref_cd={code}"
+            for code in _ATHOME_PREF
+        ],
+        "detail_href_re": re.compile(r"/bukken/\d{3,}"),
+        "max_details": 30,
+    },
+    {
+        "name": "homes-akiyabank-umi",
+        # LIFULL HOME'S 空き家バンク「海が見える」タグ。実地ログで detail link 0(bot)。無効化。
+        "enabled": False,
+        "list_urls": [
+            "https://www.homes.co.jp/akiyabank/btag/1/chiba/",
+        ],
+        "detail_href_re": re.compile(r"/akiyabank/[a-z]+/[a-z\-]+/b-\d+"),
+        "max_details": 20,
     },
 ]
 
@@ -162,6 +202,10 @@ def scrape_source(src, session, price_cap_man, log):
             except Exception as e:  # noqa: BLE001
                 log(f"    [!] detail fail {durl}: {e}")
                 continue
+            # 海沿い判定: assume_coastal のソース(元々「海」検索)は本文キーワードに
+            # 依らず海沿い扱いにする(resort-bukken の ocean 検索など)。
+            if src.get("assume_coastal") and not lst.coastal:
+                lst.coastal = True
             # フィルタ: 海沿い かつ 価格が上限以下(価格不明は保留として残す)
             if not lst.coastal:
                 continue

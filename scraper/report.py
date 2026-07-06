@@ -207,7 +207,7 @@ def build_html(rows, today):
   </div>
 
   <div class="foot">
-    ※ 本レポートの物件は WebSearch 由来の第1・2弾シードを含み、価格・在庫・面積は掲載元での一次確認が必要です。<br>
+    ※ 本レポートの物件は WebSearch 由来のシード(第1〜3弾)を含み、価格・在庫・面積は掲載元での一次確認が必要です。<br>
     ※ 毎日 GitHub Actions が海沿い&le;300万物件を収集し、この表と Google Drive へ自動反映されます。<br>
     自動収集フォルダ: 「海沿い格安物件 デイリースクレイプ」(Google Drive)
   </div>

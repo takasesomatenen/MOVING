@@ -2,9 +2,14 @@ id,source,title,price_man,location,land_m2,building_m2,madori,coastal,url,first_
 e17aebff938f,websearch-seed,対馬市 4DK 海まで徒歩数秒,100,長崎県対馬市,,115.13,4DK,1,https://www.akiya-athome.jp/buy/42/#seed-7,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
 0e60042a7d6d,websearch-seed,平戸市 海が目の前,100,長崎県平戸市,132.0,,,1,https://www.homes.co.jp/akiyabank/btag/1/nagasaki/hirado/#seed-9,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
 ea9aa15df519,websearch-seed,高知 室戸市 土地95㎡ 海近(格安),100,高知県室戸市,95.86,,,1,https://www.homes.co.jp/akiyabank/kochi/muroto/#seed-13,2026-07-05,2026-07-05,第2弾(WebSearch由来/2026-07) 現物・在庫要確認
+be91490ff3f2,websearch-seed,北海道 室蘭市白鳥台 5LDK 海の街,100,北海道室蘭市白鳥台,,125.03,5LDK,1,https://www.athome.co.jp/kodate/chuko/hokkaido/list/#seed-19,2026-07-05,2026-07-05,第3弾(WebSearch由来/2026-07) 現物・在庫要確認 室蘭=海に囲まれた街/海沿い度要確認
+1215b3f85ea6,websearch-seed,北海道 室蘭市大沢町 5SLDK 海の街,120,北海道室蘭市大沢町,,110.3,5SLDK,1,https://www.athome.co.jp/kodate/chuko/hokkaido/list/#seed-20,2026-07-05,2026-07-05,第3弾(WebSearch由来/2026-07) 現物・在庫要確認 室蘭=海に囲まれた街/海沿い度要確認
+5b7d7ba7c9a9,resort-bukken,館山市 海まで徒歩12分人気エリア館山市のお手頃別荘地 149万円 売地,149.0,千葉県館山市浜田33-8,247.0,,,1,https://resort-bukken.com/detail/3781,2026-07-05,2026-07-05,
 23b87d71157f,websearch-seed,南房総市和田町和田 5DK 中古住宅 海近,180,千葉県南房総市和田町和田,98.02,100.8,5DK,1,https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/list/#seed-1,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
 fcd4d14dd07c,websearch-seed,対馬市 5K 海沿い,200,長崎県対馬市,,71.75,5K,1,https://www.akiya-athome.jp/buy/42/#seed-8,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
 13e12b60a113,websearch-seed,佐伯市 6DK 海沿いの集落,200,大分県佐伯市,,111.74,6DK,1,https://www.akiya-athome.jp/buy/44/#seed-10,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
+182f2a0404cc,websearch-seed,兵庫 姫路市網干区興浜 6DK 1969築 播磨灘,200,兵庫県姫路市網干区興浜,,164.75,6DK,1,https://suumo.jp/chukoikkodate/hyogo/nj_175/#seed-17,2026-07-05,2026-07-05,第3弾(WebSearch由来/2026-07) 現物・在庫要確認
+3b9c01eeea47,websearch-seed,兵庫 たつの市 海近 広め 中古戸建,200,兵庫県たつの市,166.75,123.32,,1,https://www.iju-style.jp/bukken/list#seed-18,2026-07-05,2026-07-05,第3弾(WebSearch由来/2026-07) 現物・在庫要確認
 943609188ef3,websearch-seed,鴨川市太海浜 2K 木造 オーシャンビュー,220,千葉県鴨川市太海浜,,50.82,2K,1,https://www.homes.co.jp/akiyabank/btag/1/chiba/#seed-3,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
 5a521556e83b,websearch-seed,和歌山 白浜町堅田 1LDK 1984築 海近,248,和歌山県西牟婁郡白浜町堅田,,61.0,1LDK,1,https://www.athome.co.jp/kodate/chuko/wakayama/list/#seed-11,2026-07-05,2026-07-05,第2弾(WebSearch由来/2026-07) 現物・在庫要確認
 9d6705f171f6,websearch-seed,南房総市白浜町白浜 2SDK 灯台/海釣り,280,千葉県南房総市白浜町白浜,31.3,91.7,2SDK,1,https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/list/#seed-2,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
@@ -15,3 +20,4 @@ e33ae12e11fa,websearch-seed,山口 周防大島町 7DK 木造2階 瀬戸内,290,
 b3f8d3560739,websearch-seed,匝瑳市 2LDK 新堀浜まで450m,300,千葉県匝瑳市,110.0,,2LDK,1,https://www.akiya-athome.jp/buy/12/#seed-5,2026-07-05,2026-07-05,第1弾(WebSearch由来/2026-07) 現物・在庫要確認
 e8ad148e168a,websearch-seed,和歌山 由良町大引 高台から海望む リフォーム済,300,和歌山県日高郡由良町大引,,,,1,https://www.wakayamagurashi.jp/house/search/#seed-12,2026-07-05,2026-07-05,第2弾(WebSearch由来/2026-07) 現物・在庫要確認 リフォーム済/建物面積要確認
 2d1bf815aa71,websearch-seed,高知 室戸市 土地111㎡ 海近,300,高知県室戸市,111.82,,,1,https://www.homes.co.jp/akiyabank/kochi/muroto/#seed-14,2026-07-05,2026-07-05,第2弾(WebSearch由来/2026-07) 現物・在庫要確認
+a5c9ea6b64c7,websearch-daily,西予市三瓶町下泊 2SLDK 平屋 宇和海沿い,300.0,愛媛県西予市三瓶町下泊,221.98,84.17,2SLDK,1,https://www.homes.co.jp/akiyabank/btag/1/ehime/#seiyo-mikame-shimodomari,2026-07-06,2026-07-06,WebSearch由来 現物・在庫・価格は掲載元で要確認
