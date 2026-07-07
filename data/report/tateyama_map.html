@@ -1,0 +1,105 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>館山 移住・運用マップ</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  html,body { margin:0; height:100%; font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif; }
+  #map { position:absolute; inset:0; }
+  .title { position:absolute; z-index:1000; top:12px; left:12px; background:rgba(255,255,255,.92);
+           padding:9px 14px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,.18); }
+  .title h1 { margin:0; font-size:15px; }
+  .title p { margin:2px 0 0; font-size:11px; color:#556; }
+  .pin-emoji { font-size:20px; line-height:20px; text-align:center; filter:drop-shadow(0 1px 1px rgba(0,0,0,.4)); }
+  .leaflet-popup-content { font-size:13px; }
+  .leaflet-popup-content b { font-size:13.5px; }
+  .cnt { display:inline-block; margin-left:5px; color:#888; font-size:11px; }
+  .leaflet-control-layers { font-size:13px; }
+</style></head>
+<body>
+<div class="title"><h1>🏖 館山 移住・運用マップ</h1>
+<p>右上のレイヤーで表示切替(夕陽 / カフェ / コンビニ / スーパー / ランドマーク)</p></div>
+<div id="map"></div>
+<script>
+  const map = L.map('map', { center:[34.9967,139.8697], zoom:13 });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom:19, attribution:'&copy; OpenStreetMap'
+  }).addTo(map);
+
+  function pin(lat,lng,name,note,color,cat) {
+    const icon = L.divIcon({
+      className:'', html:'<div class="pin-emoji">'+catEmoji(cat)+'</div>',
+      iconSize:[22,22], iconAnchor:[11,11]
+    });
+    const m = L.marker([lat,lng], {icon});
+    m.bindPopup('<b>'+name+'</b>'+(note?'<br>'+note:'')+
+      '<br><a href="https://www.google.com/maps/search/?api=1&query='+lat+','+lng+
+      '" target="_blank" rel="noopener">Googleマップで開く</a>');
+    return m;
+  }
+  function catEmoji(cat) {
+    if (cat.indexOf('夕陽')>=0) return '🌅';
+    if (cat.indexOf('カフェ')>=0) return '☕';
+    if (cat.indexOf('コンビニ')>=0) return '🏪';
+    if (cat.indexOf('スーパー')>=0) return '🛒';
+    return '📍';
+  }
+
+  const layer_sunset = L.layerGroup([
+      pin(34.9955,139.8635,"北条海岸","夕陽と富士山","#e8863b","\ud83c\udf05 \u5915\u967d\u30b9\u30dd\u30c3\u30c8"),
+      pin(34.9793,139.8262,"沖ノ島","海に囲まれた無人島の夕景","#e8863b","\ud83c\udf05 \u5915\u967d\u30b9\u30dd\u30c3\u30c8"),
+      pin(34.9855,139.772,"洲埼灯台","東京湾越しの夕陽・推定座標","#e8863b","\ud83c\udf05 \u5915\u967d\u30b9\u30dd\u30c3\u30c8"),
+      pin(34.936,139.827,"平砂浦海岸","広大な砂浜の夕景・推定座標","#e8863b","\ud83c\udf05 \u5915\u967d\u30b9\u30dd\u30c3\u30c8"),
+      pin(34.9922,139.806,"波左間海岸","西向き海岸の夕陽・推定座標","#e8863b","\ud83c\udf05 \u5915\u967d\u30b9\u30dd\u30c3\u30c8"),
+      pin(35.0075,139.836,"見物海岸","夕陽と富士山の名所・推定座標","#e8863b","\ud83c\udf05 \u5915\u967d\u30b9\u30dd\u30c3\u30c8"),
+      pin(35.01,139.849,"那古海岸","遠浅の海岸から夕景・推定座標","#e8863b","\ud83c\udf05 \u5915\u967d\u30b9\u30dd\u30c3\u30c8")
+  ]);
+  const layer_cafe = L.layerGroup([
+      pin(34.995,139.864,"SEA DAYS COFFEE","北条海岸沿いの海が見えるカフェ","#8b5e3c","\u2615 \u30ab\u30d5\u30a7"),
+      pin(35.0005,139.865,"TRAYCLE Market & Coffee","築100年の古民家をリノベしたカフェ・推定座標","#8b5e3c","\u2615 \u30ab\u30d5\u30a7"),
+      pin(34.9975,139.8675,"カフェデルマ","館山駅近く・とろとろオムライスが人気・推定座標","#8b5e3c","\u2615 \u30ab\u30d5\u30a7"),
+      pin(34.905,139.825,"珈琲 九雲","布良漁港を望む古民家カフェ・推定座標","#8b5e3c","\u2615 \u30ab\u30d5\u30a7"),
+      pin(34.997,139.869,"ALRIGHT COFFEE ROASTERS","自家焙煎コーヒー・推定座標","#8b5e3c","\u2615 \u30ab\u30d5\u30a7"),
+      pin(34.99,139.87,"ブロワ珈琲焙煎所","自家焙煎珈琲店・推定座標","#8b5e3c","\u2615 \u30ab\u30d5\u30a7"),
+      pin(34.996,139.868,"珈琲館サルビア","老舗喫茶店・推定座標","#8b5e3c","\u2615 \u30ab\u30d5\u30a7")
+  ]);
+  const layer_convenience = L.layerGroup([
+      pin(34.997,139.869,"セブン-イレブン館山駅前店","","#2f8f4e","\ud83c\udfea \u30b3\u30f3\u30d3\u30cb"),
+      pin(34.993,139.872,"セブン-イレブン館山北条店","","#2f8f4e","\ud83c\udfea \u30b3\u30f3\u30d3\u30cb"),
+      pin(35.006,139.854,"セブン-イレブン館山那古海岸店","","#2f8f4e","\ud83c\udfea \u30b3\u30f3\u30d3\u30cb"),
+      pin(34.9965,139.8702,"ファミリーマート館山駅東口店","","#2f8f4e","\ud83c\udfea \u30b3\u30f3\u30d3\u30cb"),
+      pin(35.003,139.86,"ファミリーマート館山北条店","","#2f8f4e","\ud83c\udfea \u30b3\u30f3\u30d3\u30cb"),
+      pin(34.985,139.876,"ファミリーマート館山バイパス店","","#2f8f4e","\ud83c\udfea \u30b3\u30f3\u30d3\u30cb"),
+      pin(34.9945,139.871,"ローソン館山北条店","","#2f8f4e","\ud83c\udfea \u30b3\u30f3\u30d3\u30cb"),
+      pin(34.9935,139.868,"ローソン館山八幡店","","#2f8f4e","\ud83c\udfea \u30b3\u30f3\u30d3\u30cb")
+  ]);
+  const layer_supermarket = L.layerGroup([
+      pin(34.988,139.876,"ODOYA スーパーセンター館山店","","#c0392b","\ud83d\uded2 \u30b9\u30fc\u30d1\u30fc"),
+      pin(34.995,139.865,"おどや館山海岸店","","#c0392b","\ud83d\uded2 \u30b9\u30fc\u30d1\u30fc"),
+      pin(34.992,139.87,"おどや北条店","","#c0392b","\ud83d\uded2 \u30b9\u30fc\u30d1\u30fc"),
+      pin(34.925,139.845,"おどや大神宮店","","#c0392b","\ud83d\uded2 \u30b9\u30fc\u30d1\u30fc"),
+      pin(35.01,139.873,"ベイシアフーズパーク館山店","","#c0392b","\ud83d\uded2 \u30b9\u30fc\u30d1\u30fc"),
+      pin(34.99,139.873,"業務スーパー館山店","","#c0392b","\ud83d\uded2 \u30b9\u30fc\u30d1\u30fc")
+  ]);
+  const layer_landmark = L.layerGroup([
+      pin(34.9967,139.8697,"館山駅","JR内房線の玄関口","#2c6fb0","\ud83d\udccd \u30e9\u30f3\u30c9\u30de\u30fc\u30af"),
+      pin(34.984,139.856,"館山城（城山公園）","八犬伝博物館・展望の丘","#2c6fb0","\ud83d\udccd \u30e9\u30f3\u30c9\u30de\u30fc\u30af"),
+      pin(34.993,139.857,"渚の駅たてやま","海辺の観光施設・さかなクンギャラリー","#2c6fb0","\ud83d\udccd \u30e9\u30f3\u30c9\u30de\u30fc\u30af"),
+      pin(35.018,139.879,"道の駅グリーンファーム館山","2024年開業の食の拠点・推定座標","#2c6fb0","\ud83d\udccd \u30e9\u30f3\u30c9\u30de\u30fc\u30af"),
+      pin(34.995,139.866,"館山病院","市内中心部の総合病院・推定座標","#2c6fb0","\ud83d\udccd \u30e9\u30f3\u30c9\u30de\u30fc\u30af"),
+      pin(34.9793,139.8262,"沖ノ島公園","陸続きの無人島・磯遊びと自然","#2c6fb0","\ud83d\udccd \u30e9\u30f3\u30c9\u30de\u30fc\u30af")
+  ]);
+
+  layer_sunset.addTo(map);
+  layer_landmark.addTo(map);
+
+  const overlays = {
+    "🌅 夕陽スポット<span class=cnt>7</span>": layer_sunset,
+    "☕ カフェ<span class=cnt>7</span>": layer_cafe,
+    "🏪 コンビニ<span class=cnt>8</span>": layer_convenience,
+    "🛒 スーパー<span class=cnt>6</span>": layer_supermarket,
+    "📍 ランドマーク<span class=cnt>6</span>": layer_landmark
+  };
+  L.control.layers(null, overlays, {collapsed:false}).addTo(map);
+</script>
+</body></html>
