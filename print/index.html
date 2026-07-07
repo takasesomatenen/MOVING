@@ -1,0 +1,80 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MOVING ― 印刷物センター</title>
+<style>
+  :root{ --bg:#eef3f2; --card:#fff; --ink:#152a26; --sub:#5f7168; --line:#dbe6e2; --accent:#146c5b; --chip:#eef6f3; }
+  @media (prefers-color-scheme:dark){ :root{ --bg:#0b1512; --card:#132420; --ink:#e8f2ee; --sub:#8fa89f; --line:#22382f; --accent:#3fb597; --chip:#152a24; } }
+  :root[data-theme="light"]{ --bg:#eef3f2; --card:#fff; --ink:#152a26; --sub:#5f7168; --line:#dbe6e2; --accent:#146c5b; --chip:#eef6f3; }
+  :root[data-theme="dark"]{ --bg:#0b1512; --card:#132420; --ink:#e8f2ee; --sub:#8fa89f; --line:#22382f; --accent:#3fb597; --chip:#152a24; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif;
+        background:var(--bg); color:var(--ink); -webkit-font-smoothing:antialiased; padding:36px 18px 70px; }
+  .wrap{ max-width:820px; margin:0 auto; }
+  .eyebrow{ font-size:11px; letter-spacing:.18em; font-weight:700; color:var(--accent); }
+  h1{ font-size:26px; margin:6px 0 6px; }
+  .lead{ font-size:13.5px; color:var(--sub); line-height:1.7; margin-bottom:24px; }
+  .item{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px 18px; margin-bottom:14px;
+         display:flex; gap:16px; align-items:center; }
+  .item .ico{ font-size:30px; flex:none; }
+  .item .meta{ flex:1; min-width:0; }
+  .item h2{ font-size:16px; margin:0 0 3px; }
+  .item p{ font-size:12.5px; color:var(--sub); line-height:1.5; }
+  .item .size{ font-size:11px; color:var(--sub); }
+  .btns{ display:flex; gap:8px; flex:none; flex-wrap:wrap; justify-content:flex-end; }
+  .btn{ text-decoration:none; font-size:12.5px; font-weight:700; padding:9px 14px; border-radius:10px; white-space:nowrap; }
+  .btn.pdf{ background:var(--accent); color:#fff; }
+  .btn.web{ background:var(--chip); color:var(--ink); border:1px solid var(--line); }
+  .note{ font-size:11.5px; color:var(--sub); line-height:1.8; margin-top:22px; border-top:1px dashed var(--line); padding-top:14px; }
+  @media(max-width:560px){ .item{ flex-wrap:wrap; } .btns{ width:100%; justify-content:flex-start; } }
+</style></head>
+<body><div class="wrap">
+  <div class="eyebrow">MOVING ・ 印刷物センター</div>
+  <h1>🖨 印刷物センター</h1>
+  <div class="lead">配布・印刷用の資料をまとめた場所です。PDFはA4想定でレイアウト済み。各PDFはそのまま印刷／保存できます。「Webで見る」はブラウザ表示版（印刷ダイアログからPDF保存も可）。</div>
+
+  <div class="item">
+    <div class="ico">📋</div>
+    <div class="meta"><h2>館山 総合リサーチ</h2>
+      <p>若年女性流出・宿泊税/民泊・移住支援金・ワーケーション・似た立地・移住者センチメント（9項目）。</p>
+      <span class="size">PDF 約1.9MB</span></div>
+    <div class="btns"><a class="btn pdf" href="./pdf/research.pdf">⬇ PDF</a><a class="btn web" href="../data/report/research.html">Webで見る</a></div>
+  </div>
+
+  <div class="item">
+    <div class="ico">🧭</div>
+    <div class="meta"><h2>館山に似た立地 横断比較</h2>
+      <p>南房総/いすみ/南伊豆/御前崎/三浦/熱海ほか8エリアを館山と同観点で比較＋海沿い格安物件。</p>
+      <span class="size">PDF 約1.2MB</span></div>
+    <div class="btns"><a class="btn pdf" href="./pdf/similar_areas.pdf">⬇ PDF</a><a class="btn web" href="../data/report/similar_areas.html">Webで見る</a></div>
+  </div>
+
+  <div class="item">
+    <div class="ico">📈</div>
+    <div class="meta"><h2>人口動態ダッシュボード</h2>
+      <p>全国・千葉県・館山市の人口と高齢化率をグラフ化。</p>
+      <span class="size">PDF 約0.35MB</span></div>
+    <div class="btns"><a class="btn pdf" href="./pdf/population.pdf">⬇ PDF</a><a class="btn web" href="../data/report/population.html">Webで見る</a></div>
+  </div>
+
+  <div class="item">
+    <div class="ico">🏠</div>
+    <div class="meta"><h2>物件ベストピック</h2>
+      <p>海沿い〜300万円台の格安物件ランキングとコスト分析・探し方。日次更新。</p>
+      <span class="size">PDF 約0.8MB</span></div>
+    <div class="btns"><a class="btn pdf" href="./pdf/bestpicks.pdf">⬇ PDF</a><a class="btn web" href="../data/report/index.html">Webで見る</a></div>
+  </div>
+
+  <div class="item">
+    <div class="ico">📷</div>
+    <div class="meta"><h2>物件ギャラリー（Web）</h2>
+      <p>物件をカード表示。掲載元の実写真・画像検索へワンタップ。印刷より画面閲覧向き。</p>
+      <span class="size">Web表示</span></div>
+    <div class="btns"><a class="btn web" href="../data/report/gallery.html">Webで見る</a></div>
+  </div>
+
+  <div class="note">
+    ※ PDFは chromium でA4レンダリングした版です。数値・制度・物件情報は一次確認を推奨（断定不可箇所は「推定」明記）。<br>
+    ※ この「印刷物センター」は Vercel 配信用。日次更新のPDF再生成は必要時に実施します（現状は 2026-07-07 生成）。<br>
+    ※ 関連：<a href="../data/report/home.html">レポートハブ（インタラクティブ版）</a> / <a href="../data/report/tateyama_map.html">運用マップ</a>。
+  </div>
+</div></body></html>
