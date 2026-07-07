@@ -1,0 +1,99 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>人口動態ダッシュボード ― 全国 / 関東 / 館山</title>
+<style>
+  :root { --bg:#f3f7f8; --card:#fff; --ink:#12303b; --sub:#5b727c; --line:#e2ebee; }
+  @media (prefers-color-scheme:dark) { :root { --bg:#0d1619; --card:#15242a; --ink:#e8f1f3; --sub:#94a9af; --line:#243940; } }
+  :root[data-theme="light"] { --bg:#f3f7f8; --card:#fff; --ink:#12303b; --sub:#5b727c; --line:#e2ebee; }
+  :root[data-theme="dark"] { --bg:#0d1619; --card:#15242a; --ink:#e8f1f3; --sub:#94a9af; --line:#243940; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif;
+         background:var(--bg); color:var(--ink); padding:30px 20px 60px; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1160px; margin:0 auto; }
+  .kick { color:#0d7c94; font-weight:700; letter-spacing:.16em; font-size:12px; }
+  h1 { font-size:25px; margin:4px 0 4px; }
+  .sub { color:var(--sub); font-size:13px; margin-bottom:22px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:18px; }
+  .chart { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 12px 8px; }
+  .chart figcaption { font-size:13px; font-weight:700; margin:2px 6px 8px; }
+  svg { width:100%; height:auto; }
+  .grid line.grid { stroke:var(--line); stroke-width:1; }
+  .grid {}
+  line.grid { stroke:var(--line); stroke-width:1; }
+  text.ylab { fill:var(--sub); font-size:9.5px; text-anchor:end; }
+  text.xlab { fill:var(--sub); font-size:10px; text-anchor:middle; }
+  .note { font-size:11px; color:var(--sub); line-height:1.8; margin-top:20px; }
+  .kpis { display:flex; flex-wrap:wrap; gap:12px; margin:6px 0 22px; }
+  .kpi { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 16px; }
+  .kpi b { font-size:22px; } .kpi span { display:block; font-size:11px; color:var(--sub); }
+</style></head>
+<body><div class="wrap">
+  <div class="kick">POPULATION DASHBOARD ・ 全国 / 関東 / 館山</div>
+  <h1>人口動態ダッシュボード</h1>
+  <div class="sub">出所: 総務省 人口推計2024 ・ 住民基本台帳人口移動報告2024 ・ 千葉県 毎月常住人口調査 ・ 館山市 人口ビジョン ・ 社人研2023推計。点線=推計。</div>
+  <div class="kpis">
+    <div class="kpi"><b>▲55万</b><span>全国 24年 前年減(14年連続)</span></div>
+    <div class="kpi"><b>29.3%</b><span>全国 高齢化率(過去最高)</span></div>
+    <div class="kpi"><b>+13.6万</b><span>東京圏 転入超過(一極集中)</span></div>
+    <div class="kpi"><b>40.4%</b><span>館山 高齢化率(全国+11pt)</span></div>
+    <div class="kpi"><b>▲30%</b><span>館山 人口 2020→2050推計</span></div>
+  </div>
+  <div class="grid">
+    <figure class="chart">
+  <figcaption>全国 総人口 ― 14年連続減(2024=1.238億)</figcaption>
+  <svg viewBox="0 0 520 260" role="img">
+    <line x1="44" y1="216.0" x2="506" y2="216.0" class="grid"/><text x="38" y="219.0" class="ylab">12.00億</text><line x1="44" y1="168.0" x2="506" y2="168.0" class="grid"/><text x="38" y="171.0" class="ylab">12.20億</text><line x1="44" y1="120.0" x2="506" y2="120.0" class="grid"/><text x="38" y="123.0" class="ylab">12.40億</text><line x1="44" y1="72.0" x2="506" y2="72.0" class="grid"/><text x="38" y="75.0" class="ylab">12.60億</text><line x1="44" y1="24.0" x2="506" y2="24.0" class="grid"/><text x="38" y="27.0" class="ylab">12.80億</text>
+    <polyline points="44.0,45.7 352.0,84.0 403.3,97.3 454.7,111.6 506.0,124.8" fill="none" stroke="#0d7c94" stroke-width="2.6"/>
+    <circle cx="44.0" cy="45.7" r="3.2" fill="#0d7c94"/><circle cx="352.0" cy="84.0" r="3.2" fill="#0d7c94"/><circle cx="403.3" cy="97.3" r="3.2" fill="#0d7c94"/><circle cx="454.7" cy="111.6" r="3.2" fill="#0d7c94"/><circle cx="506.0" cy="124.8" r="3.2" fill="#0d7c94"/>
+    <text x="44.0" y="232" class="xlab">2015</text><text x="352.0" y="232" class="xlab">2021</text><text x="403.3" y="232" class="xlab">2022</text><text x="454.7" y="232" class="xlab">2023</text><text x="506.0" y="232" class="xlab">2024</text>
+  </svg>
+</figure><figure class="chart">
+  <figcaption>千葉県 総人口(千人) ― 社会増を自然減が相殺し微減</figcaption>
+  <svg viewBox="0 0 520 260" role="img">
+    <line x1="44" y1="216.0" x2="506" y2="216.0" class="grid"/><text x="38" y="219.0" class="ylab">6,270千</text><line x1="44" y1="168.0" x2="506" y2="168.0" class="grid"/><text x="38" y="171.0" class="ylab">6,274千</text><line x1="44" y1="120.0" x2="506" y2="120.0" class="grid"/><text x="38" y="123.0" class="ylab">6,278千</text><line x1="44" y1="72.0" x2="506" y2="72.0" class="grid"/><text x="38" y="75.0" class="ylab">6,282千</text><line x1="44" y1="24.0" x2="506" y2="24.0" class="grid"/><text x="38" y="27.0" class="ylab">6,286千</text>
+    <polyline points="44.0,44.4 136.4,80.4 228.8,115.2 321.2,150.0 506.0,171.6" fill="none" stroke="#2c6fb0" stroke-width="2.6"/>
+    <circle cx="44.0" cy="44.4" r="3.2" fill="#2c6fb0"/><circle cx="136.4" cy="80.4" r="3.2" fill="#2c6fb0"/><circle cx="228.8" cy="115.2" r="3.2" fill="#2c6fb0"/><circle cx="321.2" cy="150.0" r="3.2" fill="#2c6fb0"/><circle cx="506.0" cy="171.6" r="3.2" fill="#2c6fb0"/>
+    <text x="44.0" y="232" class="xlab">2020</text><text x="136.4" y="232" class="xlab">2021</text><text x="228.8" y="232" class="xlab">2022</text><text x="321.2" y="232" class="xlab">2023</text><text x="506.0" y="232" class="xlab">2025</text>
+  </svg>
+</figure><figure class="chart">
+  <figcaption>館山市 総人口(実測) ― 1950ピーク5.9万→2024=4.4万</figcaption>
+  <svg viewBox="0 0 520 260" role="img">
+    <line x1="44" y1="216.0" x2="506" y2="216.0" class="grid"/><text x="38" y="219.0" class="ylab">30,000</text><line x1="44" y1="168.0" x2="506" y2="168.0" class="grid"/><text x="38" y="171.0" class="ylab">37,500</text><line x1="44" y1="120.0" x2="506" y2="120.0" class="grid"/><text x="38" y="123.0" class="ylab">45,000</text><line x1="44" y1="72.0" x2="506" y2="72.0" class="grid"/><text x="38" y="75.0" class="ylab">52,500</text><line x1="44" y1="24.0" x2="506" y2="24.0" class="grid"/><text x="38" y="27.0" class="ylab">60,000</text>
+    <polyline points="44.0,27.7 449.8,104.2 481.0,119.0 506.0,126.1" fill="none" stroke="#c0392b" stroke-width="2.6"/>
+    <circle cx="44.0" cy="27.7" r="3.2" fill="#c0392b"/><circle cx="449.8" cy="104.2" r="3.2" fill="#c0392b"/><circle cx="481.0" cy="119.0" r="3.2" fill="#c0392b"/><circle cx="506.0" cy="126.1" r="3.2" fill="#c0392b"/>
+    <text x="44.0" y="232" class="xlab">1950</text><text x="449.8" y="232" class="xlab">2015</text><text x="481.0" y="232" class="xlab">2020</text><text x="506.0" y="232" class="xlab">2024</text>
+  </svg>
+</figure><figure class="chart">
+  <figcaption>館山市 人口 実測+2050推計(点線) ― 2020比▲約30%</figcaption>
+  <svg viewBox="0 0 520 260" role="img">
+    <line x1="44" y1="216.0" x2="506" y2="216.0" class="grid"/><text x="38" y="219.0" class="ylab">28,000</text><line x1="44" y1="168.0" x2="506" y2="168.0" class="grid"/><text x="38" y="171.0" class="ylab">33,000</text><line x1="44" y1="120.0" x2="506" y2="120.0" class="grid"/><text x="38" y="123.0" class="ylab">38,000</text><line x1="44" y1="72.0" x2="506" y2="72.0" class="grid"/><text x="38" y="75.0" class="ylab">43,000</text><line x1="44" y1="24.0" x2="506" y2="24.0" class="grid"/><text x="38" y="27.0" class="ylab">48,000</text>
+    <polyline points="44.0,29.1 110.0,51.3 162.8,62.0" fill="none" stroke="#c0392b" stroke-width="2.6"/>
+    <polyline points="162.8,62.0 506.0,187.2" fill="none" stroke="#c0392b" stroke-width="2.2" stroke-dasharray="6 5" opacity=".7"/><circle cx="162.8" cy="62.0" r="3" fill="none" stroke="#c0392b" stroke-width="1.6"/><circle cx="506.0" cy="187.2" r="3" fill="none" stroke="#c0392b" stroke-width="1.6"/><circle cx="44.0" cy="29.1" r="3.2" fill="#c0392b"/><circle cx="110.0" cy="51.3" r="3.2" fill="#c0392b"/><circle cx="162.8" cy="62.0" r="3.2" fill="#c0392b"/>
+    <text x="44.0" y="232" class="xlab">2015</text><text x="110.0" y="232" class="xlab">2020</text><text x="162.8" y="232" class="xlab">2024</text><text x="162.8" y="232" class="xlab">2024</text><text x="506.0" y="232" class="xlab">2050</text>
+  </svg>
+</figure><figure class="chart">
+  <figcaption>高齢化率 全国 ― 2024=29.3%(過去最高)</figcaption>
+  <svg viewBox="0 0 520 260" role="img">
+    <line x1="44" y1="216.0" x2="506" y2="216.0" class="grid"/><text x="38" y="219.0" class="ylab">28%</text><line x1="44" y1="168.0" x2="506" y2="168.0" class="grid"/><text x="38" y="171.0" class="ylab">33%</text><line x1="44" y1="120.0" x2="506" y2="120.0" class="grid"/><text x="38" y="123.0" class="ylab">38%</text><line x1="44" y1="72.0" x2="506" y2="72.0" class="grid"/><text x="38" y="75.0" class="ylab">42%</text><line x1="44" y1="24.0" x2="506" y2="24.0" class="grid"/><text x="38" y="27.0" class="ylab">47%</text>
+    <polyline points="44.0,204.9 275.0,202.9 506.0,201.9" fill="none" stroke="#e8863b" stroke-width="2.6"/>
+    <circle cx="44.0" cy="204.9" r="3.2" fill="#e8863b"/><circle cx="275.0" cy="202.9" r="3.2" fill="#e8863b"/><circle cx="506.0" cy="201.9" r="3.2" fill="#e8863b"/>
+    <text x="44.0" y="232" class="xlab">2023</text><text x="275.0" y="232" class="xlab">2024</text><text x="506.0" y="232" class="xlab">2025</text>
+  </svg>
+</figure><figure class="chart">
+  <figcaption>館山市 高齢化率 ― 2024=40.4%→2040推計45.6%(全国+11pt先行)</figcaption>
+  <svg viewBox="0 0 520 260" role="img">
+    <line x1="44" y1="216.0" x2="506" y2="216.0" class="grid"/><text x="38" y="219.0" class="ylab">28%</text><line x1="44" y1="168.0" x2="506" y2="168.0" class="grid"/><text x="38" y="171.0" class="ylab">33%</text><line x1="44" y1="120.0" x2="506" y2="120.0" class="grid"/><text x="38" y="123.0" class="ylab">38%</text><line x1="44" y1="72.0" x2="506" y2="72.0" class="grid"/><text x="38" y="75.0" class="ylab">42%</text><line x1="44" y1="24.0" x2="506" y2="24.0" class="grid"/><text x="38" y="27.0" class="ylab">47%</text>
+    <polyline points="44.0,94.7 136.4,90.7 506.0,38.1" fill="none" stroke="#b8531f" stroke-width="2.6"/>
+    <circle cx="44.0" cy="94.7" r="3.2" fill="#b8531f"/><circle cx="136.4" cy="90.7" r="3.2" fill="#b8531f"/><circle cx="506.0" cy="38.1" r="3.2" fill="#b8531f"/>
+    <text x="44.0" y="232" class="xlab">2020</text><text x="136.4" y="232" class="xlab">2024</text><text x="506.0" y="232" class="xlab">2040</text>
+  </svg>
+</figure>
+  </div>
+  <div class="note">
+    ● 全国は14年連続の自然減(2024年 出生71.7万＜死亡160.7万)。社会増(+34万)はほぼ外国人流入によるもので、日本人は▲2千の社会減。<br>
+    ● 関東は「東京都＋埼玉」への一極集中が継続。千葉県は転入超過(+7,859人/全国3位規模の社会増)を維持するが、自然減が上回り総人口は微減局面。<br>
+    ● 館山市(南房総)は千葉県内で最も高齢化・人口減が進む。高齢化率40.4%は全国29.3%を約11ポイント上回り、全国より10〜15年先行。<br>
+    ● 示唆: 需要(移住・二拠点)より供給(空き家)が構造的に増える地域 → 買い手・借り手には価格交渉余地。一方で生活インフラ縮小リスクは織り込む必要。<br>
+    ※ 2040/2050年値は社人研等の推計(推定)。基準時点が資料により異なるため各系列の年次を明記。
+  </div>
+</div></body></html>
