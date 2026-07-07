@@ -1,0 +1,66 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MOVING ― 館山・海沿い移住 レポートハブ</title>
+<style>
+  :root{ --bg:#eaf2f4; --card:#fff; --ink:#0f2a33; --sub:#5f7681; --line:#d8e5e8; --accent:#0d7c94; --chip:#f1f8f9; }
+  @media (prefers-color-scheme:dark){ :root{ --bg:#0a1417; --card:#12232a; --ink:#e7f1f3; --sub:#8ba3aa; --line:#22383f; --accent:#3bb6cc; --chip:#152a31; } }
+  :root[data-theme="light"]{ --bg:#eaf2f4; --card:#fff; --ink:#0f2a33; --sub:#5f7681; --line:#d8e5e8; --accent:#0d7c94; --chip:#f1f8f9; }
+  :root[data-theme="dark"]{ --bg:#0a1417; --card:#12232a; --ink:#e7f1f3; --sub:#8ba3aa; --line:#22383f; --accent:#3bb6cc; --chip:#152a31; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif;
+        background:var(--bg); color:var(--ink); -webkit-font-smoothing:antialiased; padding:36px 18px 70px; }
+  .wrap{ max-width:760px; margin:0 auto; }
+  .eyebrow{ font-size:11px; letter-spacing:.18em; font-weight:700; color:var(--accent); }
+  h1{ font-size:27px; margin:6px 0 6px; letter-spacing:.01em; }
+  .lead{ font-size:13.5px; color:var(--sub); line-height:1.7; margin-bottom:24px; }
+  .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; }
+  a.card{ display:block; text-decoration:none; color:var(--ink); background:var(--card); border:1px solid var(--line);
+          border-radius:16px; padding:18px 18px 16px; transition:transform .12s, border-color .12s; }
+  a.card:hover{ transform:translateY(-2px); border-color:var(--accent); }
+  a.card .ico{ font-size:26px; }
+  a.card h2{ font-size:16px; margin:9px 0 4px; }
+  a.card p{ font-size:12.5px; color:var(--sub); line-height:1.55; }
+  a.card .go{ font-size:12px; color:var(--accent); font-weight:700; margin-top:9px; display:inline-block; }
+  .note{ font-size:11.5px; color:var(--sub); line-height:1.8; margin-top:26px; border-top:1px dashed var(--line); padding-top:14px; }
+</style></head>
+<body><div class="wrap">
+  <div class="eyebrow">MOVING ・ 海沿い格安移住プロジェクト</div>
+  <h1>🏖 館山・海沿い移住 レポートハブ</h1>
+  <div class="lead">スマホでも快適に読めるレポート集。数値は行政資料・不動産相場・WebSearch由来で、断定できない箇所は「推定」と明記しています。</div>
+  <div class="cards">
+    <a class="card" href="research.html">
+      <div class="ico">📋</div><h2>総合リサーチ</h2>
+      <p>若年女性の流出・宿泊税/民泊・移住支援金・ワーケーション・館山に似た立地・移住者センチメント（9項目）。</p>
+      <span class="go">開く →</span>
+    </a>
+    <a class="card" href="population.html">
+      <div class="ico">📈</div><h2>人口動態ダッシュボード</h2>
+      <p>全国・千葉県・館山市の人口と高齢化率をグラフ化。館山は全国より約11pt先行して高齢化。</p>
+      <span class="go">開く →</span>
+    </a>
+    <a class="card" href="tateyama_map.html">
+      <div class="ico">🗺</div><h2>運用マップ（実地図）</h2>
+      <p>夕陽/カフェ/コンビニ/スーパー/ランドマークをレイヤー切替。ホスティング環境では実際の地図タイルも表示。</p>
+      <span class="go">開く →</span>
+    </a>
+    <a class="card" href="similar_areas.html">
+      <div class="ico">🧭</div><h2>館山に似た立地 比較</h2>
+      <p>南房総/いすみ/南伊豆/御前崎/三浦/熱海ほかを、館山と同じ観点で横断比較＋海沿い格安物件。</p>
+      <span class="go">開く →</span>
+    </a>
+    <a class="card" href="index.html">
+      <div class="ico">🏠</div><h2>物件ベストピック</h2>
+      <p>海沿い〜300万円の格安物件ランキングとコスト分析・探し方。日次更新。</p>
+      <span class="go">開く →</span>
+    </a>
+    <a class="card" href="gallery.html">
+      <div class="ico">📷</div><h2>物件ギャラリー</h2>
+      <p>物件をカード表示。掲載元の実写真・画像検索へワンタップ。</p>
+      <span class="go">開く →</span>
+    </a>
+  </div>
+  <div class="note">
+    ※ このハブは GitHub Pages で配信され、日次スクレイパーの更新が自動反映されます。<br>
+    ※ 運用マップは、この Pages 環境（実ブラウザ）では OpenStreetMap のタイルが読み込まれ、実際の街の地図として表示されます。
+  </div>
+</div></body></html>
