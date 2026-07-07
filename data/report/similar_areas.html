@@ -1,0 +1,166 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>館山に似た立地 ― 横断比較レポート 2026-07</title>
+<style>
+  :root{ --bg:#f2f7f8; --card:#fff; --ink:#12303b; --sub:#5b727c; --line:#e2ebee; --accent:#0d7c94; --chip:#eef6f8; --pos:#1f8f5f; --neg:#c0503b; --warn:#c98a1e; }
+  @media (prefers-color-scheme:dark){ :root{ --bg:#0c1417; --card:#14232a; --ink:#e8f1f3; --sub:#93a8ae; --line:#233841; --accent:#3bb6cc; --chip:#152730; --pos:#3ec489; --neg:#e0705a; --warn:#e0b25a; } }
+  :root[data-theme="light"]{ --bg:#f2f7f8; --card:#fff; --ink:#12303b; --sub:#5b727c; --line:#e2ebee; --accent:#0d7c94; --chip:#eef6f8; --pos:#1f8f5f; --neg:#c0503b; --warn:#c98a1e; }
+  :root[data-theme="dark"]{ --bg:#0c1417; --card:#14232a; --ink:#e8f1f3; --sub:#93a8ae; --line:#233841; --accent:#3bb6cc; --chip:#152730; --pos:#3ec489; --neg:#e0705a; --warn:#e0b25a; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif; background:var(--bg); color:var(--ink); -webkit-font-smoothing:antialiased; line-height:1.7; padding:34px 18px 80px; }
+  .wrap{ max-width:1040px; margin:0 auto; }
+  .kick{ color:var(--accent); font-weight:700; letter-spacing:.16em; font-size:12px; }
+  h1{ font-size:27px; margin:5px 0 6px; }
+  .lead{ color:var(--sub); font-size:13.5px; margin-bottom:22px; }
+  .rank{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:22px; }
+  .rank .r{ background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 14px; font-size:12.5px; }
+  .rank .r b{ font-size:14px; } .rank .r span{ color:var(--sub); }
+  .tablewrap{ overflow-x:auto; border:1px solid var(--line); border-radius:14px; margin-bottom:26px; }
+  table{ width:100%; border-collapse:collapse; font-size:12px; min-width:820px; }
+  th,td{ border-bottom:1px solid var(--line); border-right:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+  th{ background:var(--chip); position:sticky; top:0; font-weight:700; }
+  tr td:first-child, tr th:first-child{ font-weight:700; background:var(--chip); position:sticky; left:0; }
+  td:last-child, th:last-child{ border-right:none; }
+  .tag{ display:inline-block; font-size:10.5px; font-weight:700; border-radius:6px; padding:1px 7px; }
+  .t-pos{ background:color-mix(in srgb,var(--pos) 18%,transparent); color:var(--pos); }
+  .t-neg{ background:color-mix(in srgb,var(--neg) 18%,transparent); color:var(--neg); }
+  .t-warn{ background:color-mix(in srgb,var(--warn) 20%,transparent); color:var(--warn); }
+  section{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:16px; }
+  h2{ font-size:18px; margin:0 0 3px; display:flex; align-items:baseline; gap:9px; flex-wrap:wrap; }
+  h2 .pill{ font-size:11px; color:#fff; background:var(--accent); border-radius:20px; padding:2px 10px; font-weight:700; }
+  h2 .rankno{ font-size:11px; color:var(--sub); font-weight:700; }
+  .cmp{ font-size:12.5px; color:var(--sub); font-style:italic; margin:2px 0 10px; }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; font-size:12.5px; margin-top:6px; }
+  .grid2 b{ color:var(--accent); }
+  .props{ margin-top:12px; }
+  .props .ph{ font-size:11px; letter-spacing:.1em; color:var(--sub); font-weight:700; margin-bottom:6px; }
+  .prop{ display:flex; gap:10px; align-items:baseline; font-size:12.5px; padding:4px 0; border-top:1px dashed var(--line); }
+  .prop .pr{ color:var(--accent); font-weight:800; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .prop a{ color:var(--ink); text-decoration:none; }
+  .prop a:hover{ text-decoration:underline; }
+  .src{ font-size:11px; color:var(--sub); margin-top:12px; border-top:1px dashed var(--line); padding-top:8px; }
+  .callout{ background:var(--chip); border-left:3px solid var(--accent); border-radius:8px; padding:11px 14px; font-size:13px; margin:16px 0; }
+  .foot{ font-size:11px; color:var(--sub); margin-top:22px; line-height:1.8; }
+  @media(max-width:640px){ .grid2{ grid-template-columns:1fr; } }
+</style></head>
+<body><div class="wrap">
+  <div class="kick">SIMILAR COASTAL TOWNS ・ 館山に似た立地 横断比較</div>
+  <h1>館山に似た立地 ― 移住先 横断比較レポート</h1>
+  <div class="lead">館山の条件（東京から1.5〜2.5h・海が目の前・温暖・そこそこのインフラ・格安中古あり）に近い候補地を、館山と同じ観点（アクセス/海と夕陽・人口動態・宿泊税・空き家バンク/支援・民泊相場・カフェ/観光・生活インフラ・事業所感）で横断調査。海沿い格安物件も収集し、マスターに追加しました。作成 2026-07-07。</div>
+
+  <div class="rank">
+    <div class="r"><b>① 南房総・鴨川</b> <span>≒館山（ほぼ同一）</span></div>
+    <div class="r"><b>② いすみ・御宿</b> <span>格安＋移住人気＋通勤圏</span></div>
+    <div class="r"><b>③ 南伊豆・下田</b> <span>海の魅力◎だがやや遠い</span></div>
+    <div class="r"><b>④ 御前崎/渥美/三浦</b> <span>安いが遠い or 近いが高い</span></div>
+    <div class="r"><b>⑤ 熱海/伊東/湘南/糸島</b> <span>魅力大だが割高 or 首都圏外</span></div>
+  </div>
+
+  <div class="tablewrap"><table>
+    <tr><th>エリア</th><th>東京から</th><th>海の向き/夕陽</th><th>人口・高齢化</th><th>宿泊税</th><th>空き家バンク/支援</th><th>民泊相場(1泊)</th><th>中古相場感</th></tr>
+    <tr><td>館山(基準)</td><td>車1.5〜2h</td><td class="t-pos">西向き＝夕陽＋富士山</td><td>約4.4万/40.4%</td><td>県150＋市150検討</td><td>あり/支援金・家賃助成</td><td>6,600〜3.1万</td><td>平均約1,157万</td></tr>
+    <tr><td>南房総・鴨川</td><td>特急/車2h</td><td>内房=夕陽/外房=朝日</td><td>3.2〜3.4万/48%前後</td><td class="t-warn">県＋市 検討中</td><td class="t-pos">あり/支援金・リフォーム補助</td><td>民宿4.6万〜/一棟貸6万〜</td><td class="t-pos">館山とほぼ同</td></tr>
+    <tr><td>いすみ・御宿</td><td class="t-pos">特急70〜90分</td><td>外房=朝日寄り</td><td>3.4万/減少基調</td><td class="t-warn">県モデル待ち</td><td class="t-pos">あり/支援金・取得補助</td><td>1.3万〜6.3万</td><td class="t-pos">格安(売地200万台)</td></tr>
+    <tr><td>南伊豆・下田</td><td class="t-neg">2h40m/渋滞4h+</td><td>南向き＝朝日/夕陽は西伊豆</td><td class="t-neg">0.7〜1.9万/45〜52%</td><td>下田未/熱海は200円</td><td class="t-pos">あり/お試し移住・補助厚</td><td>1.1万〜2.1万(温泉付)</td><td>館山よりやや高〜同</td></tr>
+    <tr><td>御前崎(静)</td><td class="t-neg">車のみ</td><td class="t-pos">岬=サーフ・夕陽名所</td><td>2.8万/22年連続減</td><td>予定なし(推定)</td><td>小規模/取得補助100万</td><td>データ乏(推定安)</td><td class="t-pos">成約平均約176万</td></tr>
+    <tr><td>渥美/伊良湖(愛)</td><td class="t-neg">遠い(車)</td><td class="t-pos">太平洋2kmビーチ・夕陽</td><td>5.3万/30.6%</td><td>予定なし(推定)</td><td class="t-pos">あり/改修50万・支援金</td><td>中〜低(推定)</td><td>安い</td></tr>
+    <tr><td>三浦(神)</td><td class="t-pos">京急60分</td><td>相模湾/東京湾</td><td class="t-neg">4万割れ/消滅可能性</td><td>予定なし(推定)</td><td>移住PR積極/在庫要確認</td><td>中(推定)</td><td class="t-neg">高(古家付売地380万〜)</td></tr>
+    <tr><td>熱海(静)</td><td class="t-pos">新幹線40分</td><td class="t-neg">東向き=夕陽なし</td><td>3.4万/48.7%</td><td class="t-neg">導入済200円</td><td>リノベ移住先行</td><td>5,166〜/ヴィラ12万+</td><td class="t-neg">戸建割高/リゾマン激安</td></tr>
+    <tr><td>伊東(静)</td><td>約90分</td><td class="t-neg">東向き=夕陽なし</td><td>減少・高齢化</td><td>未(入湯税増)</td><td class="t-pos">あり/支援メニュー厚</td><td>別荘平屋350万〜</td><td>同〜やや安(別荘税注意)</td></tr>
+    <tr><td>湘南西端(神)</td><td class="t-pos">東海道60〜70分</td><td class="t-pos">南向き＝冬夕陽＋富士</td><td>2.7〜3.0万/微減</td><td>未導入</td><td class="t-pos">あり/移住相談</td><td>供給薄(推定)</td><td class="t-neg">館山の数倍高い</td></tr>
+    <tr><td>糸島(福)</td><td class="t-neg">空路(福岡35分)</td><td class="t-pos">西向き＝夕陽百選</td><td class="t-pos">10万/安定〜増</td><td>未導入</td><td class="t-pos">あり/活用補助・新婚60万</td><td>5.0万(高級化)</td><td class="t-neg">平均2,510万/海見え3千万+</td></tr>
+  </table></div>
+
+  <div class="callout"><b>結論（相性順・推定）</b>：純粋に「館山の代わり／横比較」なら <b>①南房総・鴨川</b>（気候・海・相場ほぼ同一、鴨川は亀田総合病院でインフラ厚い）。<b>②いすみ・御宿</b>は特急で座って70〜90分＋住みたい田舎首都圏1位＋売地200万台と、コスパと将来性で有力。海の絶景重視なら <b>③南伊豆・下田</b>（弓ヶ浜）だがアクセスと渋滞が難。<b>格安×サーフ</b>なら御前崎・渥美（ただし遠い）。近さ・ブランド重視なら三浦・湘南・熱海・糸島だが、いずれも館山より高いか首都圏外。</div>
+
+  <section><h2><span class="pill">①</span>南房総市・鴨川市（千葉）<span class="rankno">館山とほぼ同一条件</span></h2>
+    <div class="cmp">気候・海・物件相場が館山とほぼ同等。鴨川は亀田総合病院でインフラがやや厚く、実質的に館山の「横の選択肢」。</div>
+    <div class="grid2">
+      <div><b>アクセス/海</b>：特急・車で約2h。内房=夕陽、外房=朝日。白浜野島崎は両方。</div>
+      <div><b>人口</b>：南房総3.4万(高齢化47.9%)、鴨川3.2万(2050で▲30%)。</div>
+      <div><b>宿泊税</b>：千葉県＋鴨川・南房総も導入検討自治体（2026説明会）。</div>
+      <div><b>支援</b>：両市 空き家バンク＋移住支援金＋リフォーム補助。</div>
+      <div><b>民泊</b>：南房総は都市計画区域外で規制緩く一棟貸・農泊に強い。鴨川はサーフ需要。</div>
+      <div><b>事業所感</b>：リノベ移住◎／民泊◎／カフェは内房夕陽・外房日の出で訴求成立。</div>
+    </div>
+    <div class="props"><div class="ph">海沿い格安の例（マスター追加済）</div>
+      <div class="prop"><span class="pr">70万</span><a href="https://www.city.kamogawa.lg.jp/site/iju/177.html" target="_blank" rel="noopener">鴨川市小湊 5K（海バルコニー・要リノベ／空き家バンク）</a></div>
+      <div class="prop"><span class="pr">100万</span><a href="https://suumo.jp/tochi/chiba/sc_kamogawa/" target="_blank" rel="noopener">鴨川市宮 売地（江見海岸・江見小徒歩7分）</a></div>
+      <div class="prop"><span class="pr">150万</span><a href="https://www.athome.co.jp/tochi/chiba/minamiboso-city/list/" target="_blank" rel="noopener">南房総市白浜町滝口 売地413㎡（坪1.3万）</a></div>
+      <div class="prop"><span class="pr">300万</span><a href="https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/list/" target="_blank" rel="noopener">南房総市白浜 平屋5K（98㎡・最南端海沿い）／千倉平磯 4DK</a></div>
+    </div>
+    <div class="src">出所: 鴨川市・南房総市 空き家バンク/移住支援, 千葉県 宿泊税検討, athome/SUUMO。現物・在庫は要確認。</div>
+  </section>
+
+  <section><h2><span class="pill">②</span>いすみ市・御宿町（千葉／外房）<span class="rankno">格安＋移住人気＋通勤圏</span></h2>
+    <div class="cmp">特急で座って70〜90分と通勤圏。宝島社「住みたい田舎」首都圏1位の人気と、売地200万台の格安が両立。海は外房＝朝日寄り（館山の夕陽とは対照）。</div>
+    <div class="grid2">
+      <div><b>アクセス/海</b>：特急わかしお 大原70分・御宿90分。太平洋 東〜南東向き＝朝日。</div>
+      <div><b>人口</b>：いすみ3.4万（10年で5千減）、御宿6,746人。</div>
+      <div><b>宿泊税</b>：千葉県モデル（150円＋市町村上乗せ）待ち。独自表明なし。</div>
+      <div><b>支援</b>：空き家バンク＋支援金＋定住支援住宅取得補助。首都圏1位ブランド。</div>
+      <div><b>民泊</b>：周辺数百件、素泊まり古民家〜サーフ/リゾート一棟貸まで幅広。</div>
+      <div><b>事業所感</b>：リノベ◎／民泊◎／カフェ◎（海×崖×サーフ文脈＋人気ブランド）。</div>
+    </div>
+    <div class="props"><div class="ph">海沿い格安の例（マスター追加済）</div>
+      <div class="prop"><span class="pr">200万</span><a href="https://www.sinsei-heights.jp/uri-tochi/detail-55585ec64249423ffb72d709/" target="_blank" rel="noopener">いすみ市大原台 売地390㎡（高台・海望／坪1.7万）</a></div>
+      <div class="prop"><span class="pr">320万</span><a href="https://www.athome.co.jp/kodate/6977367603/" target="_blank" rel="noopener">いすみ市岬町江場土 平屋2DK（太東海岸方面）</a></div>
+      <div class="prop"><span class="pr">350万</span><a href="https://www.athome.co.jp/kodate/theme/hiraya/chiba/isumi-city/list/" target="_blank" rel="noopener">いすみ市大原 平屋3DK（大原漁港・海水浴場近）</a></div>
+    </div>
+    <div class="src">出所: いすみ市公式/いすみ暮らし, 宝島社, athome/SUUMO/新清ハイツ。現物要確認。</div>
+  </section>
+
+  <section><h2><span class="pill">③</span>南伊豆町・下田市（静岡）<span class="rankno">海の魅力◎・アクセスが難</span></h2>
+    <div class="cmp">弓ヶ浜など海の美しさは館山以上とも。長期お試し移住など支援は手厚い。難点は東京から遠く（2h40m〜、渋滞で4h超も）、高齢化が非常に速い（南伊豆52%）。夕陽は西伊豆側で南伊豆は朝日/星空。</div>
+    <div class="grid2">
+      <div><b>アクセス/海</b>：踊り子2h40m/車は渋滞4h+。弓ヶ浜=南向き朝日、石廊崎=最南端。</div>
+      <div><b>人口</b>：南伊豆7,269人(高齢化45→52%)、下田1.9万 自然減拡大。</div>
+      <div><b>宿泊税</b>：下田・南伊豆は未導入（熱海は200円導入済）。将来波及余地。</div>
+      <div><b>支援</b>：空き家バンク＋改修補助＋長期お試し移住(家賃15%助成)＋支援金。</div>
+      <div><b>民泊</b>：温泉引湯・ビーチフロントの中〜高グレード。180日規制に注意。</div>
+      <div><b>事業所感</b>：観光需要強く物件は館山より豊富。通期集客とアクセス距離が鍵。</div>
+    </div>
+    <div class="props"><div class="ph">海沿い格安の例（マスター追加済）</div>
+      <div class="prop"><span class="pr">290万</span><a href="https://www.athome.co.jp/kodate/chuko/shizuoka/shimoda-city/020-town/list/" target="_blank" rel="noopener">下田市須崎 平屋1LDK（九十浜1.2km・須崎半島）</a></div>
+      <div class="prop"><span class="pr">350万</span><a href="https://www.kahoufudousan.com/database.cgi" target="_blank" rel="noopener">南伊豆町妻良 海まで300m（ダイビング/釣り拠点）</a></div>
+    </div>
+    <div class="src">出所: 南伊豆町 移住ポータル, 熱海市(宿泊税), athome/加邦不動産/伊豆みらいリゾート。現物要確認。</div>
+  </section>
+
+  <section><h2><span class="pill">④</span>御前崎・渥美/伊良湖・三浦<span class="rankno">安いが遠い ／ 近いが高い</span></h2>
+    <div class="cmp">「格安×サーフ」の御前崎・渥美（ただし東京から車で遠い）と、「近い×観光ブランド」の三浦（ただし相場高・人口急減）。目的で分かれる。</div>
+    <div class="grid2">
+      <div><b>御前崎(静)</b>：中古成約平均<b>約176万</b>と全国最安級。太平洋サーフ・ケープパークの夕陽。完全車社会・鉄道なし。</div>
+      <div><b>渥美/伊良湖(愛)</b>：市が「サーフタウン構想」で移住後押し。改修補助50万＋支援金。東京から遠く中京圏向き。</div>
+      <div><b>三浦(神)</b>：京急60分と至近だが2024年<b>消滅可能性自治体</b>・4万割れ。格安は古家付売地380〜500万中心。</div>
+      <div><b>宿泊税</b>：3エリアとも予定なし（推定）。</div>
+    </div>
+    <div class="props"><div class="ph">海沿い格安の例（マスター追加済）</div>
+      <div class="prop"><span class="pr">300万</span><a href="https://tahara-c23231.akiya-athome.jp/" target="_blank" rel="noopener">田原市 空き家バンク（伊良湖岬周辺・サーフ）</a></div>
+      <div class="prop"><span class="pr">350万</span><a href="https://www.athome.co.jp/kodate/chuko/shizuoka/omaezaki-city/list/" target="_blank" rel="noopener">御前崎市白羽 5DK（高台・海徒歩数分・サーフ）</a></div>
+      <div class="prop"><span class="pr">350万</span><a href="https://www.athome.co.jp/kodate/chuko/aichi/tahara-city/list/" target="_blank" rel="noopener">田原市小中山町 8LDK（渥美・三河湾側）</a></div>
+    </div>
+    <div class="src">出所: 御前崎市/田原市/三浦市 公式・空き家バンク, 社人研, athome。現物要確認。</div>
+  </section>
+
+  <section><h2><span class="pill">⑤</span>熱海・伊東・湘南西端・糸島<span class="rankno">魅力大だが割高 or 首都圏外</span></h2>
+    <div class="cmp">アクセスやブランドで勝るが、館山の「格安×海沿い」条件では見劣り。熱海・伊東は東向きで海の夕陽が無いのも館山との差。</div>
+    <div class="grid2">
+      <div><b>熱海(静)</b>：新幹線40分・成熟した観光/リノベ経済。宿泊税200円導入済。戸建は割高、リゾマンは300万台と激安（管理費高）。東向きで夕陽なし。</div>
+      <div><b>伊東(静)</b>：温泉ブランド＋激安別荘（平屋350万〜）。ただし<b>別荘等所有税</b>と東向き夕陽なしが難。</div>
+      <div><b>湘南西端(大磯/二宮)</b>：都心60分＋南向きで冬夕陽＋富士。ただし海一望は1,500〜7,000万と館山の数倍。</div>
+      <div><b>糸島(福)</b>：西向き夕陽名物・移住人気全国級。ただし首都圏外＋中古平均2,510万で割高。</div>
+    </div>
+    <div class="props"><div class="ph">参考（多くは高価格・相場感）</div>
+      <div class="prop"><span class="pr">300万</span><a href="https://suumo.jp/ms/chuko/shizuoka/sc_atami/nj_175/" target="_blank" rel="noopener">南熱海 オーシャンビュー温泉リゾマン1K（管理費高に注意／マスター追加済）</a></div>
+      <div class="prop"><span class="pr">1,480万〜</span><span>二宮町 海見え戸建（湘南西端）／糸島 海見え3,200万／大磯 海一望6,980万</span></div>
+    </div>
+    <div class="src">出所: SUUMO/HOME'S/athome, 熱海市(宿泊税), 伊東市(別荘等所有税), 糸島市 移住, MONOCLE。現物要確認。</div>
+  </section>
+
+  <div class="foot">
+    ※ 本レポートは WebSearch ベースの二次情報を含みます。行政の金額・要件・年度、物件の価格・面積・海までの距離は流動的で、掲載元および各自治体の一次確認が必要です。断定できない箇所は「推定」と明記。<br>
+    ※ 海沿い格安の物件14件はマスター（38件）に追加済み。物件一覧は <a href="index.html">物件ベストピック</a> / <a href="gallery.html">ギャラリー</a> を参照。関連: <a href="research.html">館山 総合リサーチ</a> / <a href="population.html">人口グラフ</a> / <a href="tateyama_map.html">運用マップ</a>。<br>
+    生成: 2026-07-07 ・ MOVING プロジェクト（海沿い格安移住）。
+  </div>
+</div></body></html>
