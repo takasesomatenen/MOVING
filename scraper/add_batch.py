@@ -17,6 +17,7 @@ import hashlib
 import json
 import os
 
+from .filters import parse_sea_distance_m, infer_sea_view, infer_road_access
 from .store import Listing, load_master, merge, write_master
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -56,6 +57,8 @@ def main(argv=None):
         title = (r.get("title") or "").strip()
         if not title:
             continue
+        note = r.get("note") or "WebSearch由来 現物・在庫・価格は掲載元で要確認"
+        text = f"{title} {note}"
         listings.append(Listing(
             source=r.get("source") or args.source,
             title=title[:120],
@@ -66,7 +69,10 @@ def main(argv=None):
             building_m2=_f(r.get("building_m2")),
             madori=r.get("madori") or "",
             coastal=bool(r.get("coastal", True)),
-            note=r.get("note") or "WebSearch由来 現物・在庫・価格は掲載元で要確認",
+            sea_dist_m=r.get("sea_dist_m") or (parse_sea_distance_m(text) or ""),
+            sea_view=r.get("sea_view") or infer_sea_view(text),
+            road_access=r.get("road_access") or infer_road_access(text),
+            note=note,
         ))
 
     master = load_master(MASTER_PATH)
