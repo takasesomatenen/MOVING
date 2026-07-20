@@ -4,6 +4,5 @@
 # ※これらはGitHub Actions(daily-scrape.yml)がリポジトリ本体で使うので残す。
 requirements.txt
 scraper/
-print/pdf/
 **/__pycache__/
 *.pyc
