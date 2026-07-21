@@ -54,7 +54,21 @@ jobs:
             echo "変更なし(新規物件なし)"
           else
             git commit -m "data: 海沿い格安物件 日次更新"
-            git push origin HEAD:${{ github.ref_name }}
+            # feature branch は日次チェーン等が同時刻に push するため、
+            # 単純 push は non-fast-forward で弾かれることがある。
+            # rebase してからリトライし、push レースに耐えるようにする。
+            pushed=""
+            for i in 1 2 3 4 5; do
+              git pull --rebase --autostash origin "${{ github.ref_name }}" || true
+              if git push origin HEAD:"${{ github.ref_name }}"; then
+                pushed="yes"; break
+              fi
+              echo "push rejected, retrying ($i) ..."
+              sleep $(( (RANDOM % 5) + 2 ))
+            done
+            if [ -z "$pushed" ]; then
+              echo "::error::push failed after retries"; exit 1
+            fi
           fi
 
       - name: Upload log artifact
