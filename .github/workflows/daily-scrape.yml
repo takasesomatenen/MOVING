@@ -39,6 +39,12 @@ jobs:
         run: |
           python -m scraper.scrape --price-cap "${{ github.event.inputs.price_cap || '300' }}" | tee scrape.log
 
+      - name: Verify listings (retire sold/expired)
+        # Actions ランナーは外部ネットワークが開いているので、開発サンドボックスと違い
+        # 実サイトへアクセスできる。個別物件URLの成約/掲載終了/404 を検出したものだけを
+        # data/listings_retired.csv へ退避し master から外す(一覧URLや403/timeoutは現状維持)。
+        run: python -m scraper.verify --apply | tee verify.log || true
+
       - name: Build report HTML
         run: python -m scraper.report
 
