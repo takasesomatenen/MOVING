@@ -1,9 +1,9 @@
 {
- "checked": "2026-08-06",
+ "checked": "2026-08-07",
  "counts": {
   "ALIVE": 1,
-  "GONE": 4,
-  "UNKNOWN": 47,
+  "GONE": 0,
+  "UNKNOWN": 48,
   "SKIP": 1
  },
  "results": [
@@ -96,14 +96,6 @@
    "reason": "一覧/バンクURL(個別判定不可)"
   },
   {
-   "id": "5b7d7ba7c9a9",
-   "location": "千葉県館山市浜田33-8",
-   "price_man": "149.0",
-   "url": "https://resort-bukken.com/detail/3781",
-   "status": "GONE",
-   "reason": "HTTP 404"
-  },
-  {
    "id": "858c2f81050c",
    "location": "千葉県南房総市白浜町滝口",
    "price_man": "150.0",
@@ -116,6 +108,14 @@
    "location": "千葉県南房総市和田町和田",
    "price_man": "180",
    "url": "https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/list/#seed-1",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "72b9ef4449b1",
+   "location": "静岡県賀茂郡西伊豆町田子",
+   "price_man": "180.0",
+   "url": "https://www.athome.co.jp/kodate/chuko/shizuoka/kamo_nishiizu-city/list/#tago-4dk",
    "status": "UNKNOWN",
    "reason": "一覧/バンクURL(個別判定不可)"
   },
@@ -158,14 +158,6 @@
    "url": "https://www.akiya-athome.jp/buy/46/#izumi-4dk",
    "status": "UNKNOWN",
    "reason": "一覧/バンクURL(個別判定不可)"
-  },
-  {
-   "id": "10aa0f6f5fa0",
-   "location": "千葉県いすみ市大原台",
-   "price_man": "200.0",
-   "url": "https://www.sinsei-heights.jp/uri-tochi/detail-55585ec64249423ffb72d709/#3257d333",
-   "status": "GONE",
-   "reason": "HTTP 404"
   },
   {
    "id": "7f126ffbdbf7",
@@ -222,14 +214,6 @@
    "url": "https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/list/#seed-2",
    "status": "UNKNOWN",
    "reason": "一覧/バンクURL(個別判定不可)"
-  },
-  {
-   "id": "adfa8fcc5cbf",
-   "location": "島根県松江市美保関町森山",
-   "price_man": "280.0",
-   "url": "https://www.erajapan.co.jp/catalog/%E6%9D%BE%E6%B1%9F%E5%B8%82%E7%BE%8E%E4%BF%9D%E9%96%A2%E7%94%BA%E3%80%80%E4%B8%AD%E5%8F%A4%E4%B8%80%E6%88%B8%E5%BB%BA%E3%81%A6/88437832/",
-   "status": "GONE",
-   "reason": "HTTP 404"
   },
   {
    "id": "3a3db4d7b42b",
@@ -390,14 +374,6 @@
    "url": "https://www.haruka-f.co.jp/sale/detail/320015-242556",
    "status": "ALIVE",
    "reason": "HTTP 200"
-  },
-  {
-   "id": "aa3e8cc016d5",
-   "location": "千葉県いすみ市岬町江場土",
-   "price_man": "320.0",
-   "url": "https://www.athome.co.jp/kodate/6977367603/#6d5352c6",
-   "status": "GONE",
-   "reason": "HTTP 404"
   },
   {
    "id": "c7bf8416109d",
