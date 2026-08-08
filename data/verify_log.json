@@ -1,10 +1,10 @@
 {
- "checked": "2026-08-07",
+ "checked": "2026-08-08",
  "counts": {
   "ALIVE": 1,
   "GONE": 0,
   "UNKNOWN": 48,
-  "SKIP": 1
+  "SKIP": 2
  },
  "results": [
   {
@@ -406,6 +406,14 @@
    "url": "https://www.athome.co.jp/kodate/chuko/aichi/tahara-city/list/#2fd0b5d4",
    "status": "UNKNOWN",
    "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "c6c45d891c87",
+   "location": "大分県津久見市中田町",
+   "price_man": "350.0",
+   "url": "https://tsukumi-c44207.akiya-athome.jp/bukken/detail/buy/30665",
+   "status": "SKIP",
+   "reason": "HTTP 403(ブロック)"
   }
  ]
 }
