@@ -1,10 +1,10 @@
 {
- "checked": "2026-08-08",
+ "checked": "2026-08-09",
  "counts": {
   "ALIVE": 1,
   "GONE": 0,
-  "UNKNOWN": 48,
-  "SKIP": 2
+  "UNKNOWN": 49,
+  "SKIP": 3
  },
  "results": [
   {
@@ -84,6 +84,14 @@
    "location": "千葉県鴨川市宮",
    "price_man": "100.0",
    "url": "https://suumo.jp/tochi/chiba/sc_kamogawa/#b2b8477f",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "7b84aba9966f",
+   "location": "大分県津久見市大字網代赤崎",
+   "price_man": "100.0",
+   "url": "https://tsukumi-c44207.akiya-athome.jp/buy/house/area/oitaken/tsukumishi/list?gyosei_cd%5B%5D=44207#no141-ajiroakasaki",
    "status": "UNKNOWN",
    "reason": "一覧/バンクURL(個別判定不可)"
   },
@@ -374,6 +382,14 @@
    "url": "https://www.haruka-f.co.jp/sale/detail/320015-242556",
    "status": "ALIVE",
    "reason": "HTTP 200"
+  },
+  {
+   "id": "0171f5e449a0",
+   "location": "大分県津久見市文京町",
+   "price_man": "300.0",
+   "url": "https://tsukumi-c44207.akiya-athome.jp/bukken/detail/buy/30682",
+   "status": "SKIP",
+   "reason": "HTTP 403(ブロック)"
   },
   {
    "id": "c7bf8416109d",
