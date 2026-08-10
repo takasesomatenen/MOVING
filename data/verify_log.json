@@ -1,10 +1,10 @@
 {
- "checked": "2026-08-09",
+ "checked": "2026-08-10",
  "counts": {
   "ALIVE": 1,
   "GONE": 0,
   "UNKNOWN": 49,
-  "SKIP": 3
+  "SKIP": 4
  },
  "results": [
   {
@@ -190,6 +190,14 @@
    "url": "https://hagiporto.com/banklist/#yamada-tamaeura",
    "status": "UNKNOWN",
    "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "691c3f6c3bae",
+   "location": "大分県津久見市大字堅浦",
+   "price_man": "200.0",
+   "url": "https://tsukumi-c44207.akiya-athome.jp/bukken/detail/buy/%E6%B4%A5%E4%B9%85%E8%A6%8B%E5%B8%82%E5%A3%B2%E6%88%B8%E5%BB%BA%E4%BD%8F%E5%AE%85-30681",
+   "status": "SKIP",
+   "reason": "HTTP 403(ブロック)"
   },
   {
    "id": "943609188ef3",
