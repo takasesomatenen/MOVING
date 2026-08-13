@@ -1,9 +1,9 @@
 {
- "checked": "2026-08-12",
+ "checked": "2026-08-13",
  "counts": {
   "ALIVE": 1,
   "GONE": 0,
-  "UNKNOWN": 49,
+  "UNKNOWN": 50,
   "SKIP": 4
  },
  "results": [
@@ -198,6 +198,14 @@
    "url": "https://tsukumi-c44207.akiya-athome.jp/bukken/detail/buy/%E6%B4%A5%E4%B9%85%E8%A6%8B%E5%B8%82%E5%A3%B2%E6%88%B8%E5%BB%BA%E4%BD%8F%E5%AE%85-30681",
    "status": "SKIP",
    "reason": "HTTP 403(ブロック)"
+  },
+  {
+   "id": "2525022af2c0",
+   "location": "長崎県平戸市生月町壱部浦",
+   "price_man": "200.0",
+   "url": "https://www.athome.co.jp/kodate/chuko/nagasaki/hirado-city/list/#ikitsuki-ichibuura",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
   },
   {
    "id": "943609188ef3",
