@@ -1,9 +1,9 @@
 {
- "checked": "2026-08-13",
+ "checked": "2026-08-14",
  "counts": {
   "ALIVE": 1,
   "GONE": 0,
-  "UNKNOWN": 50,
+  "UNKNOWN": 51,
   "SKIP": 4
  },
  "results": [
@@ -108,6 +108,14 @@
    "location": "千葉県南房総市白浜町滝口",
    "price_man": "150.0",
    "url": "https://www.athome.co.jp/tochi/chiba/minamiboso-city/list/#58088928",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "229650866b63",
+   "location": "和歌山県東牟婁郡串本町古座",
+   "price_man": "150.0",
+   "url": "https://www.athome.co.jp/kodate/chuko/wakayama/higashimuro_kushimoto-city/list/#koza-6sdk",
    "status": "UNKNOWN",
    "reason": "一覧/バンクURL(個別判定不可)"
   },
