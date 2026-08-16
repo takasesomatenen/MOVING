@@ -1,0 +1,413 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>空き家リノベ 手法カタログ＆再生の手引き ― MOVING</title>
+<style>
+  :root{ --bg:#eaf2f4; --card:#fff; --ink:#0f2a33; --sub:#5f7681; --line:#d8e5e8; --accent:#0d7c94; --chip:#f1f8f9;
+         --gold:#b8862b; --hi:#c8384c; --mid:#c9821f; --lo:#2f9163; --hibg:rgba(200,56,76,.10); --midbg:rgba(201,130,31,.12); --lobg:rgba(47,145,99,.12); --panel:#f6fbfc; }
+  @media (prefers-color-scheme:dark){ :root{ --bg:#0a1417; --card:#12232a; --ink:#e7f1f3; --sub:#8ba3aa; --line:#22383f; --accent:#3bb6cc; --chip:#152a31;
+         --gold:#d7a94b; --hi:#e5697d; --mid:#e2a24e; --lo:#57bd8a; --hibg:rgba(229,105,125,.14); --midbg:rgba(226,162,78,.14); --lobg:rgba(87,189,138,.14); --panel:#0f1f25; } }
+  :root[data-theme="light"]{ --bg:#eaf2f4; --card:#fff; --ink:#0f2a33; --sub:#5f7681; --line:#d8e5e8; --accent:#0d7c94; --chip:#f1f8f9;
+         --gold:#b8862b; --hi:#c8384c; --mid:#c9821f; --lo:#2f9163; --hibg:rgba(200,56,76,.10); --midbg:rgba(201,130,31,.12); --lobg:rgba(47,145,99,.12); --panel:#f6fbfc; }
+  :root[data-theme="dark"]{ --bg:#0a1417; --card:#12232a; --ink:#e7f1f3; --sub:#8ba3aa; --line:#22383f; --accent:#3bb6cc; --chip:#152a31;
+         --gold:#d7a94b; --hi:#e5697d; --mid:#e2a24e; --lo:#57bd8a; --hibg:rgba(229,105,125,.14); --midbg:rgba(226,162,78,.14); --lobg:rgba(87,189,138,.14); --panel:#0f1f25; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif;
+        background:var(--bg); color:var(--ink); -webkit-font-smoothing:antialiased; padding:32px 18px 72px; line-height:1.6; }
+  .wrap{ max-width:820px; margin:0 auto; }
+  a.back{ font-size:12px; color:var(--accent); text-decoration:none; font-weight:700; }
+  .eyebrow{ font-size:11px; letter-spacing:.18em; font-weight:700; color:var(--accent); margin-top:14px; }
+  h1{ font-size:26px; margin:6px 0 8px; letter-spacing:.01em; }
+  .lead{ font-size:13.5px; color:var(--sub); line-height:1.8; margin-bottom:8px; }
+  .toc{ display:flex; flex-wrap:wrap; gap:7px; margin:16px 0 4px; }
+  .toc a{ font-size:12px; text-decoration:none; color:var(--ink); background:var(--chip); border:1px solid var(--line);
+          padding:5px 11px; border-radius:999px; }
+  .toc a:hover{ border-color:var(--accent); color:var(--accent); }
+  section{ background:var(--card); border:1px solid var(--line); border-radius:18px; padding:20px 20px 22px; margin-top:20px; }
+  .sec-no{ font-size:11px; letter-spacing:.16em; font-weight:800; color:var(--accent); }
+  h2{ font-size:19px; margin:4px 0 4px; }
+  .sub{ font-size:12.5px; color:var(--sub); line-height:1.75; margin-bottom:12px; }
+  h3{ font-size:14.5px; margin:16px 0 6px; }
+  p{ font-size:13px; line-height:1.8; }
+  ul{ margin:6px 0 6px 2px; padding-left:18px; }
+  li{ font-size:12.8px; line-height:1.75; margin:3px 0; }
+  svg{ width:100%; height:auto; display:block; }
+  svg text{ font-family:inherit; }
+  .fig{ background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:14px 12px; margin:10px 0 6px; overflow-x:auto; }
+  .cap{ font-size:11.5px; color:var(--sub); margin-top:8px; text-align:center; }
+  .legend{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:8px; }
+  .legend span{ font-size:11.5px; color:var(--sub); display:inline-flex; align-items:center; gap:5px; }
+  .sw{ width:12px; height:12px; border-radius:3px; display:inline-block; }
+  .flags{ background:var(--hibg); border:1px solid var(--hi); border-radius:12px; padding:12px 14px; margin-top:14px; }
+  .flags h4{ font-size:13px; color:var(--hi); margin-bottom:6px; }
+  .flags li{ color:var(--ink); }
+  .note{ background:var(--midbg); border:1px solid var(--mid); border-radius:12px; padding:11px 14px; margin-top:12px; font-size:12.3px; }
+  .note b{ color:var(--mid); }
+  table{ border-collapse:collapse; width:100%; margin-top:12px; font-size:12.3px; }
+  th,td{ border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top; }
+  th{ background:var(--chip); font-size:11.5px; letter-spacing:.02em; }
+  .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:12px; }
+  a.rc{ display:block; text-decoration:none; color:var(--ink); background:var(--panel); border:1px solid var(--line);
+        border-radius:14px; padding:14px 15px; transition:transform .12s,border-color .12s; }
+  a.rc:hover{ transform:translateY(-2px); border-color:var(--accent); }
+  a.rc .ic{ font-size:22px; } a.rc h4{ font-size:14px; margin:7px 0 3px; }
+  a.rc p{ font-size:12px; color:var(--sub); line-height:1.6; }
+  a.rc .go{ font-size:11.5px; color:var(--accent); font-weight:700; margin-top:7px; display:inline-block; }
+  .disc{ font-size:11.5px; color:var(--sub); line-height:1.8; margin-top:22px; border-top:1px dashed var(--line); padding-top:14px; }
+</style></head>
+<body><div class="wrap">
+  <a class="back" href="home.html">← レポートハブへ戻る</a>
+  <div class="eyebrow">MOVING ・ 空き家再生ガイド</div>
+  <h1>🔧 空き家リノベ 手法カタログ＆再生の手引き</h1>
+  <div class="lead">「どれだけ壊れているか（状態の類型）」で、直し方も費用も段取りも変わります。ここでは実在の物件に細かく追随せず、まず一般論として <b>①どこを診るか → ②類型ごとの方針 → ③直す順番 → ④取得〜入居の手続き → ⑤手法カタログ（外部リソース）</b> をビジュアル中心で整理します。</div>
+  <div class="toc">
+    <a href="#diag">①診断：どこを診る</a>
+    <a href="#type">②類型→方針</a>
+    <a href="#order">③直す順番</a>
+    <a href="#flow">④手続きの手筈</a>
+    <a href="#cost">⑤費用の目安</a>
+    <a href="#catalog">⑥手法カタログ</a>
+  </div>
+
+  <!-- ============ ① 診断 ============ -->
+  <section id="diag">
+    <div class="sec-no">STEP 01 ― DIAGNOSE</div>
+    <h2>まず「どこを診るか」──建物の弱点マップ</h2>
+    <div class="sub">中古・空き家は<b>「見えない所（躯体・雨・水・シロアリ）ほど致命傷になり、費用も読みにくい」</b>のが鉄則。内見や住宅診断（インスペクション）では、下の①〜⑧を赤→黄→緑の順で優先チェックします。赤は“買う前に必ず”専門家に。</div>
+    <div class="fig">
+      <svg viewBox="0 0 820 380" role="img" aria-label="建物の弱点マップ断面図">
+        <!-- ground -->
+        <line x1="40" y1="300" x2="500" y2="300" stroke="var(--line)" stroke-width="2"/>
+        <rect x="60" y="300" width="420" height="34" fill="var(--midbg)" stroke="var(--line)"/>
+        <!-- house body -->
+        <rect x="120" y="150" width="300" height="150" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+        <!-- roof -->
+        <polygon points="105,150 270,80 435,150" fill="var(--chip)" stroke="var(--ink)" stroke-width="2"/>
+        <!-- gutter -->
+        <line x1="105" y1="150" x2="435" y2="150" stroke="var(--hi)" stroke-width="3"/>
+        <!-- window -->
+        <rect x="160" y="190" width="70" height="60" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.5"/>
+        <line x1="195" y1="190" x2="195" y2="250" stroke="var(--ink)"/>
+        <line x1="160" y1="220" x2="230" y2="220" stroke="var(--ink)"/>
+        <!-- door -->
+        <rect x="320" y="215" width="55" height="85" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.5"/>
+        <!-- foundation -->
+        <rect x="120" y="300" width="300" height="16" fill="var(--hibg)" stroke="var(--hi)" stroke-width="1.5"/>
+        <!-- ceiling stain -->
+        <ellipse cx="270" cy="172" rx="26" ry="9" fill="var(--midbg)" stroke="var(--mid)" stroke-dasharray="3 2"/>
+        <!-- markers -->
+        <g font-size="13" font-weight="700" text-anchor="middle">
+          <circle cx="270" cy="86" r="12" fill="var(--hi)"/><text x="270" y="91" fill="#fff">1</text>
+          <circle cx="118" cy="150" r="12" fill="var(--hi)"/><text x="118" y="155" fill="#fff">2</text>
+          <circle cx="270" cy="172" r="12" fill="var(--mid)"/><text x="270" y="177" fill="#fff">3</text>
+          <circle cx="120" cy="308" r="12" fill="var(--hi)"/><text x="120" y="313" fill="#fff">4</text>
+          <circle cx="440" cy="300" r="12" fill="var(--hi)"/><text x="440" y="305" fill="#fff">5</text>
+          <circle cx="195" cy="220" r="12" fill="var(--mid)"/><text x="195" y="225" fill="#fff">6</text>
+          <circle cx="347" cy="258" r="12" fill="var(--lo)"/><text x="347" y="263" fill="#fff">7</text>
+          <circle cx="405" cy="235" r="12" fill="var(--lo)"/><text x="405" y="240" fill="#fff">8</text>
+        </g>
+        <!-- side legend -->
+        <g font-size="13" fill="var(--ink)">
+          <text x="520" y="70" font-weight="700" fill="var(--hi)">■ 命取り（買う前に専門家へ）</text>
+          <text x="524" y="94">① 屋根・防水／雨仕舞い</text>
+          <text x="524" y="116">② 外壁・雨樋・軒</text>
+          <text x="524" y="138">④ 基礎・床下（腐朽・シロアリ）</text>
+          <text x="524" y="160">⑤ 傾き・不同沈下</text>
+          <text x="520" y="196" font-weight="700" fill="var(--mid)">■ 要注意（費用は読める）</text>
+          <text x="524" y="220">③ 雨漏り跡・天井/小屋裏</text>
+          <text x="524" y="242">⑥ 給排水・電気・ガス配管</text>
+          <text x="520" y="278" font-weight="700" fill="var(--lo)">■ 後回し可（意匠・DIY向き）</text>
+          <text x="524" y="302">⑦ 建具・内装・水回り設備</text>
+          <text x="524" y="324">⑧ 外構・仕上げ・造作</text>
+        </g>
+      </svg>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--hi)"></i>命取り</span>
+        <span><i class="sw" style="background:var(--mid)"></i>要注意</span>
+        <span><i class="sw" style="background:var(--lo)"></i>後回し可</span>
+      </div>
+      <div class="cap">図①：内見・住宅診断でのチェック優先度（断面イメージ）</div>
+    </div>
+    <div class="note"><b>ポイント：</b>雨漏り・シロアリ・不同沈下・旧耐震の構造劣化は、放置年数に比例して被害と費用が指数的に増えます。<b>「安い＝直せば得」とは限らない</b>ので、取得前のインスペクション（数万円）で赤ゾーンを潰しておくのが最重要。</div>
+  </section>
+
+  <!-- ============ ② 類型→方針 ============ -->
+  <section id="type">
+    <div class="sec-no">STEP 02 ― TYPOLOGY</div>
+    <h2>状態の“類型”ごとに、直し方は4段階</h2>
+    <div class="sub">傷みが<b>「表層だけ」なのか「設備まで」か「構造まで」か</b>で、リノベは大きく4段階にエスカレートします。安い物件ほど深い段階になりがち。まず自分の物件がどの帯かを見極めます。</div>
+    <div class="fig">
+      <svg viewBox="0 0 820 300" role="img" aria-label="状態から方針への4段階エスカレーション">
+        <defs>
+          <marker id="arw" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L7,3 L0,6 Z" fill="var(--sub)"/>
+          </marker>
+        </defs>
+        <line x1="30" y1="40" x2="800" y2="40" stroke="var(--sub)" stroke-width="1.5" marker-end="url(#arw)"/>
+        <text x="30" y="26" font-size="12" fill="var(--sub)">傷みが浅い・築浅／きれい</text>
+        <text x="800" y="26" font-size="12" fill="var(--sub)" text-anchor="end">傷みが深い・構造に到達</text>
+        <!-- 4 tiers -->
+        <g font-size="13">
+          <rect x="26" y="56" width="188" height="210" rx="12" fill="var(--lobg)" stroke="var(--lo)"/>
+          <rect x="222" y="56" width="188" height="210" rx="12" fill="var(--chip)" stroke="var(--accent)"/>
+          <rect x="418" y="56" width="188" height="210" rx="12" fill="var(--midbg)" stroke="var(--mid)"/>
+          <rect x="614" y="56" width="180" height="210" rx="12" fill="var(--hibg)" stroke="var(--hi)"/>
+
+          <text x="120" y="84" text-anchor="middle" font-weight="800" fill="var(--lo)">A. 表層リノベ</text>
+          <text x="120" y="104" text-anchor="middle" font-size="11.5" fill="var(--sub)">化粧直し</text>
+          <text x="316" y="84" text-anchor="middle" font-weight="800" fill="var(--accent)">B. 部分フル</text>
+          <text x="316" y="104" text-anchor="middle" font-size="11.5" fill="var(--sub)">水回り＋断熱</text>
+          <text x="512" y="84" text-anchor="middle" font-weight="800" fill="var(--mid)">C. スケルトン</text>
+          <text x="512" y="104" text-anchor="middle" font-size="11.5" fill="var(--sub)">骨組みまで戻す</text>
+          <text x="704" y="84" text-anchor="middle" font-weight="800" fill="var(--hi)">D. 建替え検討</text>
+          <text x="704" y="104" text-anchor="middle" font-size="11.5" fill="var(--sub)">再生より新築</text>
+
+          <g font-size="11.3" fill="var(--ink)" text-anchor="middle">
+            <text x="120" y="132">クロス/床/塗装</text>
+            <text x="120" y="150">設備の更新</text>
+            <text x="120" y="168">清掃・残置撤去</text>
+            <text x="316" y="132">キッチン/浴室</text>
+            <text x="316" y="150">断熱・内窓</text>
+            <text x="316" y="168">一部間取り変更</text>
+            <text x="512" y="132">内装を全撤去</text>
+            <text x="512" y="150">耐震・配管刷新</text>
+            <text x="512" y="168">間取り自由</text>
+            <text x="704" y="132">構造腐朽が甚大</text>
+            <text x="704" y="150">不同沈下/白蟻大</text>
+            <text x="704" y="168">再建築可なら新築</text>
+          </g>
+          <g font-size="11.5" font-weight="700" text-anchor="middle">
+            <text x="120" y="200" fill="var(--lo)">〜約300万</text>
+            <text x="316" y="200" fill="var(--accent)">約300〜900万</text>
+            <text x="512" y="200" fill="var(--mid)">約900〜1800万</text>
+            <text x="704" y="200" fill="var(--hi)">要個別試算</text>
+          </g>
+          <g font-size="11" text-anchor="middle" fill="var(--sub)">
+            <text x="120" y="228">DIY◎</text>
+            <text x="316" y="228">DIY△＋プロ</text>
+            <text x="512" y="228">プロ主体</text>
+            <text x="704" y="228">解体・確認申請</text>
+            <text x="120" y="248">住みながら可</text>
+            <text x="316" y="248">短期退避</text>
+            <text x="512" y="248">仮住まい要</text>
+            <text x="704" y="248">工期長い</text>
+          </g>
+        </g>
+      </svg>
+      <div class="cap">図②：傷みの深さ → リノベ段階と費用感（金額はあくまで一般的な目安）</div>
+    </div>
+    <div class="flags">
+      <h4>⚠ レッドフラグ（＝Dの建替え・見送りを疑うサイン）</h4>
+      <ul>
+        <li><b>再建築不可</b>（接道2m未満・法42条道路に接しない）→ 大規模改修や建替えが不可。融資も付きにくい</li>
+        <li><b>旧耐震（1981年5月以前）＋構造劣化</b>／柱・土台の腐朽・蟻害 → 耐震補強費が跳ねる</li>
+        <li><b>雨漏り放置による小屋裏・軸組の腐り</b>、<b>不同沈下</b>（建具が閉まらない・床が傾く）</li>
+        <li><b>アスベスト（吹付け・特定建材）</b>、<b>浄化槽/上下水・ガスが未整備</b>、<b>擁壁・越境・境界未確定</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ ③ 直す順番 ============ -->
+  <section id="order">
+    <div class="sec-no">STEP 03 ― PRIORITY</div>
+    <h2>直す順番──“見えない所”を先に</h2>
+    <div class="sub">予算が限られるほど順番が命。<b>下（躯体・雨・水）から上（意匠）へ</b>が原則です。上から手を付けると、後から構造をいじって仕上げをやり直す“二度手間”になります。</div>
+    <div class="fig">
+      <svg viewBox="0 0 820 340" role="img" aria-label="リノベ優先順位ピラミッド">
+        <!-- pyramid tiers (bottom wide -> top narrow) -->
+        <g stroke="var(--card)" stroke-width="2" font-size="13" font-weight="700" text-anchor="middle">
+          <polygon points="60,300 760,300 690,250 130,250" fill="var(--hi)"/>
+          <text x="410" y="282" fill="#fff">1. 安全・構造（耐震・基礎・シロアリ駆除・腐朽補修）</text>
+          <polygon points="130,250 690,250 630,206 190,206" fill="var(--mid)"/>
+          <text x="410" y="234" fill="#fff">2. 雨仕舞い・防水（屋根・外壁・雨樋）</text>
+          <polygon points="190,206 630,206 578,166 242,166" fill="var(--accent)"/>
+          <text x="410" y="192" fill="#fff">3. インフラ・設備（給排水・電気・ガス）</text>
+          <polygon points="242,166 578,166 534,130 286,130" fill="var(--lo)"/>
+          <text x="410" y="153" fill="#fff">4. 断熱・省エネ（窓・断熱材）</text>
+          <polygon points="286,130 534,130 498,98 322,98" fill="var(--gold)"/>
+          <text x="410" y="119" fill="#fff">5. 内装・間取り</text>
+          <polygon points="322,98 498,98 410,50 410,50" fill="var(--sub)"/>
+          <polygon points="322,98 498,98 410,52" fill="var(--sub)"/>
+          <text x="410" y="86" fill="#fff" font-size="11.5">6. 意匠・仕上げ</text>
+        </g>
+        <text x="410" y="330" font-size="12" fill="var(--sub)" text-anchor="middle">↑ 上（意匠）は最後・DIY向き　／　↓ 下（躯体・雨・水）は最優先・プロ主体</text>
+      </svg>
+      <div class="cap">図③：優先順位ピラミッド（下＝先に直す・命に関わる／上＝後回し・楽しむ部分）</div>
+    </div>
+    <div class="note"><b>お金の考え方：</b>1〜3（＝隠れる部分）に予算の主力を置き、5〜6（＝見える部分）は<b>DIYや後追い</b>で楽しむと、限られた予算でも“安全で長持ちする家”になります。逆に見た目から入ると破綻しがち。</div>
+  </section>
+
+  <!-- ============ ④ 手続き ============ -->
+  <section id="flow">
+    <div class="sec-no">STEP 04 ― PROCESS</div>
+    <h2>取得〜入居の手筈（段取り）</h2>
+    <div class="sub">空き家（特に空き家バンク物件）は、探す→<b>診る→買う→設計/補助金→直す→住む</b>の順。特に <b>補助金は「着工前申請」が鉄則</b>、インスペクションは<b>買う前</b>に。抜けると数十万〜数百万を取り逃します。</div>
+    <div class="fig">
+      <svg viewBox="0 0 820 300" role="img" aria-label="取得から入居までのプロセスフロー">
+        <defs>
+          <marker id="arw2" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L7,3 L0,6 Z" fill="var(--accent)"/>
+          </marker>
+        </defs>
+        <g font-size="12.5" font-weight="700" text-anchor="middle">
+          <g>
+            <circle cx="90" cy="70" r="34" fill="var(--chip)" stroke="var(--accent)" stroke-width="2"/>
+            <text x="90" y="66" fill="var(--ink)">①探す</text><text x="90" y="82" font-size="10" font-weight="400" fill="var(--sub)">バンク/仲介</text>
+          </g>
+          <line x1="126" y1="70" x2="200" y2="70" stroke="var(--accent)" stroke-width="2" marker-end="url(#arw2)"/>
+          <g>
+            <circle cx="238" cy="70" r="34" fill="var(--chip)" stroke="var(--accent)" stroke-width="2"/>
+            <text x="238" y="66" fill="var(--ink)">②診る</text><text x="238" y="82" font-size="10" font-weight="400" fill="var(--sub)">内見・診断</text>
+          </g>
+          <line x1="274" y1="70" x2="348" y2="70" stroke="var(--accent)" stroke-width="2" marker-end="url(#arw2)"/>
+          <g>
+            <circle cx="386" cy="70" r="34" fill="var(--chip)" stroke="var(--accent)" stroke-width="2"/>
+            <text x="386" y="66" fill="var(--ink)">③買う</text><text x="386" y="82" font-size="10" font-weight="400" fill="var(--sub)">契約・登記</text>
+          </g>
+          <line x1="422" y1="70" x2="496" y2="70" stroke="var(--accent)" stroke-width="2" marker-end="url(#arw2)"/>
+          <g>
+            <circle cx="534" cy="70" r="34" fill="var(--chip)" stroke="var(--accent)" stroke-width="2"/>
+            <text x="534" y="63" fill="var(--ink)">④設計</text><text x="534" y="79" font-size="10" font-weight="400" fill="var(--sub)">見積・補助</text>
+          </g>
+          <line x1="570" y1="70" x2="644" y2="70" stroke="var(--accent)" stroke-width="2" marker-end="url(#arw2)"/>
+          <g>
+            <circle cx="682" cy="70" r="34" fill="var(--chip)" stroke="var(--accent)" stroke-width="2"/>
+            <text x="682" y="66" fill="var(--ink)">⑤直す</text><text x="682" y="82" font-size="10" font-weight="400" fill="var(--sub)">施工</text>
+          </g>
+          <line x1="718" y1="70" x2="770" y2="70" stroke="var(--accent)" stroke-width="2" marker-end="url(#arw2)"/>
+          <g>
+            <circle cx="790" cy="70" r="28" fill="var(--accent)" stroke="var(--accent)" stroke-width="2"/>
+            <text x="790" y="74" fill="#fff" font-size="11">⑥住む</text>
+          </g>
+        </g>
+        <!-- detail callouts -->
+        <g font-size="11" fill="var(--ink)">
+          <rect x="26" y="132" width="250" height="140" rx="12" fill="var(--panel)" stroke="var(--line)"/>
+          <text x="40" y="154" font-weight="700" fill="var(--accent)">①探す・②診る（取得前）</text>
+          <text x="40" y="176">・空き家バンク登録／仲介で物件確認</text>
+          <text x="40" y="196">・現地内見＋<tspan font-weight="700">インスペクション</tspan>（数万円）</text>
+          <text x="40" y="216">・再建築可否／接道／擁壁／境界を確認</text>
+          <text x="40" y="236">・上下水・浄化槽・ガス・電気の有無</text>
+          <text x="40" y="256">・資金計画（自己資金＋リフォームローン）</text>
+
+          <rect x="286" y="132" width="250" height="140" rx="12" fill="var(--panel)" stroke="var(--line)"/>
+          <text x="300" y="154" font-weight="700" fill="var(--accent)">③買う（契約・登記）</text>
+          <text x="300" y="176">・売買契約＋<tspan font-weight="700">重要事項説明</tspan></text>
+          <text x="300" y="196">・契約不適合責任の範囲を確認</text>
+          <text x="300" y="216">・決済→<tspan font-weight="700">所有権移転登記</tspan>（司法書士）</text>
+          <text x="300" y="236">・空き家バンクは当事者/宅建業者が仲介</text>
+          <text x="300" y="256">・取得後の固定資産税・管理も想定</text>
+
+          <rect x="546" y="132" width="250" height="140" rx="12" fill="var(--panel)" stroke="var(--line)"/>
+          <text x="560" y="154" font-weight="700" fill="var(--accent)">④設計〜⑤直す</text>
+          <text x="560" y="176">・実測→設計→相見積（2〜3社）</text>
+          <text x="560" y="196">・<tspan font-weight="700" fill="var(--hi)">補助金は着工前に申請</tspan>（後出し不可）</text>
+          <text x="560" y="216">・旧耐震は耐震診断・改修補助の対象に</text>
+          <text x="560" y="236">・大規模なら建築確認が要る場合あり</text>
+          <text x="560" y="256">・完了→（必要なら登記）→入居</text>
+        </g>
+      </svg>
+      <div class="cap">図④：取得〜入居のプロセスと、各段階の要チェック</div>
+    </div>
+    <div class="note"><b>取り逃しがちな3点：</b>㋐ 補助金＝<b>着工前申請</b>（自治体のリフォーム/移住/耐震/空き家改修補助）。㋑ インスペクションは<b>契約前</b>。㋒ <b>再建築可否</b>と<b>インフラ有無</b>は価格より先に確認（後から効く）。</div>
+  </section>
+
+  <!-- ============ ⑤ 費用の目安 ============ -->
+  <section id="cost">
+    <div class="sec-no">STEP 05 ― COST</div>
+    <h2>費用の目安（一般論）</h2>
+    <div class="sub">同じ「空き家」でも段階で費用は10倍変わります。下は<b>戸建てを想定した一般的なレンジ</b>（地域・面積・仕様で大きく変動）。物件価格が安くても、総額は「価格＋リノベ＋諸費用」で見ます。</div>
+    <div class="fig">
+      <svg viewBox="0 0 820 250" role="img" aria-label="リノベ段階別の費用レンジ">
+        <!-- axis -->
+        <g font-size="11" fill="var(--sub)">
+          <line x1="150" y1="30" x2="150" y2="210" stroke="var(--line)"/>
+          <line x1="150" y1="210" x2="800" y2="210" stroke="var(--line)"/>
+          <text x="150" y="228" text-anchor="middle">0</text>
+          <text x="313" y="228" text-anchor="middle">500万</text>
+          <text x="476" y="228" text-anchor="middle">1000万</text>
+          <text x="639" y="228" text-anchor="middle">1500万</text>
+          <text x="800" y="228" text-anchor="end">2000万+</text>
+        </g>
+        <!-- bars: scale 500万=163px, start x=150 -->
+        <g>
+          <text x="140" y="56" text-anchor="end" font-size="12" fill="var(--ink)">A 表層</text>
+          <rect x="150" y="44" width="98" height="20" rx="4" fill="var(--lo)"/>
+          <text x="256" y="59" font-size="11" fill="var(--sub)">〜約300万</text>
+
+          <text x="140" y="92" text-anchor="end" font-size="12" fill="var(--ink)">B 部分フル</text>
+          <rect x="248" y="80" width="196" height="20" rx="4" fill="var(--accent)"/>
+          <text x="452" y="95" font-size="11" fill="var(--sub)">約300〜900万</text>
+
+          <text x="140" y="128" text-anchor="end" font-size="12" fill="var(--ink)">C スケルトン</text>
+          <rect x="444" y="116" width="293" height="20" rx="4" fill="var(--mid)"/>
+          <text x="745" y="131" font-size="11" fill="var(--sub)">約900〜1800万</text>
+
+          <text x="140" y="164" text-anchor="end" font-size="12" fill="var(--ink)">D 建替え</text>
+          <rect x="586" y="152" width="214" height="20" rx="4" fill="var(--hi)"/>
+          <text x="586" y="188" font-size="11" fill="var(--sub)">解体費＋新築（1800万〜・要個別）</text>
+        </g>
+      </svg>
+      <div class="cap">図⑤：段階別の費用レンジ（戸建て・一般的目安。実際は面積/仕様/地域で変動）</div>
+    </div>
+    <table>
+      <tr><th>費目</th><th>ざっくり内訳</th><th>備考</th></tr>
+      <tr><td>物件取得</td><td>本体価格＋仲介手数料＋登記＋不動産取得税</td><td>諸費用は価格の1割前後を見込む</td></tr>
+      <tr><td>調査・設計</td><td>インスペクション／耐震診断／設計料</td><td>取得前後に。補助対象のことも</td></tr>
+      <tr><td>工事</td><td>躯体・防水・設備・断熱・内装（段階次第）</td><td>相見積2〜3社、内訳を比較</td></tr>
+      <tr><td>差引く</td><td>自治体の補助金（移住/リフォーム/耐震/空き家改修）</td><td><b>着工前申請</b>・上限/要件あり</td></tr>
+    </table>
+    <div class="note"><b>総額の見方：</b>「物件30万でも、雨仕舞い＋水回り＋耐震で数百万」というのは普通。<b>“安い物件×直す前提”は、総額と補助金で判断</b>するのが安全です（本サイトの「物件ベストピック」の総額試算も参照）。</div>
+  </section>
+
+  <!-- ============ ⑥ 手法カタログ ============ -->
+  <section id="catalog">
+    <div class="sec-no">STEP 06 ― CATALOG</div>
+    <h2>手法・情報カタログ（外部リソース）</h2>
+    <div class="sub">「どう直すか」を型（レシピ）や事例で学べる、信頼できる外部リソース。用途で使い分けます。</div>
+    <div class="cards">
+      <a class="rc" href="https://mokuchin-recipe.jp/" target="_blank" rel="noopener">
+        <div class="ic">🧩</div><h4>モクチンレシピ</h4>
+        <p>木造賃貸アパートの改修“レシピ”50+をカタログ化。部位単位で「こう直すと効く」を写真＋図面で。会員は仕様書DL可。</p>
+        <span class="go">部位ごとの型を学ぶ →</span>
+      </a>
+      <a class="rc" href="https://rebuildingcenter.jp/" target="_blank" rel="noopener">
+        <div class="ic">🪚</div><h4>ReBuilding Center JAPAN</h4>
+        <p>長野・諏訪。古材・古道具のレスキュー＆販売＋DIYリノベのワークショップ/ノウハウ。“自分の手で直す”派の拠点。</p>
+        <span class="go">DIY・古材で直す →</span>
+      </a>
+      <a class="rc" href="https://www.mlit.go.jp/jutakukentiku/house/akiya-model/index.html" target="_blank" rel="noopener">
+        <div class="ic">🏛</div><h4>国交省 空き家対策モデル事業</h4>
+        <p>採択された先行・優良事例集。「こう再生した」が読める公的リソース。横展開向けの調査・改修の実例。</p>
+        <span class="go">再生事例を見る →</span>
+      </a>
+      <a class="rc" href="https://www.mlit.go.jp/jutakukentiku/house/akiya-taisaku/" target="_blank" rel="noopener">
+        <div class="ic">📑</div><h4>国交省 空き家対策 特設サイト</h4>
+        <p>支援メニュー・補助制度（空き家再生等推進事業ほか）の全体像。制度と窓口の起点に。</p>
+        <span class="go">制度・補助を調べる →</span>
+      </a>
+      <a class="rc" href="https://www.homes.co.jp/cont/press/rent/rent_00474/" target="_blank" rel="noopener">
+        <div class="ic">📰</div><h4>モクチン企画の解説</h4>
+        <p>「レシピ化」の思想と実装（LIFULL HOME'S PRESS）。なぜ型にすると再生が回るのか。</p>
+        <span class="go">背景を読む →</span>
+      </a>
+      <a class="rc" href="https://www.ktr.mlit.go.jp/ktr_content/content/000873300.pdf" target="_blank" rel="noopener">
+        <div class="ic">📗</div><h4>自治体の空き家対策 実例集</h4>
+        <p>関東地整（令和6年3月）の実例集PDF。自治体×民間の再生・活用パターン集。</p>
+        <span class="go">実例集(PDF) →</span>
+      </a>
+    </div>
+    <h3>用途で選ぶ</h3>
+    <table>
+      <tr><th>やりたいこと</th><th>近いリソース</th></tr>
+      <tr><td>部位ごとに安く直す“型”が欲しい</td><td>モクチンレシピ</td></tr>
+      <tr><td>自分の手で古材リノベしたい</td><td>ReBuilding Center／DIYメディア（DIYer(s) 等）</td></tr>
+      <tr><td>補助金込みで再生事例を見たい</td><td>国交省モデル事業・自治体実例集</td></tr>
+      <tr><td>手をかけず活用したい</td><td>アキサポ／カリアゲJAPAN 等の借上げ・活用型</td></tr>
+    </table>
+  </section>
+
+  <div class="disc">
+    ※本ページは一般的な整理です。実際の可否・費用・補助要件は<b>物件ごとに大きく異なり</b>、必ず建築士・施工会社・自治体窓口・宅建業者にご確認ください。金額レンジ・築年区分・図は理解を助けるための概算/概念図で、特定物件の保証ではありません。外部リンク先の内容・料金は各運営者に帰属します。<br>
+    MOVING ・ 空き家再生ガイド ／ レポートハブに戻る → <a href="home.html" style="color:var(--accent)">home</a>
+  </div>
+</div></body></html>
