@@ -5,6 +5,9 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/((?!data/|print/|assets/).+)", "destination": "/data/report/$1" }
+  ],
   "headers": [
     {
       "source": "/print/pdf/(.*)",
