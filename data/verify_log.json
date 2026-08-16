@@ -1,10 +1,10 @@
 {
- "checked": "2026-08-15",
+ "checked": "2026-08-16",
  "counts": {
   "ALIVE": 1,
   "GONE": 0,
-  "UNKNOWN": 51,
-  "SKIP": 4
+  "UNKNOWN": 52,
+  "SKIP": 5
  },
  "results": [
   {
@@ -102,6 +102,14 @@
    "url": "https://www.athome.co.jp/kodate/chuko/hokkaido/list/#seed-20",
    "status": "UNKNOWN",
    "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "53e72f4665e5",
+   "location": "静岡県賀茂郡東伊豆町白田",
+   "price_man": "140.0",
+   "url": "https://higashiizu-t22301.akiya-athome.jp/bukken/detail/buy/37285",
+   "status": "SKIP",
+   "reason": "HTTP 403(ブロック)"
   },
   {
    "id": "858c2f81050c",
@@ -414,6 +422,14 @@
    "url": "https://tsukumi-c44207.akiya-athome.jp/bukken/detail/buy/30682",
    "status": "SKIP",
    "reason": "HTTP 403(ブロック)"
+  },
+  {
+   "id": "4ae49bf47165",
+   "location": "神奈川県横須賀市武3丁目",
+   "price_man": "300.0",
+   "url": "https://www.athome.co.jp/kodate/chuko/kanagawa/yokosuka-city/057-town/list/#yokosuka-take-3k300",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
   },
   {
    "id": "c7bf8416109d",
