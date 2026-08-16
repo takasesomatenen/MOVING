@@ -11,10 +11,16 @@
 
 ## ファイル
 
-| ファイル | 貼り付け先 |
+ディレクトリがそのまま Xcode のターゲット構成に対応しています。
+
+| ファイル | 対応するターゲット |
 | --- | --- |
-| `KeyboardViewController.swift` | Custom Keyboard Extension ターゲットの `KeyboardViewController.swift` |
-| `HostApp/ContentView.swift` | App ターゲットの `ContentView.swift`（動作確認用・任意） |
+| `SplitKBKeyboard/KeyboardViewController.swift` | Custom Keyboard Extension（本体） |
+| `SplitKBKeyboard/Info.plist` | 同上（`NSExtension` の設定） |
+| `SplitKB/SplitKBApp.swift` | App（エントリポイント） |
+| `SplitKB/ContentView.swift` | App（動作確認用の入力欄） |
+
+**セットアップ担当の方へ:** 手順の詳細・設計・確認項目は [`HANDOVER.md`](./HANDOVER.md) にまとめてあります。
 
 ---
 
@@ -26,9 +32,9 @@
 2. **File > New > Target… > iOS > Custom Keyboard Extension**
    - Product Name: `SplitKBKeyboard`
    - 「Activate scheme?」と聞かれたら **Activate** で OK
-3. 生成された `SplitKBKeyboard/KeyboardViewController.swift` を開き、**中身を全部消して**
-   このリポジトリの `KeyboardViewController.swift` を丸ごと貼り付ける
-4. （任意）App 側の `ContentView.swift` も差し替えると、その場で試せます
+3. 生成された `KeyboardViewController.swift` を開き、**中身を全部消して**
+   このリポジトリの `SplitKBKeyboard/KeyboardViewController.swift` を丸ごと貼り付ける
+4. （任意）App 側の `SplitKBApp.swift` / `ContentView.swift` も差し替えると、その場で試せます
 5. プロジェクト設定 → 両方のターゲットの **Minimum Deployments** を **iOS 15.0** 以上にする
 6. iPad（実機 or シミュレータ）を選んで **⌘R** で実行
 
