@@ -2,7 +2,7 @@
 
 使い方:
     blender --python design/blender_hut.py
-    blender --background --python design/blender_hut.py -- --render out/
+    blender --background --python design/blender_hut.py -- out/
 
 寸法はすべて design/spec.json が単一の情報源。座標系は右手系メートル、
 原点=敷地南西隅のGL±0、+X=東 / +Y=真北 / +Z=上（Blender標準と一致）。
@@ -404,9 +404,10 @@ def build_vegetation(spec, mats, col, winter=False):
     for i, (x, y, h) in enumerate(spec["vegetation"]["trees"]):
         gz = ground_z(spec, y)
         r = 0.125 + (h - 12.0) * 0.02
-        cylinder(f"trunk_{i}", x, y, gz, gz + h * 0.35, r, mats["trunk"], col, segments=8)
+        cylinder(f"trunk_{i}", x, y, gz, gz + h * 0.55, r, mats["trunk"], col, segments=8)
         if not winter:
-            cone(f"crown_{i}", x, y, gz + h * 0.30, gz + h, h * 0.16, mats["foliage"], col)
+            # カラマツの樹冠は細い。幹の半ばから上に、直径がおおむね樹高の1/7
+            cone(f"crown_{i}", x, y, gz + h * 0.45, gz + h, h * 0.07, mats["foliage"], col)
 
 
 # ---------------------------------------------------------------- 光とカメラ
@@ -449,6 +450,23 @@ def build_cameras(spec, col):
     return made
 
 
+def setup_render(scene, samples=64, gpu=False, res=(2000, 1250)):
+    """書き出し用の共通設定。Cycles・CPU既定・空色の環境光。"""
+    scene.render.engine = "CYCLES"
+    scene.cycles.device = "GPU" if gpu else "CPU"
+    scene.cycles.samples = samples
+    scene.render.resolution_x, scene.render.resolution_y = res
+    scene.render.film_transparent = False
+    if scene.world is None:
+        scene.world = bpy.data.worlds.new("world")
+    scene.world.use_nodes = True
+    bg = scene.world.node_tree.nodes.get("Background")
+    if bg:
+        bg.inputs[0].default_value = (0.42, 0.55, 0.72, 1.0)   # 高原の空
+        bg.inputs[1].default_value = 1.2
+    return scene
+
+
 def build_view_proxy(spec, mats, col):
     """浅間山のプロキシ。実距離17.4kmだと扱いにくいので3km地点に高さを合わせて置く。"""
     v = spec["view"]
@@ -464,8 +482,15 @@ def build_view_proxy(spec, mats, col):
 
 def main():
     argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
-    render_dir = argv[0] if argv else None
-    winter = "--winter" in argv
+    flags = [a for a in argv if a.startswith("--")]
+    positional = [a for a in argv if not a.startswith("--")]
+    render_dir = positional[0] if positional else None
+    winter = "--winter" in flags
+    gpu = "--gpu" in flags
+    samples = 64
+    for f in flags:
+        if f.startswith("--samples="):
+            samples = int(f.split("=", 1)[1])
 
     spec = load_spec()
     wipe_scene()
@@ -492,8 +517,7 @@ def main():
     scene = bpy.context.scene
     scene.unit_settings.system = "METRIC"
     scene.unit_settings.length_unit = "METERS"
-    scene.render.resolution_x = 2000
-    scene.render.resolution_y = 1250
+    setup_render(scene, samples=samples, gpu=gpu)
 
     hut = spec["hut"]
     print("─" * 62)
@@ -510,7 +534,7 @@ def main():
             scene.camera = cam
             scene.render.filepath = os.path.join(render_dir, f"{c['id']}.png")
             bpy.ops.render.render(write_still=True)
-            print(f"  rendered {c['id']} ({c['label']})")
+            print(f"  rendered {c['id']} ({c['label']}) → {scene.render.filepath}")
     else:
         set_sun(spec, spec["cameras"][0]["sun"])
         scene.camera = cams[0][0]

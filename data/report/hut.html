@@ -41,6 +41,11 @@ pre code{ background:none; border:none; padding:0; }
 .dwg svg{ width:100%; height:auto; display:block; background:var(--surface2);
   border:1px solid var(--line); border-radius:12px; }
 .dwg figcaption{ font-size:10.5px; color:var(--sub); margin-top:6px; line-height:1.6; }
+.shots{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:10px; }
+@media(max-width:640px){ .shots{ grid-template-columns:1fr; } }
+.shots figure{ margin:0; }
+.shots img{ width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:11px; background:var(--surface2); }
+.shots figcaption{ font-size:10.5px; color:var(--sub); margin-top:5px; }
 svg text{ font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
   fill:var(--ink); font-size:9.5px; }
 svg text.tiny{ font-size:8px; fill:var(--sub); }
@@ -115,8 +120,8 @@ svg .view{ stroke:var(--gold); stroke-width:1.3; stroke-dasharray:7 4; }
   <circle cx="318.0" cy="408.0" r="5.848" class="tree" />
   <circle cx="296.0" cy="352.0" r="4.352" class="tree" />
   <circle cx="324.0" cy="288.0" r="5.406000000000001" class="tree" />
-  <circle cx="156.0" cy="486.0" r="4.6240000000000006" class="tree" />
-  <circle cx="234.0" cy="478.0" r="5.474000000000001" class="tree" />
+  <circle cx="70.0" cy="482.0" r="4.6240000000000006" class="tree" />
+  <circle cx="322.0" cy="462.0" r="5.474000000000001" class="tree" />
   <circle cx="288.0" cy="242.0" r="4.760000000000001" class="tree" />
   <circle cx="180.0" cy="214.0" r="4.25" class="tree" />
   <circle cx="100.0" cy="170.0" r="5.95" class="tree" />
@@ -349,15 +354,28 @@ svg .view{ stroke:var(--gold); stroke-width:1.3; stroke-dasharray:7 4; }
   <div class="subh">4カットぶんの位置・注視点・画角。各カットに既定の太陽プリセットを紐づけてある</div>
   <table>
     <tr><th>ID</th><th>カット</th><th>位置 (x,y,z)</th><th>注視点</th><th>画角</th><th>太陽</th></tr>
-    <tr><td><code>south_winter</code></td><td>南から・冬の朝</td><td class="n">7.14, -2.0, 1.6</td><td class="n">7.14, 8.7, 2.2</td><td class="n">35mm</td><td><code>winter_solstice_9h</code></td></tr>
-<tr><td><code>southwest_summer</code></td><td>南西から・夏の夕</td><td class="n">-1.5, 0.5, 1.75</td><td class="n">7.14, 9.0, 2.6</td><td class="n">28mm</td><td><code>summer_solstice_17h</code></td></tr>
+    <tr><td><code>south_winter</code></td><td>南から・冬の朝</td><td class="n">7.14, -9.5, 2.1</td><td class="n">7.14, 8.7, 2.3</td><td class="n">35mm</td><td><code>winter_solstice_9h</code></td></tr>
+<tr><td><code>southwest_summer</code></td><td>南西から・夏の夕</td><td class="n">-7.0, -6.0, 2.6</td><td class="n">7.14, 9.0, 2.6</td><td class="n">28mm</td><td><code>summer_solstice_17h</code></td></tr>
 <tr><td><code>interior_south</code></td><td>内観・南を見る</td><td class="n">7.14, 10.6, 2.15</td><td class="n">7.14, -5.0, 1.9</td><td class="n">24mm</td><td><code>winter_solstice_noon</code></td></tr>
-<tr><td><code>aerial</code></td><td>俯瞰・敷地全体</td><td class="n">26.0, -14.0, 18.0</td><td class="n">7.0, 9.75, 1.5</td><td class="n">50mm</td><td><code>equinox_noon</code></td></tr>
+<tr><td><code>aerial</code></td><td>俯瞰・敷地全体</td><td class="n">34.0, -24.0, 27.0</td><td class="n">7.0, 9.75, 1.5</td><td class="n">45mm</td><td><code>equinox_noon</code></td></tr>
   </table>
 </section>
 
 <section>
-  <h2>⑧ 立てかた</h2>
+  <h2>⑧ 参考レンダ</h2>
+  <div class="subh">Cycles・48サンプルで書き出したマッシングの現状。内装のマテリアル分けと軸組はまだ入っていない</div>
+  <div class="shots">
+<figure><img src="../../design/renders/south_winter.png" alt="南から・冬の朝" loading="lazy"><figcaption><b>南から・冬の朝</b>／35mm・太陽 <code>winter_solstice_9h</code></figcaption></figure>
+<figure><img src="../../design/renders/southwest_summer.png" alt="南西から・夏の夕" loading="lazy"><figcaption><b>南西から・夏の夕</b>／28mm・太陽 <code>summer_solstice_17h</code></figcaption></figure>
+<figure><img src="../../design/renders/interior_south.png" alt="内観・南を見る" loading="lazy"><figcaption><b>内観・南を見る</b>／24mm・太陽 <code>winter_solstice_noon</code></figcaption></figure>
+<figure><img src="../../design/renders/aerial.png" alt="俯瞰・敷地全体" loading="lazy"><figcaption><b>俯瞰・敷地全体</b>／45mm・太陽 <code>equinox_noon</code></figcaption></figure>
+  </div>
+  <div class="note">内観カットの開口の中に浅間山のプロキシが写り込んでいる。眺望の方位（203°）と開口の位置関係は
+  これで検証できている。内側の面にまだ外壁材が付いているので内装が黒いのは既知（<code>design/HANDOFF.md</code> 参照）。</div>
+</section>
+
+<section>
+  <h2>⑨ 立てかた</h2>
   <div class="subh">spec.json を読んでマッシングを丸ごと生成する。地形・敷地境界・基礎・軸組・屋根・デッキ・別棟・砕石・樹木・太陽・カメラまで入る</div>
 <pre><code># GUIで開いて確認する
 blender --python design/blender_hut.py
@@ -366,8 +384,15 @@ blender --python design/blender_hut.py
 blender --python design/blender_hut.py -- --winter
 
 # 4カットまとめて書き出す
-blender --background --python design/blender_hut.py -- out/</code></pre>
-  <div class="note">寸法を変えたいときは <code>design/spec.json</code> だけを触る。
+blender --background --python design/blender_hut.py -- out/
+
+# 高品質・GPU(Metal)
+blender --background --python design/blender_hut.py -- out/ --samples=128 --gpu
+
+# 寸法の辻褄を検算
+python3 design/check_spec.py</code></pre>
+  <div class="note">macOSでの手順・既知の粗さ・次にやることは <code>design/HANDOFF.md</code> にまとめてある。
+  寸法を変えたいときは <code>design/spec.json</code> だけを触る。
   この頁は <code>python -m design.make_hut_page</code> で作り直せるので、図面とモデルがずれない。</div>
 </section>
 

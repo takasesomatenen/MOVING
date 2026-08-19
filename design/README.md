@@ -7,6 +7,8 @@
 | `spec.json` | 数値の単一の情報源。敷地・建物・開口・材料・太陽・カメラを全部ここに置く |
 | `blender_hut.py` | `spec.json` を読んでBlender上にマッシングを生成する |
 | `make_hut_page.py` | `spec.json` から図面付きレポート `data/report/hut.html` を生成する |
+| `HANDOFF.md` | ローカル（Mac）で全部動かすための引き継ぎ。まずこれ |
+| `renders/` | 参考レンダ4カット（Cycles・48サンプル） |
 | `check_spec.py` | 面積・屋根高・軒の出の効き・敷地への収まり・太陽変換の検算（ネット不要） |
 
 ## 座標系
@@ -23,7 +25,10 @@ python -m design.make_hut_page         # data/report/hut.html を作り直す
 blender --python design/blender_hut.py                 # GUIで開く
 blender --python design/blender_hut.py -- --winter     # カラマツを落葉させる
 blender --background --python design/blender_hut.py -- out/   # 4カット書き出し
+blender --background --python design/blender_hut.py -- out/ --samples=128 --gpu
 ```
+
+macOSでの手順・既知の粗さ・次にやることは `HANDOFF.md` にまとめてある。
 
 寸法を変えるときは `spec.json` だけを触る。図面もモデルも同じ数値から生成されるのでずれない。
 

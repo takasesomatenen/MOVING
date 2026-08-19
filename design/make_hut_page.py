@@ -327,6 +327,11 @@ pre code{ background:none; border:none; padding:0; }
 .dwg svg{ width:100%; height:auto; display:block; background:var(--surface2);
   border:1px solid var(--line); border-radius:12px; }
 .dwg figcaption{ font-size:10.5px; color:var(--sub); margin-top:6px; line-height:1.6; }
+.shots{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:10px; }
+@media(max-width:640px){ .shots{ grid-template-columns:1fr; } }
+.shots figure{ margin:0; }
+.shots img{ width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:11px; background:var(--surface2); }
+.shots figcaption{ font-size:10.5px; color:var(--sub); margin-top:5px; }
 svg text{ font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
   fill:var(--ink); font-size:9.5px; }
 svg text.tiny{ font-size:8px; fill:var(--sub); }
@@ -424,6 +429,11 @@ def build(sp):
         f'<td class="n">{p["azimuth_deg"]}°</td><td class="n">{p["altitude_deg"]}°</td>'
         f'<td class="n">{p["kelvin"]} K</td></tr>' for p in sp["sun_presets"])
 
+    shots = "\n".join(
+        f'<figure><img src="../../design/renders/{c["id"]}.png" alt="{c["label"]}" loading="lazy">'
+        f'<figcaption><b>{c["label"]}</b>／{c["lens"]}mm・太陽 <code>{c["sun"]}</code></figcaption></figure>'
+        for c in sp["cameras"])
+
     cam_rows = "\n".join(
         f'<tr><td><code>{c["id"]}</code></td><td>{c["label"]}</td>'
         f'<td class="n">{c["loc"][0]}, {c["loc"][1]}, {c["loc"][2]}</td>'
@@ -519,7 +529,17 @@ def build(sp):
 </section>
 
 <section>
-  <h2>⑧ 立てかた</h2>
+  <h2>⑧ 参考レンダ</h2>
+  <div class="subh">Cycles・48サンプルで書き出したマッシングの現状。内装のマテリアル分けと軸組はまだ入っていない</div>
+  <div class="shots">
+{shots}
+  </div>
+  <div class="note">内観カットの開口の中に浅間山のプロキシが写り込んでいる。眺望の方位（203°）と開口の位置関係は
+  これで検証できている。内側の面にまだ外壁材が付いているので内装が黒いのは既知（<code>design/HANDOFF.md</code> 参照）。</div>
+</section>
+
+<section>
+  <h2>⑨ 立てかた</h2>
   <div class="subh">spec.json を読んでマッシングを丸ごと生成する。地形・敷地境界・基礎・軸組・屋根・デッキ・別棟・砕石・樹木・太陽・カメラまで入る</div>
 <pre><code># GUIで開いて確認する
 blender --python design/blender_hut.py
@@ -528,8 +548,15 @@ blender --python design/blender_hut.py
 blender --python design/blender_hut.py -- --winter
 
 # 4カットまとめて書き出す
-blender --background --python design/blender_hut.py -- out/</code></pre>
-  <div class="note">寸法を変えたいときは <code>design/spec.json</code> だけを触る。
+blender --background --python design/blender_hut.py -- out/
+
+# 高品質・GPU(Metal)
+blender --background --python design/blender_hut.py -- out/ --samples=128 --gpu
+
+# 寸法の辻褄を検算
+python3 design/check_spec.py</code></pre>
+  <div class="note">macOSでの手順・既知の粗さ・次にやることは <code>design/HANDOFF.md</code> にまとめてある。
+  寸法を変えたいときは <code>design/spec.json</code> だけを触る。
   この頁は <code>python -m design.make_hut_page</code> で作り直せるので、図面とモデルがずれない。</div>
 </section>
 
