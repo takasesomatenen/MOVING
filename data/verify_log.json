@@ -1,0 +1,475 @@
+{
+ "checked": "2026-08-18",
+ "counts": {
+  "ALIVE": 1,
+  "GONE": 0,
+  "UNKNOWN": 52,
+  "SKIP": 5
+ },
+ "results": [
+  {
+   "id": "303ae82ab60c",
+   "location": "大分県佐伯市大字二栄",
+   "price_man": "30.0",
+   "url": "https://saiki-c44205.akiya-athome.jp/#no296-niei",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "fc84007889f7",
+   "location": "長崎県西海市大瀬戸町瀬戸板浦郷",
+   "price_man": "50.0",
+   "url": "https://www.city.saikai.nagasaki.jp/kurashi/jutaku/2/5561.html#206",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "6381da52a5af",
+   "location": "三重県尾鷲市三木里町",
+   "price_man": "50.0",
+   "url": "https://mrt.jpn.org/inakaakiya/post-3710/",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "df31193e8f6a",
+   "location": "長崎県西海市西彼町白崎郷",
+   "price_man": "69.0",
+   "url": "https://www.city.saikai.nagasaki.jp/kurashi/jutaku/2/5561.html#198",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "59ec2760554b",
+   "location": "千葉県鴨川市小湊",
+   "price_man": "70.0",
+   "url": "https://www.city.kamogawa.lg.jp/site/iju/177.html#3c4d7a86",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "e17aebff938f",
+   "location": "長崎県対馬市",
+   "price_man": "100",
+   "url": "https://www.akiya-athome.jp/buy/42/#seed-7",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "0e60042a7d6d",
+   "location": "長崎県平戸市",
+   "price_man": "100",
+   "url": "https://www.homes.co.jp/akiyabank/btag/1/nagasaki/hirado/#seed-9",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "ea9aa15df519",
+   "location": "高知県室戸市",
+   "price_man": "100",
+   "url": "https://www.homes.co.jp/akiyabank/kochi/muroto/#seed-13",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "be91490ff3f2",
+   "location": "北海道室蘭市白鳥台",
+   "price_man": "100",
+   "url": "https://www.athome.co.jp/kodate/chuko/hokkaido/list/#seed-19",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "d99b475f29de",
+   "location": "千葉県鴨川市宮",
+   "price_man": "100.0",
+   "url": "https://suumo.jp/tochi/chiba/sc_kamogawa/#b2b8477f",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "7b84aba9966f",
+   "location": "大分県津久見市大字網代赤崎",
+   "price_man": "100.0",
+   "url": "https://tsukumi-c44207.akiya-athome.jp/buy/house/area/oitaken/tsukumishi/list?gyosei_cd%5B%5D=44207#no141-ajiroakasaki",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "1215b3f85ea6",
+   "location": "北海道室蘭市大沢町",
+   "price_man": "120",
+   "url": "https://www.athome.co.jp/kodate/chuko/hokkaido/list/#seed-20",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "53e72f4665e5",
+   "location": "静岡県賀茂郡東伊豆町白田",
+   "price_man": "140.0",
+   "url": "https://higashiizu-t22301.akiya-athome.jp/bukken/detail/buy/37285",
+   "status": "SKIP",
+   "reason": "HTTP 403(ブロック)"
+  },
+  {
+   "id": "858c2f81050c",
+   "location": "千葉県南房総市白浜町滝口",
+   "price_man": "150.0",
+   "url": "https://www.athome.co.jp/tochi/chiba/minamiboso-city/list/#58088928",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "229650866b63",
+   "location": "和歌山県東牟婁郡串本町古座",
+   "price_man": "150.0",
+   "url": "https://www.athome.co.jp/kodate/chuko/wakayama/higashimuro_kushimoto-city/list/#koza-6sdk",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "23b87d71157f",
+   "location": "千葉県南房総市和田町和田",
+   "price_man": "180",
+   "url": "https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/list/#seed-1",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "72b9ef4449b1",
+   "location": "静岡県賀茂郡西伊豆町田子",
+   "price_man": "180.0",
+   "url": "https://www.athome.co.jp/kodate/chuko/shizuoka/kamo_nishiizu-city/list/#tago-4dk",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "fcd4d14dd07c",
+   "location": "長崎県対馬市",
+   "price_man": "200",
+   "url": "https://www.akiya-athome.jp/buy/42/#seed-8",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "13e12b60a113",
+   "location": "大分県佐伯市",
+   "price_man": "200",
+   "url": "https://www.akiya-athome.jp/buy/44/#seed-10",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "182f2a0404cc",
+   "location": "兵庫県姫路市網干区興浜",
+   "price_man": "200",
+   "url": "https://suumo.jp/chukoikkodate/hyogo/nj_175/#seed-17",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "3b9c01eeea47",
+   "location": "兵庫県たつの市",
+   "price_man": "200",
+   "url": "https://www.iju-style.jp/bukken/list#seed-18",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "43632413d343",
+   "location": "鹿児島県出水市",
+   "price_man": "200.0",
+   "url": "https://www.akiya-athome.jp/buy/46/#izumi-4dk",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "7f126ffbdbf7",
+   "location": "大分県佐伯市蒲江大字丸市尾浦",
+   "price_man": "200.0",
+   "url": "https://saiki-c44205.akiya-athome.jp/#kamae-maruichionoura",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "4c471f47fcac",
+   "location": "大分県佐伯市上浦",
+   "price_man": "200.0",
+   "url": "https://www.homes.co.jp/akiyabank/oita/saiki/#kamiura",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "01ec29dcfe54",
+   "location": "山口県萩市大字山田玉江浦",
+   "price_man": "200.0",
+   "url": "https://hagiporto.com/banklist/#yamada-tamaeura",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "691c3f6c3bae",
+   "location": "大分県津久見市大字堅浦",
+   "price_man": "200.0",
+   "url": "https://tsukumi-c44207.akiya-athome.jp/bukken/detail/buy/%E6%B4%A5%E4%B9%85%E8%A6%8B%E5%B8%82%E5%A3%B2%E6%88%B8%E5%BB%BA%E4%BD%8F%E5%AE%85-30681",
+   "status": "SKIP",
+   "reason": "HTTP 403(ブロック)"
+  },
+  {
+   "id": "2525022af2c0",
+   "location": "長崎県平戸市生月町壱部浦",
+   "price_man": "200.0",
+   "url": "https://www.athome.co.jp/kodate/chuko/nagasaki/hirado-city/list/#ikitsuki-ichibuura",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "943609188ef3",
+   "location": "千葉県鴨川市太海浜",
+   "price_man": "220",
+   "url": "https://www.homes.co.jp/akiyabank/btag/1/chiba/#seed-3",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "e9e400dbb8ca",
+   "location": "大分県佐伯市米水津色利浦",
+   "price_man": "235.0",
+   "url": "https://www.athome.co.jp/kodate/chuko/oita/saiki-city/list/#yonouzu-irouhira",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "5a521556e83b",
+   "location": "和歌山県西牟婁郡白浜町堅田",
+   "price_man": "248",
+   "url": "https://www.athome.co.jp/kodate/chuko/wakayama/list/#seed-11",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "9d6705f171f6",
+   "location": "千葉県南房総市白浜町白浜",
+   "price_man": "280",
+   "url": "https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/list/#seed-2",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "3a3db4d7b42b",
+   "location": "高知県土佐市新居",
+   "price_man": "290",
+   "url": "https://www.athome.co.jp/kodate/chuko/kochi/list/#seed-15",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "e33ae12e11fa",
+   "location": "山口県大島郡周防大島町",
+   "price_man": "290",
+   "url": "https://teiju-suo-oshima.com/akiya/akiya_condition_category/oceanview#seed-16",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "013abf663f01",
+   "location": "静岡県下田市須崎",
+   "price_man": "290.0",
+   "url": "https://www.athome.co.jp/kodate/chuko/shizuoka/shimoda-city/020-town/list/#5ca224c8",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "b30c9dc2c029",
+   "location": "千葉県南房総市和田町小川",
+   "price_man": "290.0",
+   "url": "https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/102-town/list/#wada-ogawa",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "3b5e3d869792",
+   "location": "三重県志摩市大王町畔名",
+   "price_man": "298",
+   "url": "https://www.athome.co.jp/kodate/chuko/mie/shima-city/list/#seed-6",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "3033d44f92c1",
+   "location": "千葉県鴨川市広場",
+   "price_man": "300",
+   "url": "https://www.athome.co.jp/kodate/chuko/chiba/kamogawa-city/list/#seed-4",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "b3f8d3560739",
+   "location": "千葉県匝瑳市",
+   "price_man": "300",
+   "url": "https://www.akiya-athome.jp/buy/12/#seed-5",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "e8ad148e168a",
+   "location": "和歌山県日高郡由良町大引",
+   "price_man": "300",
+   "url": "https://www.wakayamagurashi.jp/house/search/#seed-12",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "2d1bf815aa71",
+   "location": "高知県室戸市",
+   "price_man": "300",
+   "url": "https://www.homes.co.jp/akiyabank/kochi/muroto/#seed-14",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "a5c9ea6b64c7",
+   "location": "愛媛県西予市三瓶町下泊",
+   "price_man": "300.0",
+   "url": "https://www.homes.co.jp/akiyabank/btag/1/ehime/#seiyo-mikame-shimodomari",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "e4a33ca0233a",
+   "location": "鹿児島県出水市",
+   "price_man": "300.0",
+   "url": "https://www.akiya-athome.jp/buy/46/#izumi-5dk",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "5e3c9bf3b6a4",
+   "location": "千葉県南房総市白浜町白浜",
+   "price_man": "300.0",
+   "url": "https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/list/#c580722f",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "5599946dfbb2",
+   "location": "千葉県南房総市千倉町平磯",
+   "price_man": "300.0",
+   "url": "https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/list/#728f92ce",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "4c4bec2b2dac",
+   "location": "愛知県田原市",
+   "price_man": "300.0",
+   "url": "https://tahara-c23231.akiya-athome.jp/#a5c73bd3",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "1fc8d4327e16",
+   "location": "静岡県熱海市(南熱海)",
+   "price_man": "300.0",
+   "url": "https://suumo.jp/ms/chuko/shizuoka/sc_atami/nj_175/#e6b91e05",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "915db12061c3",
+   "location": "三重県志摩市大王町船越",
+   "price_man": "300.0",
+   "url": "https://suumo.jp/chukoikkodate/mie/sc_shima/",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "60d1bd20536d",
+   "location": "静岡県沼津市戸田",
+   "price_man": "300.0",
+   "url": "https://www.athome.co.jp/kodate/chuko/shizuoka/numazu-city/158-town/list/#heda-4dk",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "570fa5e6cf5f",
+   "location": "高知県須崎市上分丙",
+   "price_man": "300.0",
+   "url": "https://susaki-c39206.akiya-athome.jp/bukken/detail/buy/33919",
+   "status": "SKIP",
+   "reason": "HTTP 403(ブロック)"
+  },
+  {
+   "id": "4cc1bbb23a96",
+   "location": "山口県長門市仙崎白潟",
+   "price_man": "300.0",
+   "url": "https://myhome.nifty.com/chuko-ikkodate/yamaguchi/nagatoshi_ct/#senzaki-shirakata",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "f55e8312ad82",
+   "location": "島根県出雲市多伎町小田",
+   "price_man": "300.0",
+   "url": "https://www.haruka-f.co.jp/sale/detail/320015-242556",
+   "status": "ALIVE",
+   "reason": "HTTP 200"
+  },
+  {
+   "id": "0171f5e449a0",
+   "location": "大分県津久見市文京町",
+   "price_man": "300.0",
+   "url": "https://tsukumi-c44207.akiya-athome.jp/bukken/detail/buy/30682",
+   "status": "SKIP",
+   "reason": "HTTP 403(ブロック)"
+  },
+  {
+   "id": "4ae49bf47165",
+   "location": "神奈川県横須賀市武3丁目",
+   "price_man": "300.0",
+   "url": "https://www.athome.co.jp/kodate/chuko/kanagawa/yokosuka-city/057-town/list/#yokosuka-take-3k300",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "c7bf8416109d",
+   "location": "千葉県いすみ市大原",
+   "price_man": "350.0",
+   "url": "https://www.athome.co.jp/kodate/theme/hiraya/chiba/isumi-city/list/#0c4efba9",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "ed6dbb76df1c",
+   "location": "静岡県賀茂郡南伊豆町妻良",
+   "price_man": "350.0",
+   "url": "https://www.kahoufudousan.com/database.cgi#f2d77b0f",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "3b134d41aac5",
+   "location": "静岡県御前崎市白羽",
+   "price_man": "350.0",
+   "url": "https://www.athome.co.jp/kodate/chuko/shizuoka/omaezaki-city/list/#b343dde5",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "235b827aa3ac",
+   "location": "愛知県田原市小中山町",
+   "price_man": "350.0",
+   "url": "https://www.athome.co.jp/kodate/chuko/aichi/tahara-city/list/#2fd0b5d4",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "c6c45d891c87",
+   "location": "大分県津久見市中田町",
+   "price_man": "350.0",
+   "url": "https://tsukumi-c44207.akiya-athome.jp/bukken/detail/buy/30665",
+   "status": "SKIP",
+   "reason": "HTTP 403(ブロック)"
+  }
+ ]
+}

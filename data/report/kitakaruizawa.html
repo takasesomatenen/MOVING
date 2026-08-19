@@ -1,0 +1,724 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>北軽井沢 古民家リノベ計画 ― 場所・法・環境 ― MOVING</title>
+<style>
+  :root{ --bg:#eaf2f4; --card:#fff; --ink:#0f2a33; --sub:#5f7681; --line:#d8e5e8; --accent:#0d7c94; --chip:#f1f8f9;
+         --gold:#b8862b; --hi:#c8384c; --mid:#c9821f; --lo:#2f9163; --hibg:rgba(200,56,76,.10); --midbg:rgba(201,130,31,.12); --lobg:rgba(47,145,99,.12); --panel:#f6fbfc; --cold:#3f6ea8; --coldbg:rgba(63,110,168,.12); }
+  @media (prefers-color-scheme:dark){ :root{ --bg:#0a1417; --card:#12232a; --ink:#e7f1f3; --sub:#8ba3aa; --line:#22383f; --accent:#3bb6cc; --chip:#152a31;
+         --gold:#d7a94b; --hi:#e5697d; --mid:#e2a24e; --lo:#57bd8a; --hibg:rgba(229,105,125,.14); --midbg:rgba(226,162,78,.14); --lobg:rgba(87,189,138,.14); --panel:#0f1f25; --cold:#7aa8dc; --coldbg:rgba(122,168,220,.16); } }
+  :root[data-theme="light"]{ --bg:#eaf2f4; --card:#fff; --ink:#0f2a33; --sub:#5f7681; --line:#d8e5e8; --accent:#0d7c94; --chip:#f1f8f9;
+         --gold:#b8862b; --hi:#c8384c; --mid:#c9821f; --lo:#2f9163; --hibg:rgba(200,56,76,.10); --midbg:rgba(201,130,31,.12); --lobg:rgba(47,145,99,.12); --panel:#f6fbfc; --cold:#3f6ea8; --coldbg:rgba(63,110,168,.12); }
+  :root[data-theme="dark"]{ --bg:#0a1417; --card:#12232a; --ink:#e7f1f3; --sub:#8ba3aa; --line:#22383f; --accent:#3bb6cc; --chip:#152a31;
+         --gold:#d7a94b; --hi:#e5697d; --mid:#e2a24e; --lo:#57bd8a; --hibg:rgba(229,105,125,.14); --midbg:rgba(226,162,78,.14); --lobg:rgba(87,189,138,.14); --panel:#0f1f25; --cold:#7aa8dc; --coldbg:rgba(122,168,220,.16); }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif;
+        background:var(--bg); color:var(--ink); -webkit-font-smoothing:antialiased; padding:32px 18px 72px; line-height:1.6; }
+  .wrap{ max-width:820px; margin:0 auto; }
+  a.back{ font-size:12px; color:var(--accent); text-decoration:none; font-weight:700; }
+  .eyebrow{ font-size:11px; letter-spacing:.18em; font-weight:700; color:var(--accent); margin-top:14px; }
+  h1{ font-size:26px; margin:6px 0 8px; letter-spacing:.01em; }
+  .lead{ font-size:13.5px; color:var(--sub); line-height:1.8; margin-bottom:8px; }
+  .toc{ display:flex; flex-wrap:wrap; gap:7px; margin:16px 0 4px; }
+  .toc a{ font-size:12px; text-decoration:none; color:var(--ink); background:var(--chip); border:1px solid var(--line);
+          padding:5px 11px; border-radius:999px; }
+  .toc a:hover{ border-color:var(--accent); color:var(--accent); }
+  section{ background:var(--card); border:1px solid var(--line); border-radius:18px; padding:20px 20px 22px; margin-top:20px; }
+  .sec-no{ font-size:11px; letter-spacing:.16em; font-weight:800; color:var(--accent); }
+  h2{ font-size:19px; margin:4px 0 4px; }
+  .sub{ font-size:12.5px; color:var(--sub); line-height:1.75; margin-bottom:12px; }
+  h3{ font-size:14.5px; margin:16px 0 6px; }
+  h4{ font-size:13px; margin:12px 0 4px; }
+  p{ font-size:13px; line-height:1.8; }
+  ul,ol{ margin:6px 0 6px 2px; padding-left:18px; }
+  li{ font-size:12.8px; line-height:1.75; margin:3px 0; }
+  svg{ width:100%; height:auto; display:block; }
+  svg text{ font-family:inherit; }
+  .fig svg path{ fill:none; }
+  .fig{ background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:14px 12px; margin:10px 0 6px; overflow-x:auto; }
+  .cap{ font-size:11.5px; color:var(--sub); margin-top:8px; text-align:center; }
+  .legend{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:8px; }
+  .legend span{ font-size:11.5px; color:var(--sub); display:inline-flex; align-items:center; gap:5px; }
+  .sw{ width:12px; height:12px; border-radius:3px; display:inline-block; }
+  .flags{ background:var(--hibg); border:1px solid var(--hi); border-radius:12px; padding:12px 14px; margin-top:14px; }
+  .flags h4{ font-size:13px; color:var(--hi); margin:0 0 6px; }
+  .flags li{ color:var(--ink); }
+  .note{ background:var(--midbg); border:1px solid var(--mid); border-radius:12px; padding:11px 14px; margin-top:12px; font-size:12.3px; line-height:1.8; }
+  .note b{ color:var(--mid); }
+  .good{ background:var(--lobg); border:1px solid var(--lo); border-radius:12px; padding:11px 14px; margin-top:12px; font-size:12.3px; line-height:1.8; }
+  .good b{ color:var(--lo); }
+  .cold{ background:var(--coldbg); border:1px solid var(--cold); border-radius:12px; padding:11px 14px; margin-top:12px; font-size:12.3px; line-height:1.8; }
+  .cold b{ color:var(--cold); }
+  table{ border-collapse:collapse; width:100%; margin-top:12px; font-size:12.3px; }
+  th,td{ border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top; }
+  th{ background:var(--chip); font-size:11.5px; letter-spacing:.02em; }
+  .tw{ overflow-x:auto; }
+  .pill{ display:inline-block; font-size:10.5px; font-weight:800; padding:2px 8px; border-radius:999px; margin-right:5px; }
+  .p-must{ background:var(--hibg); color:var(--hi); border:1px solid var(--hi); }
+  .p-care{ background:var(--midbg); color:var(--mid); border:1px solid var(--mid); }
+  .p-ok{ background:var(--lobg); color:var(--lo); border:1px solid var(--lo); }
+  .p-chk{ background:var(--chip); color:var(--sub); border:1px solid var(--line); }
+  .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:12px; }
+  a.rc, div.rc{ display:block; text-decoration:none; color:var(--ink); background:var(--panel); border:1px solid var(--line);
+        border-radius:14px; padding:14px 15px; transition:transform .12s,border-color .12s; }
+  a.rc:hover{ transform:translateY(-2px); border-color:var(--accent); }
+  .rc .ic{ font-size:22px; } .rc h4{ font-size:14px; margin:7px 0 3px; }
+  .rc p{ font-size:12px; color:var(--sub); line-height:1.6; }
+  .rc .go{ font-size:11.5px; color:var(--accent); font-weight:700; margin-top:7px; display:inline-block; }
+  .disc{ font-size:11.5px; color:var(--sub); line-height:1.8; margin-top:22px; border-top:1px dashed var(--line); padding-top:14px; }
+  .src{ font-size:11.5px; line-height:1.9; }
+  .src a{ color:var(--accent); }
+  .chk{ list-style:none; padding-left:0; }
+  .chk li{ padding-left:22px; position:relative; margin:5px 0; }
+  .chk li:before{ content:"☐"; position:absolute; left:2px; color:var(--accent); font-weight:700; }
+</style></head><body><div class="wrap">
+
+<a class="back" href="home.html">← レポートハブへ戻る</a>
+<div class="eyebrow">MOVING ・ 高原の古民家再生</div>
+<h1>🏔 北軽井沢 古民家リノベ計画</h1>
+<p class="lead">「北軽井沢に古民家を買って直す」を、<b>①どこに買うか → ②法的に何が引っかかるか → ③どんな環境で暮らすことになるか → ④いくらでどう進むか</b>の順で実地ベースに落としたものです。北軽井沢は<b>行政区としては存在しない通称地名</b>で、群馬県吾妻郡<b>長野原町</b>大字北軽井沢と、隣接する<b>嬬恋村</b>側一帯を指します。つまり「軽井沢」と名乗りながら群馬県で、<b>適用される条例が町と村でまるごと違う</b>——ここが計画の出発点になります。</p>
+
+<div class="toc">
+  <a href="#s1">①場所を探す</a><a href="#s2">②候補4ゾーン</a><a href="#s3">③物件の実勢</a>
+  <a href="#s4">④法的整理</a><a href="#s5">⑤環境とハザード</a><a href="#s6">⑥生活インフラ</a>
+  <a href="#s7">⑦費用と工程</a><a href="#s8">⑧お金の制度</a><a href="#s9">⑨内見チェック</a><a href="#s10">⑩次の一手</a>
+</div>
+
+<section id="s1">
+  <div class="sec-no">STEP 01 ― PLACE</div>
+  <h2>まず場所 ―「北軽井沢」という場所の正体</h2>
+  <p class="sub">浅間山の<b>北麓</b>、標高およそ<b>1,000〜1,300m</b>の高原。軽井沢町（長野県）とは浅間山を挟んで反対側で、<b>県が違い、町が違い、条例が違う</b>。南に国道146号で下れば軽井沢駅まで車で30〜40分、北へ抜ければ嬬恋・草津・万座。生活の重心は「軽井沢に買い出しに降りる」形になります。</p>
+
+  <div class="fig">
+    <svg viewBox="0 0 760 450" role="img" aria-label="北軽井沢の位置関係模式図">
+      <defs>
+        <linearGradient id="mt" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#c8384c" stop-opacity=".30"/><stop offset="100%" stop-color="#c8384c" stop-opacity=".06"/>
+        </linearGradient>
+      </defs>
+      <!-- 主要ゾーン -->
+      <rect x="286" y="176" width="190" height="60" rx="12" fill="#0d7c94" fill-opacity=".14" stroke="#0d7c94" stroke-width="1.6"/>
+      <text x="381" y="200" font-size="13" font-weight="700" fill="currentColor" text-anchor="middle">北軽井沢 中心（十字路）</text>
+      <text x="381" y="220" font-size="10.5" fill="currentColor" text-anchor="middle" opacity=".8">旧北軽井沢小 / 郵便局 / 商店</text>
+      <rect x="470" y="96" width="170" height="54" rx="12" fill="#b8862b" fill-opacity=".16" stroke="#b8862b" stroke-width="1.4"/>
+      <text x="555" y="118" font-size="12.5" font-weight="700" fill="currentColor" text-anchor="middle">大学村</text>
+      <text x="555" y="136" font-size="10.5" fill="currentColor" text-anchor="middle" opacity=".8">1927年開村・未舗装</text>
+      <rect x="140" y="96" width="170" height="54" rx="12" fill="#2f9163" fill-opacity=".14" stroke="#2f9163" stroke-width="1.4"/>
+      <text x="225" y="118" font-size="12.5" font-weight="700" fill="currentColor" text-anchor="middle">応桑・大原の集落</text>
+      <text x="225" y="136" font-size="10.5" fill="currentColor" text-anchor="middle" opacity=".8">農家型の“本物の古民家”</text>
+      <rect x="70" y="196" width="180" height="54" rx="12" fill="#c9821f" fill-opacity=".14" stroke="#c9821f" stroke-width="1.4"/>
+      <text x="160" y="218" font-size="12.5" font-weight="700" fill="currentColor" text-anchor="middle">嬬恋村側（鎌原・三原）</text>
+      <text x="160" y="236" font-size="10.5" fill="currentColor" text-anchor="middle" opacity=".8">空き家バンクが厚い</text>
+      <!-- 接続線 -->
+      <path d="M250,220 L286,210" stroke="currentColor" stroke-width="2" opacity=".45"/>
+      <path d="M310,132 L345,176" stroke="currentColor" stroke-width="2" opacity=".45"/>
+      <path d="M470,132 L432,176" stroke="currentColor" stroke-width="2" opacity=".45"/>
+      <!-- 北の駅 -->
+      <rect x="40" y="26" width="200" height="46" rx="10" fill="currentColor" fill-opacity=".05" stroke="currentColor" stroke-opacity=".35"/>
+      <text x="140" y="46" font-size="11.5" font-weight="700" fill="currentColor" text-anchor="middle">JR吾妻線 万座・鹿沢口駅</text>
+      <text x="140" y="63" font-size="10.5" fill="currentColor" text-anchor="middle" opacity=".75">無人駅・鉄道は実用性低め</text>
+      <path d="M155,196 L145,72" stroke="currentColor" stroke-width="1.6" opacity=".3" stroke-dasharray="4 4"/>
+      <text x="736" y="44" font-size="10.5" fill="currentColor" text-anchor="end" opacity=".6">↑北：嬬恋・草津・万座</text>
+      <!-- R146 と県境 -->
+      <path d="M381,236 L381,346" stroke="#0d7c94" stroke-width="3" opacity=".7"/>
+      <text x="392" y="272" font-size="10.5" fill="#0d7c94" font-weight="700">R146</text>
+      <path d="M60,330 Q220,286 330,306 Q470,332 700,300" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="7 5" opacity=".55"/>
+      <text x="62" y="322" font-size="10.5" fill="currentColor" opacity=".65">← 県境（尾根）</text>
+      <!-- 浅間山 -->
+      <polygon points="180,318 250,412 110,412" fill="url(#mt)" stroke="#c8384c" stroke-width="1.5"/>
+      <circle cx="180" cy="320" r="5" fill="#c8384c"/>
+      <text x="168" y="308" font-size="10.5" fill="#c8384c" text-anchor="end">火口</text>
+      <text x="180" y="432" font-size="13" font-weight="700" fill="currentColor" text-anchor="middle">浅間山 2,568m</text>
+      <!-- 軽井沢 -->
+      <rect x="291" y="346" width="180" height="50" rx="10" fill="currentColor" fill-opacity=".05" stroke="currentColor" stroke-opacity=".35"/>
+      <text x="381" y="368" font-size="11.5" font-weight="700" fill="currentColor" text-anchor="middle">軽井沢駅・スーパー・病院</text>
+      <text x="381" y="386" font-size="10.5" fill="currentColor" text-anchor="middle" opacity=".75">車で約30〜40分（冬は+α）</text>
+      <text x="700" y="372" font-size="11" fill="currentColor" text-anchor="end" opacity=".8">南＝長野県 軽井沢町</text>
+    </svg>
+    <div class="cap">図①：北軽井沢の位置関係（模式図・縮尺は実際と異なります）</div>
+  </div>
+
+  <div class="note"><b>いちばん重要な前提。</b>「北軽井沢」という住所で括ると、<b>長野原町</b>（町の条例・空き家バンク・移住支援金）と<b>嬬恋村</b>（村独自の建築制限条例・景観条例）という、<b>ルールの体系が別の2自治体</b>をまたぎます。物件を1件見つけたら、まず「これはどっちの自治体か」を確定させる。ここを取り違えると、後の法チェックが全部やり直しになります。</div>
+
+  <h3>「古民家」がある場所と、無い場所</h3>
+  <p>北軽井沢は<b>別荘地としての歴史が長い</b>一方、いわゆる<b>茅葺き・土間・大黒柱型の農家住宅（＝古民家）は別荘エリアには基本ありません</b>。別荘地にあるのは築30〜50年の山荘・ログハウスです。本来の古民家を狙うなら、<b>別荘地ではなく“集落”</b>——長野原町の応桑・大原方面、嬬恋村の鎌原・三原・干俣・大前——を見ることになります。</p>
+  <div class="tw"><table>
+    <tr><th>探すもの</th><th>実際に見つかる場所</th><th>価格の肌感</th></tr>
+    <tr><td><b>本物の古民家</b>（築50年超・軸組・土間）</td><td>集落部（応桑／鎌原・三原・大前・干俣）。流通は<b>空き家バンク</b>と地元業者が中心</td><td>数十万〜500万円台。49万円・150万円といった実例あり</td></tr>
+    <tr><td><b>中古別荘・山荘</b>（築30〜50年・木造）</td><td>大学村、プリンスランド、北軽井沢の各分譲別荘地</td><td>500万〜1,000万円台〜。土地のみなら500万円台〜</td></tr>
+    <tr><td><b>土地だけ買って建てる</b></td><td>別荘地の分譲区画</td><td>坪 <b>1.5〜5万円</b>（軽井沢町の約1/6〜1/20）</td></tr>
+  </table></div>
+  <div class="good"><b>結論（場所）：</b>「古民家リノベ」を文字通りやるなら狙いは<b>集落型の空き家</b>。予算・手続き・生活利便のバランスでは、<b>長野原町 応桑〜北軽井沢中心の集落部</b>を第一候補、<b>嬬恋村 鎌原・三原</b>を第二候補に置くのが現実的です（理由は次章）。</div>
+</section>
+
+<section id="s2">
+  <div class="sec-no">STEP 02 ― ZONING</div>
+  <h2>候補4ゾーンを、同じ物差しで比べる</h2>
+  <p class="sub">同じ「北軽井沢」でも、規制の重さ・水道の形・生活動線・買える価格がまるで違います。4つに割って比較します。</p>
+
+  <div class="fig">
+    <svg viewBox="0 0 760 300" role="img" aria-label="候補4ゾーンの比較">
+      <g font-size="11.5" fill="currentColor">
+        <text x="10" y="22" font-size="12" font-weight="700">ゾーン</text>
+        <text x="210" y="22" font-size="12" font-weight="700" text-anchor="middle">安さ</text>
+        <text x="330" y="22" font-size="12" font-weight="700" text-anchor="middle">規制の軽さ</text>
+        <text x="460" y="22" font-size="12" font-weight="700" text-anchor="middle">生活利便</text>
+        <text x="590" y="22" font-size="12" font-weight="700" text-anchor="middle">古民家率</text>
+        <text x="700" y="22" font-size="12" font-weight="700" text-anchor="middle">総合</text>
+      </g>
+      <g>
+        <!-- rows -->
+        <g transform="translate(0,44)">
+          <text x="10" y="20" font-size="12" font-weight="700" fill="currentColor">A 大学村</text>
+          <text x="10" y="38" font-size="10" fill="currentColor" opacity=".65">長野原町・歴史的別荘地</text>
+          <rect x="150" y="8" width="120" height="14" rx="7" fill="currentColor" fill-opacity=".08"/><rect x="150" y="8" width="36" height="14" rx="7" fill="#c8384c"/>
+          <rect x="270" y="8" width="120" height="14" rx="7" fill="currentColor" fill-opacity=".08"/><rect x="270" y="8" width="36" height="14" rx="7" fill="#c8384c"/>
+          <rect x="400" y="8" width="120" height="14" rx="7" fill="currentColor" fill-opacity=".08"/><rect x="400" y="8" width="60" height="14" rx="7" fill="#c9821f"/>
+          <rect x="530" y="8" width="120" height="14" rx="7" fill="currentColor" fill-opacity=".08"/><rect x="530" y="8" width="24" height="14" rx="7" fill="#c8384c"/>
+          <text x="700" y="20" font-size="14" font-weight="800" fill="#c9821f" text-anchor="middle">△</text>
+        </g>
+        <g transform="translate(0,110)">
+          <text x="10" y="20" font-size="12" font-weight="700" fill="currentColor">B 北軽井沢 中心</text>
+          <text x="10" y="38" font-size="10" fill="currentColor" opacity=".65">長野原町・十字路周辺</text>
+          <rect x="150" y="8" width="120" height="14" rx="7" fill="currentColor" fill-opacity=".08"/><rect x="150" y="8" width="66" height="14" rx="7" fill="#c9821f"/>
+          <rect x="270" y="8" width="120" height="14" rx="7" fill="currentColor" fill-opacity=".08"/><rect x="270" y="8" width="84" height="14" rx="7" fill="#2f9163"/>
+          <rect x="400" y="8" width="120" height="14" rx="7" fill="currentColor" fill-opacity=".08"/><rect x="400" y="8" width="102" height="14" rx="7" fill="#2f9163"/>
+          <rect x="530" y="8" width="120" height="14" rx="7" fill="currentColor" fill-opacity=".08"/><rect x="530" y="8" width="48" height="14" rx="7" fill="#c9821f"/>
+          <text x="700" y="20" font-size="14" font-weight="800" fill="#2f9163" text-anchor="middle">○</text>
+        </g>
+        <g transform="translate(0,176)">
+          <text x="10" y="20" font-size="12" font-weight="700" fill="currentColor">C 応桑・大原の集落</text>
+          <text x="10" y="38" font-size="10" fill="currentColor" opacity=".65">長野原町・農村部</text>
+          <rect x="150" y="8" width="120" height="14" rx="7" fill="currentColor" fill-opacity=".08"/><rect x="150" y="8" width="96" height="14" rx="7" fill="#2f9163"/>
+          <rect x="270" y="8" width="120" height="14" rx="7" fill="currentColor" fill-opacity=".08"/><rect x="270" y="8" width="90" height="14" rx="7" fill="#2f9163"/>
+          <rect x="400" y="8" width="120" height="14" rx="7" fill="currentColor" fill-opacity=".08"/><rect x="400" y="8" width="72" height="14" rx="7" fill="#c9821f"/>
+          <rect x="530" y="8" width="120" height="14" rx="7" fill="currentColor" fill-opacity=".08"/><rect x="530" y="8" width="102" height="14" rx="7" fill="#2f9163"/>
+          <text x="700" y="20" font-size="15" font-weight="800" fill="#2f9163" text-anchor="middle">◎</text>
+        </g>
+        <g transform="translate(0,242)">
+          <text x="10" y="20" font-size="12" font-weight="700" fill="currentColor">D 嬬恋村 鎌原・三原</text>
+          <text x="10" y="38" font-size="10" fill="currentColor" opacity=".65">嬬恋村・独自条例あり</text>
+          <rect x="150" y="8" width="120" height="14" rx="7" fill="currentColor" fill-opacity=".08"/><rect x="150" y="8" width="108" height="14" rx="7" fill="#2f9163"/>
+          <rect x="270" y="8" width="120" height="14" rx="7" fill="currentColor" fill-opacity=".08"/><rect x="270" y="8" width="54" height="14" rx="7" fill="#c9821f"/>
+          <rect x="400" y="8" width="120" height="14" rx="7" fill="currentColor" fill-opacity=".08"/><rect x="400" y="8" width="66" height="14" rx="7" fill="#c9821f"/>
+          <rect x="530" y="8" width="120" height="14" rx="7" fill="currentColor" fill-opacity=".08"/><rect x="530" y="8" width="96" height="14" rx="7" fill="#2f9163"/>
+          <text x="700" y="20" font-size="14" font-weight="800" fill="#2f9163" text-anchor="middle">○</text>
+        </g>
+      </g>
+    </svg>
+    <div class="cap">図②：4ゾーンの相対比較（本ページの調査に基づく編集部評価。物件個別差の方が大きい点に注意）</div>
+  </div>
+
+  <h3>A. 大学村 ― 買えるが、たぶん目的と違う</h3>
+  <p>1920年に法政大学学長・松室致が273haを取得し、1927年に「法政大学村」として開村。分譲は<b>坪1円・原則1人1区画500坪</b>、安倍能成・谷川徹三・野上弥生子・田邊元・津田左右吉・小泉信三・岸田國士らが名を連ねた、日本の別荘地としては別格の来歴を持つ場所です。<b>今も景観保持のため村内道路をあえて舗装していない</b>。「北軽井沢」という地名自体、ここに集った文化人の通称が広まったものです。</p>
+  <div class="note"><b>ただし。</b>ここは<b>古民家ではなく山荘</b>のエリアで、しかも住民組織の合意を経ないと入れないという運用が語られてきた土地柄です。1000坪級の区画が売りに出ることはありますが、「安く買って自分で直す」という今回の目的からは外れます。<b>“憧れの参照点”として持っておき、買う対象からは外す</b>のが妥当。</div>
+
+  <h3>B. 北軽井沢 中心（十字路周辺） ― 生活の重心</h3>
+  <p>郵便局・商店・診療所的機能が集まり、<b>2026年4月には旧北軽井沢小学校の跡地に「LCAきたかる森のインター」初等部・プリスクールが開校</b>しました（株式会社立の一条校・教育課程特例校、初年度の入学者はプリスクール1名＋小1が4名＋小2が2名の計7名）。2024年3月に町立北軽井沢小学校が閉校した跡地の再活用で、<b>地域に人を呼び戻す動きが現在進行形</b>である点は、移住地としての将来性を見るうえで無視できません。</p>
+
+  <h3>C. 応桑・大原の集落 ― <span style="color:var(--lo)">第一候補</span></h3>
+  <p>長野原町の農村部。<b>農家型の古民家が実在し</b>、価格は集落相場、しかも中心部（B）へ車で数分。行政は長野原町ひとつで完結し、<b>町の空き家バンク・移住支援金・浄化槽補助がそのまま使える</b>のが最大の利点です。難点は<b>農地が付いてくる物件が多いこと</b>（→ 農地法。第4章で扱います）と、集落の付き合いが濃いこと。</p>
+
+  <h3>D. 嬬恋村 鎌原・三原・大前・干俣 ― <span style="color:var(--lo)">第二候補</span></h3>
+  <p>価格は最も安い。空き家バンクの<b>登録数が厚く、値下げが実際に動いている</b>（例：580万→480万、200万→150万への改定、鎌原の2SDK 49万円、大前の土地35万円といった実例）。一方で嬬恋村は<b>村独自の建築制限条例・開発指導要綱・景観条例</b>を持ち、規制の把握コストが長野原町より高い。また村の移住支援金は<b>令和7年度に予算到達で受付終了</b>となった実績があり、<b>制度に頼る前提で動くと外す</b>。</p>
+</section>
+
+<section id="s3">
+  <div class="sec-no">STEP 03 ― MARKET</div>
+  <h2>物件の実勢と、入手経路の順番</h2>
+  <p class="sub">このエリアで安い古民家に辿り着く経路は、ポータルサイトではありません。<b>空き家バンク → 地元業者 → ポータル</b>の順に確度が落ちます。</p>
+
+  <div class="tw"><table>
+    <tr><th>#</th><th>経路</th><th>特徴・確度</th><th>動き方</th></tr>
+    <tr><td>1</td><td><b>嬬恋村 空き家・空き地バンク</b></td><td>登録数が厚く、価格改定が実際に動く。土間付き古民家の掲載実績あり</td><td>サイトで探す→取扱事業者へ直接連絡→仲介で交渉・契約</td></tr>
+    <tr><td>2</td><td><b>長野原町 空き家バンク／空き家活用事業</b></td><td>町の移住ナビ内で運用。<b>活用事業は町が所有者から原則10年借り受ける</b>方式で、売買とは別枠</td><td>未来ビジョン推進課へ利用登録。売買希望か賃貸希望かを最初に明示する</td></tr>
+    <tr><td>3</td><td><b>地元不動産（北軽井沢・嬬恋専業）</b></td><td>別荘・土地に強い。集落の空き家は「表に出る前」に動くことが多い</td><td>電話で条件を伝えて“出たら連絡”の関係を作る。ここが実は一番効く</td></tr>
+    <tr><td>4</td><td><b>大手ポータル（SUUMO/HOME'S/athome）</b></td><td>掲載はあるが件数は薄い。北軽井沢で138万円（1DK・土地206.4㎡・建物46.2㎡・1973年築）等の実例</td><td>相場のキャリブレーション用。ここだけ見ていると出会えない</td></tr>
+    <tr><td>5</td><td><b>家いちば等の個人間掲示板</b></td><td>軽井沢カテゴリに出物あり。売主直で価格が動きやすい</td><td>必ず宅建業者か司法書士を挟んで契約する</td></tr>
+  </table></div>
+
+  <div class="note"><b>価格レンジの目安（2026年時点の肌感）。</b>集落の古民家＝<b>数十万〜500万円台</b>／中古別荘＝<b>500万〜1,000万円台〜</b>／土地＝<b>坪1.5〜5万円</b>。軽井沢町の土地相場（坪30万円前後）に対して<b>6分の1〜20分の1</b>という差が、この計画の経済的な根拠です。ただし<b>安い物件ほど「直す方が高い」帯に入る</b>ので、価格差は次章以降のコストに吸われる前提で見てください。</div>
+
+  <div class="flags">
+    <h4>■ このエリア特有の「安い理由」を疑う</h4>
+    <ul>
+      <li><b>別荘地内の物件</b>＝毎年の<b>管理費</b>と<b>私営水道</b>が付いてくる。年2〜4万円級のほか、<b>給水加入金が40万円規模</b>という別荘地もある。「土地が安い」の裏側は維持費。</li>
+      <li><b>集落の物件</b>＝<b>農地・山林が抱き合わせ</b>のことが多い。宅地だけ買えないケースは農地法の手続きが要る。</li>
+      <li><b>接道</b>＝里道・農道・共有私道に面していて、公道に規定どおり接していない物件がある。</li>
+      <li><b>冬季アクセス</b>＝除雪路線から外れた奥まった区画は、冬に車が入らないことがある。地図では読めない。</li>
+    </ul>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="sec-no">STEP 04 ― LAW</div>
+  <h2>法的整理 ― 4つの層で潰す</h2>
+  <p class="sub">古民家リノベに効いてくる規制は、<b>国の法律／群馬県の条例／町村の条例・要綱／私法上の取り決め（別荘地規約・集落の慣行）</b>の4層に分けると、抜けなく潰せます。層ごとに窓口が違うのがポイント。</p>
+
+  <div class="fig">
+    <svg viewBox="0 0 760 330" role="img" aria-label="規制の4層構造">
+      <g>
+        <rect x="30" y="16" width="700" height="66" rx="12" fill="#c8384c" fill-opacity=".12" stroke="#c8384c" stroke-width="1.5"/>
+        <text x="46" y="40" font-size="13" font-weight="800" fill="#c8384c">層1｜国の法律</text>
+        <text x="46" y="60" font-size="11.5" fill="currentColor">建築基準法（2025年4月改正）／建築物省エネ法／自然公園法／農地法／浄化槽法／旅館業法・住宅宿泊事業法／活火山法</text>
+        <text x="46" y="76" font-size="10.5" fill="currentColor" opacity=".7">窓口：中之条土木事務所 建築課・環境省・農業委員会・保健所</text>
+      </g>
+      <g>
+        <rect x="30" y="94" width="700" height="58" rx="12" fill="#c9821f" fill-opacity=".12" stroke="#c9821f" stroke-width="1.5"/>
+        <text x="46" y="118" font-size="13" font-weight="800" fill="#c9821f">層2｜群馬県の条例</text>
+        <text x="46" y="138" font-size="11.5" fill="currentColor">群馬県景観条例（大規模行為は<tspan font-weight="800">着手30日前まで</tspan>に届出）／群馬県建築基準条例</text>
+      </g>
+      <g>
+        <rect x="30" y="164" width="340" height="72" rx="12" fill="#0d7c94" fill-opacity=".12" stroke="#0d7c94" stroke-width="1.5"/>
+        <text x="46" y="188" font-size="13" font-weight="800" fill="#0d7c94">層3a｜長野原町</text>
+        <text x="46" y="208" font-size="11.5" fill="currentColor">景観計画（行為の制限）／空き家バンク</text>
+        <text x="46" y="226" font-size="11.5" fill="currentColor">浄化槽補助／移住支援金</text>
+        <rect x="390" y="164" width="340" height="72" rx="12" fill="#0d7c94" fill-opacity=".12" stroke="#0d7c94" stroke-width="1.5"/>
+        <text x="406" y="188" font-size="13" font-weight="800" fill="#0d7c94">層3b｜嬬恋村</text>
+        <text x="406" y="208" font-size="11.5" fill="currentColor">建築物の制限に関する条例／開発事業等</text>
+        <text x="406" y="226" font-size="11.5" fill="currentColor">の適正化条例・指導要綱／村景観条例</text>
+      </g>
+      <g>
+        <rect x="30" y="248" width="700" height="66" rx="12" fill="#2f9163" fill-opacity=".12" stroke="#2f9163" stroke-width="1.5"/>
+        <text x="46" y="272" font-size="13" font-weight="800" fill="#2f9163">層4｜私法（法律ではないが実際は最強）</text>
+        <text x="46" y="292" font-size="11.5" fill="currentColor">別荘地の管理規約・建築協定／私営水道の加入金と規約／私道の通行・掘削承諾／集落の慣行・水利権</text>
+        <text x="46" y="308" font-size="10.5" fill="currentColor" opacity=".7">窓口：別荘地管理事務所・水道組合・区長／隣地所有者。<tspan font-weight="800">登記簿と役所だけ見ても出てこない</tspan></text>
+      </g>
+    </svg>
+    <div class="cap">図③：規制の4層。下の層ほど役所では教えてくれないが、実務では止まる要因になりやすい</div>
+  </div>
+
+  <h3>4-1. 建築基準法 ― 2025年4月改正が古民家リノベの最大の変数</h3>
+  <p>2025年4月施行の改正で、<b>従来の「4号建築物」が廃止</b>され、<b>新2号／新3号</b>に再編されました。ここが古民家リノベに直撃します。</p>
+  <div class="tw"><table>
+    <tr><th>区分</th><th>該当する建物</th><th>新築時</th><th><b>大規模の修繕・模様替</b>（＝主要構造部のいずれか一種以上の過半をやり直す工事）</th></tr>
+    <tr><td><b>新2号</b></td><td>木造<b>2階建て以上</b>、または<b>延床200㎡超</b>の木造平屋</td><td>確認申請＋構造・省エネ審査（区域内外を問わず）</td><td><span class="pill p-must">確認申請 必要</span>改正前は不要だった。<b>ここが変わった最大点</b></td></tr>
+    <tr><td><b>新3号</b></td><td>木造<b>平屋かつ延床200㎡以下</b></td><td>都市計画区域<b>外</b>なら確認申請 不要／区域内なら必要</td><td><span class="pill p-ok">確認申請 不要</span>（ただし基準への適合義務は残る）</td></tr>
+  </table></div>
+  <p>主要構造部とは<b>壁・柱・床・はり・屋根・階段</b>。古民家リノベで典型的な「屋根を全部葺き替える」「床を全面やり直す」「壁を過半つくり直す」は、<b>そのまま“大規模の修繕・模様替”に当たり得ます</b>。</p>
+
+  <div class="fig">
+    <svg viewBox="0 0 760 300" role="img" aria-label="確認申請の要否フロー">
+      <g font-size="11.5" fill="currentColor">
+        <rect x="270" y="10" width="220" height="40" rx="10" fill="#0d7c94" fill-opacity=".14" stroke="#0d7c94" stroke-width="1.4"/>
+        <text x="380" y="35" font-size="12.5" font-weight="700" text-anchor="middle">古民家をリノベしたい</text>
+        <path d="M380,50 L380,74" stroke="currentColor" stroke-width="1.6" opacity=".5"/>
+        <rect x="240" y="74" width="280" height="42" rx="10" fill="currentColor" fill-opacity=".05" stroke="currentColor" stroke-opacity=".35"/>
+        <text x="380" y="92" font-size="12" font-weight="700" text-anchor="middle">主要構造部の「過半」をやり直す？</text>
+        <text x="380" y="109" font-size="10.5" text-anchor="middle" opacity=".7">壁・柱・床・はり・屋根・階段</text>
+        <path d="M240,95 L150,95 L150,140" stroke="currentColor" stroke-width="1.6" opacity=".5"/>
+        <text x="176" y="88" font-size="11" fill="#2f9163" font-weight="700">いいえ</text>
+        <path d="M520,95 L610,95 L610,140" stroke="currentColor" stroke-width="1.6" opacity=".5"/>
+        <text x="556" y="88" font-size="11" fill="#c8384c" font-weight="700">はい</text>
+        <rect x="40" y="140" width="220" height="56" rx="10" fill="#2f9163" fill-opacity=".14" stroke="#2f9163" stroke-width="1.4"/>
+        <text x="150" y="162" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor">確認申請 不要</text>
+        <text x="150" y="180" font-size="10.5" text-anchor="middle" opacity=".75">内装・設備・部分改修はここ</text>
+        <rect x="500" y="140" width="220" height="56" rx="10" fill="currentColor" fill-opacity=".05" stroke="currentColor" stroke-opacity=".35"/>
+        <text x="610" y="162" font-size="12" font-weight="700" text-anchor="middle">建物は新2号？新3号？</text>
+        <text x="610" y="180" font-size="10.5" text-anchor="middle" opacity=".75">2階建て or 200㎡超 → 新2号</text>
+        <path d="M560,196 L470,196 L470,236" stroke="currentColor" stroke-width="1.6" opacity=".5"/>
+        <path d="M660,196 L700,196 L700,236" stroke="currentColor" stroke-width="1.6" opacity=".5"/>
+        <rect x="330" y="236" width="280" height="54" rx="10" fill="#c8384c" fill-opacity=".14" stroke="#c8384c" stroke-width="1.4"/>
+        <text x="470" y="258" font-size="12" font-weight="700" text-anchor="middle">新2号 → <tspan fill="#c8384c">確認申請 必要</tspan></text>
+        <text x="470" y="276" font-size="10.5" text-anchor="middle" opacity=".8">構造の裏付け・設計料・工期が乗る</text>
+        <rect x="620" y="236" width="130" height="54" rx="10" fill="#2f9163" fill-opacity=".14" stroke="#2f9163" stroke-width="1.4"/>
+        <text x="685" y="258" font-size="12" font-weight="700" text-anchor="middle">新3号</text>
+        <text x="685" y="276" font-size="10.5" text-anchor="middle" opacity=".8">平屋200㎡以下→不要</text>
+      </g>
+    </svg>
+    <div class="cap">図④：2025年4月以降の「リノベで確認申請が要るか」の判定（概念図。最終判断は建築士・特定行政庁へ）</div>
+  </div>
+
+  <div class="flags">
+    <h4>■ ここが計画を左右する</h4>
+    <ul>
+      <li>集落の古民家は<b>ほぼ木造2階建て</b>＝<b>新2号</b>。屋根の全面葺き替えや構造補強を伴う本格リノベは<b>確認申請が必要</b>になる可能性が高い。</li>
+      <li>確認申請が要る＝<b>建築士の設計・構造の裏付け・審査期間</b>が工程とコストに乗る。「大工さんに直接頼んで安く」の前提が崩れることがある。</li>
+      <li>逆に言えば、<b>平屋の古民家</b>を選び、工事を<b>過半に届かない範囲</b>で設計すると、手続きは劇的に軽くなる。<b>物件選定の段階で法の重さを選べる</b>ということ。</li>
+      <li>提出先は町役場ではなく<b>群馬県 吾妻県民局 中之条土木事務所 建築課</b>（吾妻郡中之条町大字中之条町709-1／TEL 0279-75-3047）。町の窓口を経由する必要はない。</li>
+    </ul>
+  </div>
+
+  <h3>4-2. 都市計画区域の内か外か ―「まず最初に確認する1項目」</h3>
+  <p>群馬県内には31の都市計画区域があり、35市町村のうち27市町村が含まれます（＝<b>含まれない市町村がある</b>）。区域の内外で、以下がまとめて変わります。</p>
+  <div class="tw"><table>
+    <tr><th>項目</th><th>都市計画区域<b>内</b></th><th>都市計画区域<b>外</b></th></tr>
+    <tr><td>接道義務（法43条）</td><td>幅員4m以上の道路に2m以上接する必要。満たさないと<b>再建築不可</b></td><td>原則として接道義務はかからない</td></tr>
+    <tr><td>用途地域・建ぺい率/容積率</td><td>指定に従う（非線引きなら用途地域なしの区域も）</td><td>都市計画としての制限はなし（町村条例が代替）</td></tr>
+    <tr><td>平屋200㎡以下の新築・大規模修繕</td><td>確認申請 必要</td><td>確認申請 不要</td></tr>
+    <tr><td>開発許可</td><td>一定規模以上で必要</td><td>原則1ha以上（町村の要綱が別途かかる）</td></tr>
+  </table></div>
+  <div class="note"><b>要確認事項。</b>長野原町が都市計画区域に含まれるかは、本調査（Web検索ベース）では確定できませんでした。<b>嬬恋村</b>は村独自に「建築物の制限に関する条例」「開発事業等及び建築物の制限に関する指導要綱」を整備しており、これは都市計画区域外の自治体が取る典型的な形です（隣の草津町は非線引き都市計画区域）。<b>物件の地番を持って中之条土木事務所 建築課に1本電話すれば5分で確定します</b>。契約前の必須確認項目として最上位に置いてください。</div>
+  <p>なお区域内で接道が足りない場合の逃げ道が<b>法43条2項2号（旧・但し書き）</b>です。建築審査会の同意を得れば建築可能になりますが、<b>一度許可を得れば恒久的というものではなく、建て替えのたびに許可が要る</b>点に注意。金融機関の評価も落ちます。</p>
+
+  <h3>4-3. 自然公園法 ― 上信越高原国立公園に当たるか</h3>
+  <p>浅間山周辺は<b>上信越高原国立公園（草津・万座・浅間地域）</b>。公園計画では<b>特別保護地区／第1〜3種特別地域／普通地域</b>が定められており、区域内での工作物の新築・改築・増築や木竹の伐採、土地の形状変更は、<b>特別地域なら環境大臣（または県）の許可、普通地域でも届出</b>が必要になります。</p>
+  <div class="note"><b>実務上の要点。</b>公園区域は<b>筆単位で線が引かれている</b>ので、「北軽井沢だから該当する／しない」とは言えません。<b>物件の地番で環境省（関東地方環境事務所）または群馬県自然環境課に照会</b>するのが唯一の確実な方法です。該当する場合、外壁の色彩・屋根の形状・高さに実質的な制約がかかり、<b>古民家の外観を大きく変える改修は通りにくくなります</b>（＝外観を残す方向の設計なら、むしろ相性は良い）。</div>
+
+  <h3>4-4. 景観 ― 県・町・村の三段構え</h3>
+  <ul>
+    <li><b>群馬県景観条例</b>：一定規模を超える「大規模行為」は、<b>着手の30日前まで</b>に県都市計画課へ届出。審査後に受理通知書が交付されます。個人住宅のリノベで該当することは多くありませんが、規模が出る場合は<b>30日という日程</b>を工程表に先に置いておく必要があります。</li>
+    <li><b>長野原町 景観計画</b>：「良好な景観の形成のための行為の制限」を定め、<b>自然地形をできるだけ残す・法面は可能な限り緑化する・形態意匠と色彩を周辺と調和させる</b>といった基準を置いています。</li>
+    <li><b>嬬恋村 景観条例</b>：<b>景観形成重点地区</b>の指定があり、「別荘地地区」に指定されている場合、<b>別荘・居宅の高さは10m以下</b>（村内一般は20m以下）。</li>
+  </ul>
+
+  <h3>4-5. 嬬恋村を選ぶ場合の追加ルール</h3>
+  <div class="tw"><table>
+    <tr><th>条例・要綱</th><th>かかってくる場面</th></tr>
+    <tr><td>嬬恋村 開発事業等の適正化に関する条例／指導要綱</td><td>開発区域<b>1,000㎡以上</b>の開発事業、<b>地上3階建て以上</b>の建築、環境保全地域内の太陽光発電設備の設置</td></tr>
+    <tr><td>嬬恋村 建築物の制限に関する条例</td><td>高さ<b>20m以下</b>（景観形成重点地区の別荘地地区は<b>10m以下</b>）</td></tr>
+    <tr><td>環境保全地域の敷地面積最低限度</td><td>原則<b>450㎡以上</b>。分筆して小さく買う計画は通らないことがある</td></tr>
+    <tr><td>し尿・雑排水・ごみ処理</td><td>適切な処理対策が基準に明記されている（＝浄化槽計画とセット）</td></tr>
+  </table></div>
+  <p>古民家1軒のリノベなら1,000㎡開発にも3階にも通常は当たりませんが、<b>敷地面積の最低限度</b>と<b>高さ・景観</b>は効いてきます。村内物件を検討する時点で、村役場に一度当てておくのが確実です。</p>
+
+  <h3>4-6. 農地法 ― 集落の古民家では避けて通れない</h3>
+  <p>集落の古民家は<b>畑・田が付いてくる</b>のが普通です。宅地部分は普通に売買できますが、<b>農地は農地法3条の許可（農業委員会）</b>が要ります。</p>
+  <div class="good"><b>2023年4月に大きく緩和されました。</b>それまで農地取得の壁だった<b>下限面積要件（都府県50a等）が廃止</b>され、農業委員会が独自に設定していた下限面積（原則30a、一部10a、空き家付随農地0.01a）も<b>すべて撤廃</b>。「家庭菜園規模では農地を買えない」という従来の障壁は消えました。</div>
+  <div class="note"><b>ただし3条許可そのものは残っています。</b>下限面積<b>以外</b>の要件（全部効率利用要件、農作業への常時従事、周辺の農地利用への支障がないこと等）は変更されていません。<b>「面積の壁は消えたが、耕す気があるかは問われる」</b>と理解してください。宅地に転用したい場合は別途<b>4条・5条の転用許可</b>が必要で、こちらは農振農用地区域（青地）だと原則不許可になります。<b>買う前に、その筆が青地かどうかを農業委員会で確認</b>。</div>
+
+  <h3>4-7. 水と汚水 ― 高原の家がいちばん詰まるところ</h3>
+  <div class="tw"><table>
+    <tr><th>系統</th><th>北軽井沢での実態</th><th>費用・注意</th></tr>
+    <tr><td><b>上水</b></td><td>長野原町には<b>北軽井沢簡易水道事業</b>（町営）の給水条例があり、町の簡易水道が引かれている区域がある。一方、<b>別荘地の多くは私営水道</b>（別荘地ごとに水源と施設を持ち管理事務所が運営）。集落では井戸のケースも</td><td>私営水道は<b>給水加入金40万円規模</b>、基本料＋メーター料で<b>年2〜4万円</b>という例。<b>どの系統かで初期費用が数十万円変わる</b></td></tr>
+    <tr><td><b>汚水</b></td><td>公共下水道・農業集落排水の集合処理区域を除き、<b>合併処理浄化槽</b>が原則</td><td>長野原町の補助：<b>新設 21万円／転換 31.5万〜48万円</b>（上限）。<b>宅内配管工事費は補助対象外</b>。対象建築物は一般住宅・併用住宅・宿泊施設等</td></tr>
+    <tr><td><b>凍結対策</b></td><td>標高1,000m超・最低気温−20℃近くまで下がるため、<b>水抜き栓・凍結防止ヒーターが標準装備</b></td><td>凍結防止ヒーターの電気代は冬季ひと月<b>1,000〜13,000円</b>、ワンシーズン<b>38,000〜80,000円</b>という試算。<b>ランニングコストとして家計に入れる</b></td></tr>
+  </table></div>
+
+  <h3>4-8. 建築物省エネ法 ― リフォームは義務対象外という朗報</h3>
+  <p>2025年4月から、原則すべての新築・増改築に省エネ基準への適合が義務化されました。ただし古民家リノベにとって重要なのは<b>例外の形</b>です。</p>
+  <ul>
+    <li><b>10㎡を超える新築・増築・改築</b>＝適合義務の対象。増築部分については<b>その増築部分のみ</b>が対象。</li>
+    <li><b>修繕・模様替（いわゆるリフォーム・改修）は適合義務の対象外</b>。大規模の修繕・模様替であっても省エネ適合義務はかからない。</li>
+  </ul>
+  <div class="note"><b>つまり。</b>「既存の古民家を直す」だけなら省エネ基準に法的に縛られません。<b>が、それは“寒くていい”という意味ではありません。</b>長野原町・嬬恋村は省エネ基準の<b>地域区分「3地域」</b>（東北並みの寒冷区分）。<b>法が求めなくても、住むためには断熱をやる</b>——これが北軽井沢の古民家リノベの本質的なコストです（第7章）。</div>
+
+  <h3>4-9. 旧耐震・既存不適格</h3>
+  <p>1981年5月31日以前に建築された家屋は旧耐震。古民家再生の総合調査報告書（築50年以上が対象）で<b>約50万円</b>という費用感が示されています。伝統構法の建物は現行の壁量計算にそのまま乗らないため、<b>「石場立てを活かす」か「基礎を作り直す」か</b>という根本の分岐が最初に来ます。ここは価格に数百万円単位で効くので、<b>買う前のインスペクションで判断材料を取る</b>のが鉄則です（→ <a href="renovation.html" style="color:var(--accent)">空き家リノベ 手引き</a> の診断チャプター）。</p>
+
+  <h3>4-10. 宿泊事業をやるなら（将来オプション）</h3>
+  <div class="tw"><table>
+    <tr><th>方式</th><th>根拠法</th><th>要点</th></tr>
+    <tr><td><b>簡易宿所</b></td><td>旅館業法</td><td>営業日数の制限なし。申請窓口は<b>所在地を管轄する保健所</b>。2024年5月以降、許可申請時に<b>建築士による建築基準法適合の確認書</b>が必要</td></tr>
+    <tr><td><b>住宅宿泊事業（民泊）</b></td><td>住宅宿泊事業法</td><td>都道府県知事への届出で可能だが<b>年間180日</b>が上限。群馬県の窓口は食品・生活衛生課</td></tr>
+    <tr><td>用途変更の確認申請</td><td>建築基準法</td><td><b>200㎡以下</b>なら用途変更の確認申請は不要。ただし<b>建基法の技術基準への適合義務は残る</b></td></tr>
+  </table></div>
+  <div class="note">古民家は<b>200㎡（約60坪）前後</b>がちょうど分かれ目に来ます。宿泊事業まで視野に入れるなら、<b>延床200㎡以下の物件を選ぶ</b>だけで手続きが1段階軽くなる——ここも物件選定に跳ね返る論点です。</div>
+
+  <h3>4-11. 活火山法 ― 浅間山の麓に住むということ</h3>
+  <p>浅間山は常時観測火山で、群馬県側では<b>長野原町・嬬恋村</b>、長野県側では佐久市・小諸市・御代田町・軽井沢町が火山防災の枠組みに入っています。宿泊施設等を営む場合、<b>避難確保計画の作成</b>が求められる立場になり得ます。住むだけの場合も、後述のハザードは前提知識として必須です。</p>
+</section>
+
+<section id="s5">
+  <div class="sec-no">STEP 05 ― CLIMATE &amp; HAZARD</div>
+  <h2>環境 ― 寒さは「量」ではなく「期間」で効く</h2>
+  <p class="sub">北軽井沢は標高約1,000〜1,300mの内陸性高原気候。<b>冬季の平均気温は−6℃前後、放射冷却で最低気温が−20℃近くまで落ちる</b>ことがあります。一方で<b>日本海側のような豪雪地ではなく</b>、年間降水量は比較的少なく、直近5年でひざ丈（50cm）を超える積雪はまれ、というのが地元の記録です。</p>
+
+  <div class="cold"><b>ここが誤解されやすい点。</b>「雪は少ないが、寒さは東北並み」。省エネ基準の地域区分は<b>3地域</b>で、これは盛岡・青森あたりと同じ帯です。<b>除雪の負担より、暖房費と凍結対策と“暖房期間の長さ”が効く</b>——これが北軽井沢の住居設計を決めます。</div>
+
+  <div class="fig">
+    <svg viewBox="0 0 760 260" role="img" aria-label="年間の気候バンド">
+      <g font-size="11" fill="currentColor">
+        <g opacity=".65">
+          <text x="70" y="24">1月</text><text x="126" y="24">2月</text><text x="182" y="24">3月</text><text x="238" y="24">4月</text>
+          <text x="294" y="24">5月</text><text x="350" y="24">6月</text><text x="406" y="24">7月</text><text x="462" y="24">8月</text>
+          <text x="518" y="24">9月</text><text x="568" y="24">10月</text><text x="624" y="24">11月</text><text x="680" y="24">12月</text>
+        </g>
+        <line x1="60" y1="32" x2="736" y2="32" stroke="currentColor" stroke-opacity=".25"/>
+        <!-- 暖房期間: Oct-May -->
+        <text x="8" y="60" font-size="11.5" font-weight="700">暖房期間</text>
+        <rect x="60" y="44" width="284" height="22" rx="6" fill="#c8384c" fill-opacity=".55"/>
+        <rect x="564" y="44" width="172" height="22" rx="6" fill="#c8384c" fill-opacity=".55"/>
+        <text x="202" y="60" font-size="10.5" text-anchor="middle" fill="#fff" font-weight="700">火を入れている</text>
+        <text x="650" y="60" font-size="10.5" text-anchor="middle" fill="#fff" font-weight="700">火を入れている</text>
+        <!-- 厳寒期 -->
+        <text x="8" y="96" font-size="11.5" font-weight="700">厳寒期</text>
+        <rect x="60" y="80" width="116" height="22" rx="6" fill="#3f6ea8" fill-opacity=".75"/>
+        <rect x="676" y="80" width="60" height="22" rx="6" fill="#3f6ea8" fill-opacity=".75"/>
+        <text x="118" y="96" font-size="10.5" text-anchor="middle" fill="#fff" font-weight="700">−20℃近くまで</text>
+        <!-- 凍結注意 -->
+        <text x="8" y="132" font-size="11.5" font-weight="700">水道凍結</text>
+        <rect x="60" y="116" width="228" height="22" rx="6" fill="#c9821f" fill-opacity=".6"/>
+        <rect x="620" y="116" width="116" height="22" rx="6" fill="#c9821f" fill-opacity=".6"/>
+        <text x="174" y="132" font-size="10.5" text-anchor="middle" fill="#fff" font-weight="700">水抜き・ヒーター稼働</text>
+        <!-- 快適期 -->
+        <text x="8" y="168" font-size="11.5" font-weight="700">冷房不要の夏</text>
+        <rect x="344" y="152" width="220" height="22" rx="6" fill="#2f9163" fill-opacity=".6"/>
+        <text x="454" y="168" font-size="10.5" text-anchor="middle" fill="#fff" font-weight="700">避暑地としての本領</text>
+        <!-- 薪の仕込み -->
+        <text x="8" y="204" font-size="11.5" font-weight="700">薪の仕込み</text>
+        <rect x="288" y="188" width="276" height="22" rx="6" fill="#b8862b" fill-opacity=".55"/>
+        <text x="426" y="204" font-size="10.5" text-anchor="middle" fill="#fff" font-weight="700">伐り・割り・乾かす（前年からの仕事）</text>
+        <text x="60" y="238" font-size="10.5" opacity=".7">※月の区切りは概念的な目安。年により前後します。標高差100mでおよそ0.6℃、同じ「北軽井沢」でも上と下で体感が違う。</text>
+      </g>
+    </svg>
+    <div class="cap">図⑤：北軽井沢の一年（概念図）。暖房期間はおよそ8か月に及ぶ</div>
+  </div>
+
+  <h3>浅間山 ― 具体的に何が想定されているか</h3>
+  <div class="tw"><table>
+    <tr><th>項目</th><th>内容</th></tr>
+    <tr><td>現在の状況</td><td><b>2026年5月22日、噴火警戒レベルが2（火口周辺規制）から1（活火山であることに留意）へ引下げ</b></td></tr>
+    <tr><td>レベルの意味</td><td>レベル1〜3では<b>居住地域に大きな危険は及ばない</b>とされ避難不要。レベル4〜5で居住地域まで被害が及ぶおそれ＝避難準備・避難</td></tr>
+    <tr><td>ハザードマップ</td><td>2018年5月、浅間山火山防災協議会が<b>大規模噴火（1108年「天仁大噴火」規模・噴出物量1.41km³）</b>を想定したマップを公表</td></tr>
+    <tr><td><b>融雪型火山泥流</b></td><td>山頂付近に雪が積もった冬季に中規模噴火が起きると、火砕流が雪を融かして高速で流下。<b>居住地域・別荘地まで約15分で到達しうる</b>と評価されている</td></tr>
+  </table></div>
+  <div class="flags">
+    <h4>■ 火山リスクの現実的な受け止め方</h4>
+    <ul>
+      <li><b>「危ないから住めない」ではなく「情報の取り方を決めておく」</b>問題。レベル1〜3では日常が続き、レベル4〜5は<b>事前に上がってから</b>来る設計になっている。</li>
+      <li>例外が<b>融雪型火山泥流</b>。到達15分は<b>行政の情報伝達を待てない</b>速度。<b>物件が泥流の想定流路（沢・谷筋）に乗っていないか</b>をハザードマップで筆単位に確認するのが、この土地での最重要の物件選定基準のひとつ。</li>
+      <li>候補物件が決まったら、<b>長野原町／嬬恋村の火山防災ページのマップに地番を落とす</b>。沢筋の低い土地を避け、尾根側・段丘上を選ぶ。</li>
+      <li>火災保険・地震保険では<b>噴火・火山灰の扱いが商品ごとに違う</b>。契約時に噴火による損害の担保範囲を明示的に確認する。</li>
+    </ul>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="sec-no">STEP 06 ― LIFE</div>
+  <h2>生活インフラ ― 「スーパーが無い」を設計に織り込む</h2>
+  <div class="tw"><table>
+    <tr><th>項目</th><th>実態</th><th>設計への反映</th></tr>
+    <tr><td><b>買い物</b></td><td><b>北軽井沢にスーパーは無い</b>。個人商店が数軒あるが割高。コンビニ利用が中心</td><td><b>大型冷凍庫＋パントリー</b>を間取りに入れる。週1回の軽井沢／中之条まとめ買いが基本動線</td></tr>
+    <tr><td><b>医療</b></td><td>軽井沢町に<b>軽井沢病院</b>（内科・外科・小児科・産婦人科等、救急対応）。車で30〜40分</td><td>冬季の通院時間が読めない前提。<b>常備薬・かかりつけの二重化</b></td></tr>
+    <tr><td><b>教育</b></td><td>町立北軽井沢小学校は<b>2024年3月で閉校</b>。跡地に<b>2026年4月「LCAきたかる森のインター」初等部・プリスクールが開校</b>（株式会社立の一条校・教育課程特例校／初年度7名）</td><td>公立の選択肢は町内の統合校へ。<b>英語イマージョン＋探究型という特殊な選択肢が近所にできた</b>のは、この地域の新しい変数</td></tr>
+    <tr><td><b>鉄道</b></td><td>JR吾妻線<b>万座・鹿沢口駅</b>は無人駅。1960年に草軽電気鉄道が廃止されて以降、「北軽井沢駅」の名はバス停に受け継がれている</td><td><b>鉄道は実用的な移動手段にならない</b>。車が生活の前提</td></tr>
+    <tr><td><b>バス</b></td><td>草軽交通・西武観光バス等が軽井沢〜北軽井沢〜草津を結ぶ</td><td>車が使えない日の代替として本数を要確認</td></tr>
+    <tr><td><b>道路・冬</b></td><td>標高が高く路面凍結が前提。除雪路線から外れた区画は冬に車が入れないことがある</td><td><b>4WD＋スタッドレスは必須</b>。物件は<b>除雪路線への接続</b>を必ず現地で確認</td></tr>
+    <tr><td><b>通信</b></td><td>嬬恋村鎌原地区等で<b>NTT東日本のフレッツ光が提供</b>。実測600Mbps級の報告もあり、ワーケーション対応施設も存在</td><td>在宅仕事は成立し得る。ただし<b>番地単位で提供可否が変わる</b>ので、契約前にNTTのエリア判定を地番で実行</td></tr>
+  </table></div>
+  <div class="good"><b>裏を返すと。</b>この地域の弱点（スーパーが無い・鉄道が使えない・冬が長い）は、<b>すべて「車＋備蓄＋断熱」で設計的に解ける</b>種類の不便です。解けない不便（医療の即応性、子どもの選択肢）だけを残して判断すればよい。</div>
+</section>
+
+<section id="s7">
+  <div class="sec-no">STEP 07 ― COST</div>
+  <h2>費用 ― 寒冷地の古民家は「断熱と設備」に金がかかる</h2>
+  <p class="sub">一般論の費用は <a href="renovation.html" style="color:var(--accent)">空き家リノベ 手引き</a> に譲り、ここでは<b>北軽井沢だから乗る費用</b>を積み上げます。</p>
+
+  <div class="fig">
+    <svg viewBox="0 0 760 330" role="img" aria-label="北軽井沢仕様の費用積み上げ">
+      <g font-size="11.5" fill="currentColor">
+        <text x="10" y="20" font-size="12" font-weight="700">項目</text>
+        <text x="470" y="20" font-size="12" font-weight="700">概算レンジ</text>
+        <line x1="10" y1="28" x2="750" y2="28" stroke="currentColor" stroke-opacity=".25"/>
+        <g transform="translate(0,40)">
+          <text x="10" y="14">物件取得（集落の古民家）</text>
+          <rect x="230" y="2" width="240" height="16" rx="6" fill="currentColor" fill-opacity=".07"/>
+          <rect x="230" y="2" width="120" height="16" rx="6" fill="#0d7c94" fill-opacity=".65"/>
+          <text x="490" y="15" font-weight="700">50〜500万</text>
+        </g>
+        <g transform="translate(0,72)">
+          <text x="10" y="14">インスペクション／古民家調査</text>
+          <rect x="230" y="2" width="240" height="16" rx="6" fill="currentColor" fill-opacity=".07"/>
+          <rect x="230" y="2" width="40" height="16" rx="6" fill="#0d7c94" fill-opacity=".65"/>
+          <text x="490" y="15" font-weight="700">数万〜50万</text>
+        </g>
+        <g transform="translate(0,104)">
+          <text x="10" y="14" fill="#3f6ea8" font-weight="700">断熱改修（3地域仕様）</text>
+          <rect x="230" y="2" width="240" height="16" rx="6" fill="currentColor" fill-opacity=".07"/>
+          <rect x="230" y="2" width="216" height="16" rx="6" fill="#3f6ea8" fill-opacity=".8"/>
+          <text x="490" y="15" font-weight="700">60〜1,000万（幅が大きい）</text>
+        </g>
+        <g transform="translate(0,136)">
+          <text x="10" y="14" opacity=".8">└ 床下断熱（30坪）</text>
+          <rect x="230" y="2" width="240" height="16" rx="6" fill="currentColor" fill-opacity=".07"/>
+          <rect x="230" y="2" width="64" height="16" rx="6" fill="#3f6ea8" fill-opacity=".45"/>
+          <text x="490" y="15">40〜80万</text>
+        </g>
+        <g transform="translate(0,168)">
+          <text x="10" y="14" opacity=".8">└ 内窓（古民家は1か所10〜30万）</text>
+          <rect x="230" y="2" width="240" height="16" rx="6" fill="currentColor" fill-opacity=".07"/>
+          <rect x="230" y="2" width="96" height="16" rx="6" fill="#3f6ea8" fill-opacity=".45"/>
+          <text x="490" y="15">窓数×10〜30万</text>
+        </g>
+        <g transform="translate(0,200)">
+          <text x="10" y="14" fill="#b8862b" font-weight="700">薪ストーブ＋煙突工事</text>
+          <rect x="230" y="2" width="240" height="16" rx="6" fill="currentColor" fill-opacity=".07"/>
+          <rect x="230" y="2" width="88" height="16" rx="6" fill="#b8862b" fill-opacity=".7"/>
+          <text x="490" y="15" font-weight="700">100〜170万</text>
+        </g>
+        <g transform="translate(0,232)">
+          <text x="10" y="14">合併処理浄化槽（補助後）</text>
+          <rect x="230" y="2" width="240" height="16" rx="6" fill="currentColor" fill-opacity=".07"/>
+          <rect x="230" y="2" width="72" height="16" rx="6" fill="#2f9163" fill-opacity=".65"/>
+          <text x="490" y="15" font-weight="700">補助 21万／31.5〜48万を控除</text>
+        </g>
+        <g transform="translate(0,264)">
+          <text x="10" y="14">水道引込・私営水道加入金</text>
+          <rect x="230" y="2" width="240" height="16" rx="6" fill="currentColor" fill-opacity=".07"/>
+          <rect x="230" y="2" width="64" height="16" rx="6" fill="#c9821f" fill-opacity=".7"/>
+          <text x="490" y="15" font-weight="700">0〜40万＋工事費</text>
+        </g>
+        <g transform="translate(0,296)">
+          <text x="10" y="14">凍結対策（水抜栓・ヒーター）</text>
+          <rect x="230" y="2" width="240" height="16" rx="6" fill="currentColor" fill-opacity=".07"/>
+          <rect x="230" y="2" width="32" height="16" rx="6" fill="#c9821f" fill-opacity=".7"/>
+          <text x="490" y="15">工事＋<tspan font-weight="800">電気代 冬3.8〜8万/季</tspan></text>
+        </g>
+      </g>
+    </svg>
+    <div class="cap">図⑥：北軽井沢仕様のコスト積み上げ（概算。物件状態により大きく変動）</div>
+  </div>
+
+  <div class="note"><b>読み方。</b>物件が50万円でも、<b>断熱・水回り・浄化槽・薪ストーブで500〜1,000万円が普通に乗る</b>のがこの土地です。逆に「500万円の物件を買って200万円だけ直す」は、3地域の冬に対しては<b>ほぼ確実に寒い家</b>になります。<b>取得費を削って改修費に回す</b>——これが北軽井沢での正しい配分です。</div>
+
+  <h3>工程 ― 「冬に工事はできない」が最大の制約</h3>
+  <div class="fig">
+    <svg viewBox="0 0 760 250" role="img" aria-label="取得から入居までの工程">
+      <g font-size="11" fill="currentColor">
+        <g opacity=".6">
+          <text x="120" y="18">春</text><text x="270" y="18">夏</text><text x="420" y="18">秋</text><text x="570" y="18">冬</text><text x="690" y="18">翌春</text>
+        </g>
+        <line x1="60" y1="26" x2="740" y2="26" stroke="currentColor" stroke-opacity=".25"/>
+        <g transform="translate(0,36)">
+          <text x="6" y="14" font-weight="700">物件探し・内見</text>
+          <rect x="150" y="2" width="150" height="16" rx="6" fill="#0d7c94" fill-opacity=".6"/>
+        </g>
+        <g transform="translate(0,64)">
+          <text x="6" y="14" font-weight="700">法チェック（4層）</text>
+          <rect x="220" y="2" width="130" height="16" rx="6" fill="#c8384c" fill-opacity=".6"/>
+        </g>
+        <g transform="translate(0,92)">
+          <text x="6" y="14" font-weight="700">インスペクション</text>
+          <rect x="280" y="2" width="80" height="16" rx="6" fill="#c9821f" fill-opacity=".6"/>
+        </g>
+        <g transform="translate(0,120)">
+          <text x="6" y="14" font-weight="700">契約・決済・登記</text>
+          <rect x="350" y="2" width="70" height="16" rx="6" fill="#0d7c94" fill-opacity=".6"/>
+        </g>
+        <g transform="translate(0,148)">
+          <text x="6" y="14" font-weight="700">設計・確認申請</text>
+          <rect x="400" y="2" width="120" height="16" rx="6" fill="#c8384c" fill-opacity=".6"/>
+          <text x="528" y="14" font-size="10" opacity=".75">※新2号なら必須</text>
+        </g>
+        <g transform="translate(0,176)">
+          <text x="6" y="14" font-weight="700">本工事</text>
+          <rect x="150" y="2" width="230" height="16" rx="6" fill="#2f9163" fill-opacity=".55"/>
+          <rect x="640" y="2" width="100" height="16" rx="6" fill="#2f9163" fill-opacity=".55"/>
+          <rect x="380" y="2" width="260" height="16" rx="6" fill="#3f6ea8" fill-opacity=".25" stroke="#3f6ea8" stroke-dasharray="4 3"/>
+          <text x="510" y="14" font-size="10" text-anchor="middle" fill="#3f6ea8" font-weight="700">凍結期は基礎・左官・外部が止まる</text>
+        </g>
+        <g transform="translate(0,208)">
+          <text x="6" y="14" font-weight="700">薪の確保</text>
+          <rect x="380" y="2" width="200" height="16" rx="6" fill="#b8862b" fill-opacity=".55"/>
+          <text x="590" y="14" font-size="10" opacity=".75">乾燥に1〜2年、前倒しで始める</text>
+        </g>
+      </g>
+    </svg>
+    <div class="cap">図⑦：工程イメージ。<b>冬に外部工事が止まる</b>ため、実質は「春に買って秋までに躯体を終える」年間サイクルになる</div>
+  </div>
+  <div class="cold"><b>工程の鉄則。</b>①<b>春〜初夏に契約</b>して、②<b>凍結前（おおむね11月まで）に屋根・基礎・外皮を閉じる</b>、③内装は冬にやる。この順を外すと1年まるごと遅れます。<b>薪は乾燥に1〜2年</b>かかるので、入居予定の前年から仕込み始めるのが正解です。</div>
+</section>
+
+<section id="s8">
+  <div class="sec-no">STEP 08 ― MONEY</div>
+  <h2>使える制度と、当てにしてはいけない制度</h2>
+  <div class="tw"><table>
+    <tr><th>制度</th><th>内容</th><th>評価</th></tr>
+    <tr><td><b>長野原町 移住支援金</b></td><td><b>2人以上世帯 100万円／単身 60万円</b>、18歳未満の帯同1人につき<b>30万円加算</b>。2019年4月26日以降の移住、転入から1年以内に申請、<b>申請時50歳未満</b>、申請後5年以上の継続居住意思。窓口：未来ビジョン推進課 水源地域振興係（0279-82-2229）</td><td><span class="pill p-ok">狙える</span>金額が大きい。<b>年齢・就業要件を先に確認</b></td></tr>
+    <tr><td><b>群馬県 移住支援金</b></td><td>県の枠組み。令和7年度より<b>全市町村で「関係人口」の要件</b>が設定された</td><td><span class="pill p-care">要件変動</span>年度ごとに要件が変わる。最新版を必ず確認</td></tr>
+    <tr><td><b>嬬恋村 移住支援金</b></td><td>東京23区在住／東京圏から23区通勤の履歴要件等。<b>令和7年度は予算到達で受付終了</b>の実績</td><td><span class="pill p-must">当てにしない</span>予算枠制。<b>制度前提で村を選ばない</b></td></tr>
+    <tr><td><b>浄化槽設置整備事業費補助金（長野原町）</b></td><td>新設 <b>21万円</b>／転換 <b>31.5〜48万円</b>（上限）。集合処理区域を除く町内全域。<b>宅内配管は対象外</b></td><td><span class="pill p-ok">確実</span>浄化槽は必須工事なので実質値引き</td></tr>
+    <tr><td><b>長野原町 住宅改修等助成</b></td><td>屋根塗装・外壁塗装・リフォームに利用可。<b>5年を1周期とし各期1回</b></td><td><span class="pill p-ok">使える</span>周期制なので工事を分割する設計も有効</td></tr>
+    <tr><td><b>長野原町 空き家活用事業</b></td><td>町が空き家を所有者から<b>原則10年借り受ける</b>仕組み。売買ではなく<b>賃貸で試住する</b>ルート</td><td><span class="pill p-chk">別ルート</span>「まず住んでから買う」の受け皿になり得る</td></tr>
+    <tr><td><b>相続空き家の3,000万円特別控除</b></td><td><b>2027年12月31日まで延長</b>。1981年5月31日以前建築等が要件。2024年改正で<b>譲渡後、翌年2月15日までの耐震改修・取壊しでも可</b>に緩和</td><td><span class="pill p-chk">交渉材料</span>買主ではなく<b>売主</b>の特例。売主が期限内に売り切りたい動機になる＝<b>値引き交渉の背景として効く</b></td></tr>
+  </table></div>
+  <div class="note"><b>戦略。</b>「長野原町を選ぶと、移住支援金＋浄化槽補助＋住宅改修助成が<b>1つの窓口で完結</b>する」。嬬恋村は物件が安いが制度が読みにくい。<b>物件価格の差（100〜200万円）と制度の差（100万円級）が、実はほぼ拮抗する</b>——ここが2ゾーンの最終的な判断軸になります。</div>
+</section>
+
+<section id="s9">
+  <div class="sec-no">STEP 09 ― CHECKLIST</div>
+  <h2>内見・契約前チェックリスト（北軽井沢仕様）</h2>
+  <p class="sub">一般的な空き家チェックは <a href="renovation.html" style="color:var(--accent)">リノベ手引き</a> にあります。ここは<b>この土地でしか出てこない項目</b>だけ。地番が手に入った日にこの順で潰します。</p>
+
+  <h4>その日のうちに電話1本で分かること</h4>
+  <ul class="chk">
+    <li><b>どっちの自治体か</b>（長野原町／嬬恋村）— 以降の全ルールが分岐する</li>
+    <li><b>都市計画区域の内か外か</b> — 中之条土木事務所 建築課（0279-75-3047）に地番で照会</li>
+    <li><b>上信越高原国立公園の区域内か</b>、内なら特別地域か普通地域か — 環境省／群馬県自然環境課</li>
+    <li><b>景観計画・景観形成重点地区</b>の指定の有無 — 町/村の担当課</li>
+    <li><b>付属する筆に農地はあるか、青地（農振農用地）か</b> — 農業委員会</li>
+    <li><b>上水は町営簡易水道／私営水道／井戸のどれか</b>、加入金の有無 — 町水道係／別荘地管理事務所</li>
+    <li><b>下水は集合処理区域か、浄化槽区域か</b> — 町担当課（補助の可否に直結）</li>
+    <li><b>光回線の提供可否</b> — NTT東日本のエリア判定を地番で</li>
+  </ul>
+
+  <h4>現地でしか分からないこと</h4>
+  <ul class="chk">
+    <li><b>浅間山ハザードマップに地番を落とす</b>。沢筋・谷地形にいないか。融雪型火山泥流の想定流路から外れているか</li>
+    <li><b>冬季の除雪路線に接続しているか</b>。役場の除雪計画図で確認し、加えて近隣に「ここは除雪来ますか」と直接聞く</li>
+    <li><b>接道</b>：公道か、里道・農道・共有私道か。私道なら<b>通行・掘削の承諾</b>が取れるか（水道・浄化槽工事に直結）</li>
+    <li><b>建物の階数と延床</b>：2階建てか平屋か、200㎡を超えるか（＝新2号か新3号か＝確認申請の要否）</li>
+    <li><b>建築時期</b>：1981年5月31日以前か（旧耐震）。確認済証・検査済証は残っているか</li>
+    <li><b>基礎の形式</b>：石場立てか、コンクリート基礎か（耐震方針と費用が数百万円変わる分岐）</li>
+    <li><b>凍結対策の既存設備</b>：水抜き栓の位置、凍結防止ヒーターの有無と配線</li>
+    <li><b>暖房の実績</b>：これまで冬に人が住んでいたか、それとも<b>夏だけの家</b>だったか（＝通年居住の実績がない建物は寒さの実力が未知数）</li>
+    <li><b>薪の調達先</b>：近隣に原木・薪の供給ルートがあるか（森林組合・製材所・造園業者）</li>
+    <li><b>別荘地内なら</b>：管理費の年額、私営水道の基本料と加入金、建築協定の内容、管理組合の財務状態</li>
+    <li><b>集落なら</b>：区費・common workの頻度、水利・道普請の慣行、隣地との境界の確定状況</li>
+  </ul>
+
+  <div class="flags">
+    <h4>■ 撤退すべきサイン</h4>
+    <ul>
+      <li>融雪型火山泥流の想定流路上、または沢筋の低地にある</li>
+      <li>冬季に除雪路線が来ず、車で到達できない</li>
+      <li>私道の掘削承諾が取れない（＝水道・浄化槽が引けない＝住めない）</li>
+      <li>青地の農地が母屋の敷地に食い込んでいて、転用の見込みが立たない</li>
+      <li>不同沈下・小屋組の腐朽が進行しており、かつ<b>新2号</b>で確認申請が要る規模 ＝ 設計料込みで新築が見えてくる</li>
+    </ul>
+  </div>
+</section>
+
+<section id="s10">
+  <div class="sec-no">STEP 10 ― NEXT</div>
+  <h2>次の一手 ― 順番を間違えないための3か月</h2>
+  <div class="tw"><table>
+    <tr><th>時期</th><th>やること</th><th>理由</th></tr>
+    <tr><td><b>今月</b></td><td>長野原町 未来ビジョン推進課（0279-82-2229）へ電話。<b>空き家バンクの利用登録</b>と、移住支援金の<b>最新要件</b>（年齢・就業・関係人口要件）を確認。嬬恋村の空き家バンクにも利用登録</td><td>バンクは登録者にしか回らない情報がある。<b>登録は無料で、早いほど有利</b></td></tr>
+    <tr><td><b>今月</b></td><td>北軽井沢・嬬恋専業の地元不動産2〜3社に「集落の古民家・予算◯◯万・通年居住」と伝えて<b>出たら連絡</b>の関係を作る</td><td>集落の物件は表に出る前に決まる</td></tr>
+    <tr><td><b>1〜2か月目</b></td><td><b>冬に一度、泊まりで現地に行く</b>。除雪の実態・道路凍結・寒さの体感・買い物動線を確認</td><td>夏の北軽井沢は誰でも好きになる。<b>判断材料は冬にしかない</b></td></tr>
+    <tr><td><b>2〜3か月目</b></td><td>候補が1件でも出たら、上のチェックリストを<b>電話8本</b>で潰す。並行してインスペクション業者を手配</td><td>法チェックは<b>買付を入れる前</b>に終わらせる</td></tr>
+    <tr><td><b>並行</b></td><td>寒冷地の古民家改修をやっている<b>県内・長野県側の工務店/建築士</b>を探して相談。3地域の断熱仕様を持っているかを見る</td><td>「新2号の確認申請＋3地域の断熱」を両方こなせる相手は限られる。<b>先に見つけた方が物件も見立てられる</b></td></tr>
+  </table></div>
+
+  <div class="cards">
+    <a class="rc" href="renovation.html">
+      <div class="ic">🔧</div><h4>空き家リノベ 手引き</h4>
+      <p>診断の優先度・状態の類型・直す順番・手法カタログ。一般論はこちら。</p>
+      <span class="go">開く →</span>
+    </a>
+    <a class="rc" href="scenarios.html">
+      <div class="ic">🧭</div><h4>移住シナリオ・シミュレータ</h4>
+      <p>北軽井沢／南房総／鎌倉を月々のお金と自由時間で比較。本ページの数値を入れて再計算できる。</p>
+      <span class="go">試算する →</span>
+    </a>
+    <a class="rc" href="kakeibo.html">
+      <div class="ic">💴</div><h4>移住家計簿</h4>
+      <p>暖房費・凍結防止ヒーター代・車の維持費を入れて、月次の黒字/赤字を見る。</p>
+      <span class="go">家計簿へ →</span>
+    </a>
+  </div>
+
+  <div class="note"><b>この計画の一行まとめ。</b>「<b>長野原町の集落に、平屋または200㎡以下の古民家を、春に買う</b>。法チェックは買付前に電話8本で終わらせ、凍結前に外皮を閉じ、断熱に金を寄せる。土地が安い分は、すべて冬に備える工事へ回す。」</div>
+</section>
+
+<section>
+  <div class="sec-no">SOURCES</div>
+  <h2>出典</h2>
+  <p class="sub">本ページはWeb検索由来の一次・二次情報を編集したものです。制度・価格・区域指定は変動するため、<b>実行前に必ず各窓口で最新を確認</b>してください。</p>
+  <div class="src">
+    <b>場所・物件</b>：<a href="https://ja.wikipedia.org/wiki/%E5%8C%97%E8%BB%BD%E4%BA%95%E6%B2%A2" target="_blank" rel="noopener">北軽井沢（Wikipedia）</a>／<a href="https://ja.wikipedia.org/wiki/%E5%8C%97%E8%BB%BD%E4%BA%95%E6%B2%A2%E5%A4%A7%E5%AD%A6%E6%9D%91" target="_blank" rel="noopener">北軽井沢大学村（Wikipedia）</a>／<a href="https://www.hosei.ac.jp/hosei/daigakugaiyo/daigaku_shi/museum/2011/110720/" target="_blank" rel="noopener">法政大学「北軽井沢 法政大学村」</a>／<a href="https://shibata-estate.jp/karuizawa-land-price-by-area/" target="_blank" rel="noopener">シバタエステート（軽井沢の土地価格とエリア比較）</a>／<a href="https://tsumagoi-akiya.jp/" target="_blank" rel="noopener">嬬恋村 空き家・空き地バンク</a>／<a href="https://www.homes.co.jp/akiyabank/gunma/agatsuma_tsumagoi/" target="_blank" rel="noopener">LIFULL HOME'S 空き家バンク（嬬恋村）</a>／<a href="https://www.town.naganohara.gunma.jp/www/contents/1625557322167/index.html" target="_blank" rel="noopener">長野原町 空き家活用事業</a>／<a href="https://suumo.jp/b/kodate/kw/%E5%8C%97%E8%BB%BD%E4%BA%95%E6%B2%A2%E3%80%80%E5%A3%B2%E3%82%8A%E5%AE%B6/" target="_blank" rel="noopener">SUUMO「北軽井沢 売り家」</a><br>
+    <b>建築基準法・省エネ法</b>：<a href="https://suumo.jp/remodel/blog/entry/20241126/001" target="_blank" rel="noopener">4号特例縮小とリフォームへの影響（SUUMO）</a>／<a href="https://www.etree.jp/content/13674/" target="_blank" rel="noopener">4号特例の縮小（eTREE）</a>／<a href="https://kijunhou.com/application-is-confirmation-free/" target="_blank" rel="noopener">確認申請が不要になる建築物（建築基準法とらのまき）</a>／<a href="https://www.ecocal.top/eco-14/" target="_blank" rel="noopener">2025年4月改正 省エネ法と増改築</a>／<a href="https://www.sekkei-gunma.jp/office/relation/request/gunma/" target="_blank" rel="noopener">群馬県 土木事務所一覧（群馬県建築士事務所協会）</a>／<a href="https://www.pref.gunma.jp/page/11482.html" target="_blank" rel="noopener">群馬県 都市計画制度について</a>／<a href="https://albalink.co.jp/realestate/article-43-proviso-road-trouble/" target="_blank" rel="noopener">43条2項2号（但し書き道路）の解説</a><br>
+    <b>自然公園・景観・自治体条例</b>：<a href="https://www.env.go.jp/park/joshinetsu/intro/index.html" target="_blank" rel="noopener">環境省 上信越高原国立公園</a>／<a href="https://www.pref.gunma.jp/page/1220.html" target="_blank" rel="noopener">群馬県 上信越高原国立公園</a>／<a href="https://www.pref.gunma.jp/page/7537.html" target="_blank" rel="noopener">群馬県 大規模行為の届出（景観条例）</a>／<a href="https://www.town.naganohara.gunma.jp/www/contents/1396223992140/files/4.pdf" target="_blank" rel="noopener">長野原町 景観計画 第7章（PDF）</a>／<a href="https://www.vill.tsumagoi.gunma.jp/www/contents/1000000000252/index.html" target="_blank" rel="noopener">嬬恋村 建築等に対する主な規制</a>／<a href="https://www.vill.tsumagoi.gunma.jp/www/contents/1000000000251/index.html" target="_blank" rel="noopener">嬬恋村 開発（建築）規制等の概要</a>／<a href="https://www.vill.tsumagoi.gunma.jp/reiki_int/reiki_honbun/e246RG00000548.html" target="_blank" rel="noopener">嬬恋村景観条例</a><br>
+    <b>農地・水・汚水</b>：<a href="https://www.zennichi.or.jp/2023/04/03/%E5%9B%BD%E5%9C%9F%E4%BA%A4%E9%80%9A%E7%9C%81%E3%80%8C%E3%80%8E%E8%BE%B2%E5%9C%B0%E4%BB%98%E3%81%8D%E7%A9%BA%E3%81%8D%E5%AE%B6%E3%81%AE%E6%89%8B%E5%BC%95%E3%81%8D%E3%80%8F%E3%81%AE%E5%8F%96%E3%82%8A/" target="_blank" rel="noopener">国交省「農地付き空き家の手引き」取扱い変更（全日本不動産協会）</a>／<a href="https://www.kaku-ichi.co.jp/media/tips/legal-system/lower-area-requirement" target="_blank" rel="noopener">下限面積要件の撤廃</a>／<a href="https://www1.g-reiki.net/naganohara/reiki_honbun/e245RG00000444.html" target="_blank" rel="noopener">長野原町北軽井沢簡易水道事業給水条例</a>／<a href="https://www.joseikin-navi.jp/subsidy/74892bc9-b80b-4732-9253-e634cc18ced5" target="_blank" rel="noopener">長野原町 浄化槽設置補助</a>／<a href="https://blog.goo.ne.jp/fattyojisan/e/95f812e73d30bfef91b05d7d6e7c8e39" target="_blank" rel="noopener">別荘地の上下水道（実例）</a><br>
+    <b>気候・火山</b>：<a href="https://kitamoc.com/press100/archives/8909" target="_blank" rel="noopener">数字で見る北軽井沢：冬はどれくらい寒いのか（きたもっく）</a>／<a href="https://www.isover.co.jp/region-by-climate" target="_blank" rel="noopener">省エネ基準 地域区分</a>／<a href="https://www.data.jma.go.jp/vois/data/tokyo/rovdm/Asamayama_rovdm/Asamayama_rovdm.html" target="_blank" rel="noopener">気象庁 浅間山火山防災連絡事務所</a>／<a href="https://www.vill.tsumagoi.gunma.jp/www/contents/1000000000064/index.html" target="_blank" rel="noopener">嬬恋村 浅間山火山ハザードマップ</a>／<a href="https://www.town.naganohara.gunma.jp/www/contents/1361855577031/index.html" target="_blank" rel="noopener">長野原町 浅間山火山防災</a><br>
+    <b>生活・教育・制度</b>：<a href="https://www.karuizawa.co.jp/editor/2026/04/post-753.php" target="_blank" rel="noopener">北軽井沢に新たな小学校・プリスクール（軽井沢ウェブ）</a>／<a href="https://edu.watch.impress.co.jp/docs/news/2097598.html" target="_blank" rel="noopener">旧北軽井沢小学校が「グローバル教育特区」に（こどもとIT）</a>／<a href="https://kitakaru-mogma.com/supermarket/" target="_blank" rel="noopener">北軽井沢にスーパーはありません</a>／<a href="https://www.town.naganohara.gunma.jp/www/contents/1695173846130/index.html" target="_blank" rel="noopener">長野原町 移住支援金</a>／<a href="https://gunmagurashi.pref.gunma.jp/shienkin/" target="_blank" rel="noopener">群馬県 移住支援金事業</a>／<a href="https://www.vill.tsumagoi.gunma.jp/www/contents/1000000000522/index.html" target="_blank" rel="noopener">嬬恋村 移住支援金事業</a>／<a href="https://www.mlit.go.jp/jutakukentiku/house/jutakukentiku_house_tk2_000030.html" target="_blank" rel="noopener">国交省 空き家の譲渡所得3,000万円特別控除</a>／<a href="https://www.pref.gunma.jp/page/8209.html" target="_blank" rel="noopener">群馬県 住宅宿泊事業（民泊）</a><br>
+    <b>費用相場</b>：<a href="https://www.yamane-m.co.jp/kurasu/23082/" target="_blank" rel="noopener">古民家断熱リフォームの費用相場</a>／<a href="https://www.dannetsu-takumi.com/contents/column/innerwindow-price/" target="_blank" rel="noopener">内窓リフォームの費用</a>／<a href="https://www.aplusinc.jp/woodstove-guide/cost/" target="_blank" rel="noopener">薪ストーブにかかるお金</a>／<a href="https://www.sugano-k.com/kominka/taishin/" target="_blank" rel="noopener">古民家再生の耐震診断・耐震補強</a>
+  </div>
+</section>
+
+<div class="disc">
+  ※本ページは<b>Web検索由来の情報を編集した計画メモ</b>であり、特定物件の可否・費用・適法性を保証するものではありません。とくに<b>都市計画区域の内外</b>、<b>自然公園区域の該当性</b>、<b>景観重点地区の指定</b>、<b>農地の区分</b>は<b>地番単位</b>で決まるため、必ず各窓口（中之条土木事務所建築課／環境省・群馬県自然環境課／長野原町・嬬恋村役場／農業委員会／保健所）へ照会してください。金額は概算レンジで、物件状態により大きく変動します。<b>浅間山は活火山です</b>——最新の噴火警戒レベルは気象庁の発表を確認してください。<br>
+  MOVING ・ 北軽井沢 古民家リノベ計画 ／ レポートハブに戻る → <a href="home.html" style="color:var(--accent)">home</a>
+</div>
+</div></body></html>
