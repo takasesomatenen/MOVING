@@ -7,7 +7,8 @@
 | `spec.json` | 数値の単一の情報源。敷地・建物・開口・材料・太陽・カメラを全部ここに置く |
 | `blender_hut.py` | `spec.json` を読んでBlender上にマッシングを生成する |
 | `make_hut_page.py` | `spec.json` から図面付きレポート `data/report/hut.html` を生成する |
-| `HANDOFF.md` | ローカル（Mac）で全部動かすための引き継ぎ。まずこれ |
+| `CONTEXT.md` | 経緯・調べたこと・**なぜその寸法にしたのか**。文脈の引き継ぎはこれ |
+| `HANDOFF.md` | ローカル（Mac）で全部動かすための手順。まずこれ |
 | `renders/` | 参考レンダ4カット（Cycles・48サンプル） |
 | `check_spec.py` | 面積・屋根高・軒の出の効き・敷地への収まり・太陽変換の検算（ネット不要） |
 
