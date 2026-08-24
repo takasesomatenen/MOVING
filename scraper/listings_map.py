@@ -32,6 +32,7 @@ DETAIL_RE = re.compile(
     r"(/bukken/detail/|/detail/|athome\.co\.jp/kodate/\d{6,}|"
     r"athome\.co\.jp/tochi/\d{6,}|resort-bukken\.com/detail/|"
     r"homes\.co\.jp/akiyabank/b-\d+|haruka-f\.co\.jp/sale/detail/|"
+    r"akiya\.sumai\.biz/\d+|"
     r"erajapan\.co\.jp/catalog/.+/\d+/|sinsei-heights\.jp/[^/]+/detail-)"
 )
 
