@@ -1,9 +1,9 @@
 {
- "checked": "2026-08-24",
+ "checked": "2026-08-25",
  "counts": {
   "ALIVE": 1,
   "GONE": 1,
-  "UNKNOWN": 52,
+  "UNKNOWN": 53,
   "SKIP": 5
  },
  "results": [
@@ -28,6 +28,14 @@
    "location": "三重県尾鷲市三木里町",
    "price_man": "50.0",
    "url": "https://mrt.jpn.org/inakaakiya/post-3710/",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "7d7431a5ea53",
+   "location": "山口県長門市通",
+   "price_man": "50.0",
+   "url": "https://akiya.sumai.biz/111463",
    "status": "UNKNOWN",
    "reason": "一覧/バンクURL(個別判定不可)"
   },
