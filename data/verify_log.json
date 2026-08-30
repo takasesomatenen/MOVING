@@ -1,9 +1,9 @@
 {
- "checked": "2026-08-29",
+ "checked": "2026-08-30",
  "counts": {
-  "ALIVE": 1,
-  "GONE": 2,
-  "UNKNOWN": 53,
+  "ALIVE": 2,
+  "GONE": 0,
+  "UNKNOWN": 54,
   "SKIP": 5
  },
  "results": [
@@ -256,6 +256,14 @@
    "reason": "一覧/バンクURL(個別判定不可)"
   },
   {
+   "id": "2faf579d2c3d",
+   "location": "和歌山県東牟婁郡串本町佐部",
+   "price_man": "250.0",
+   "url": "https://akiya.sumai.biz/121382",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
    "id": "9d6705f171f6",
    "location": "千葉県南房総市白浜町白浜",
    "price_man": "280",
@@ -480,20 +488,12 @@
    "reason": "HTTP 403(ブロック)"
   },
   {
-   "id": "ed9cc5bd4723",
-   "location": "",
-   "price_man": "",
-   "url": "https://resort-bukken.com/detail/4479",
-   "status": "GONE",
-   "reason": "本文に「商談中」"
-  },
-  {
    "id": "ef78338867f3",
    "location": "",
    "price_man": "",
    "url": "https://resort-bukken.com/detail/5088",
-   "status": "GONE",
-   "reason": "本文に「商談中」"
+   "status": "ALIVE",
+   "reason": "HTTP 200"
   }
  ]
 }
