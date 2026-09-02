@@ -1,9 +1,9 @@
 {
- "checked": "2026-09-01",
+ "checked": "2026-09-02",
  "counts": {
   "ALIVE": 1,
   "GONE": 0,
-  "UNKNOWN": 54,
+  "UNKNOWN": 55,
   "SKIP": 5
  },
  "results": [
@@ -260,6 +260,14 @@
    "location": "和歌山県東牟婁郡串本町佐部",
    "price_man": "250.0",
    "url": "https://akiya.sumai.biz/121382",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "0e59b68bb9cb",
+   "location": "鹿児島県阿久根市脇本",
+   "price_man": "250.0",
+   "url": "https://akiya.sumai.biz/113881",
    "status": "UNKNOWN",
    "reason": "一覧/バンクURL(個別判定不可)"
   },
