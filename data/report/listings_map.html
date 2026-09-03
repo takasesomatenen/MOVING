@@ -22,8 +22,8 @@
 </style></head>
 <body>
 <div class="title"><h1>🗾 海沿い格安物件マップ</h1>
-<p>全<b>61</b>件。<span class="warn">個別ページに直接飛べるのは 9件</span>、残り<b>45</b>件は掲載元サイトでの<b>検索リンク</b>（その物件が今も掲載中とは限りません）。<br>
-<b>⭐殿堂8</b>／<span class="dot" style="background:#2c6fb0"></span>✓直リンク8／<span class="ring"></span>〜参考45。ピンをタップで詳細。</p></div>
+<p>全<b>62</b>件。<span class="warn">個別ページに直接飛べるのは 10件</span>、残り<b>45</b>件は掲載元サイトでの<b>検索リンク</b>（その物件が今も掲載中とは限りません）。<br>
+<b>⭐殿堂8</b>／<span class="dot" style="background:#2c6fb0"></span>✓直リンク9／<span class="ring"></span>〜参考45。ピンをタップで詳細。</p></div>
 <div id="map"></div>
 <script>
   const map = L.map('map', { center:[36.2,137.0], zoom:5 });
@@ -57,6 +57,7 @@
   ]);
   const layer_detail = L.layerGroup([
       pin(34.378,131.138,"<b>長門市通 6DK 海望むバルコニー(離れ・畑付き)</b><br>50万円 ／ 山口県長門市通<br>建物単価 0.47万/㎡<br><a href=\"https://akiya.sumai.biz/111463\" target=\"_blank\" rel=\"noopener\">🏳️ この物件を見る（掲載元）</a>","#2f8f4e",false,true),
+      pin(33.185,132.415,"<b>宇和島市蒋淵 2DK 平屋(宇和海の漁村)</b><br>60万円 ／ 愛媛県宇和島市蒋淵<br>建物単価 0.96万/㎡<br><a href=\"https://akiya.sumai.biz/108800\" target=\"_blank\" rel=\"noopener\">🏳️ この物件を見る（掲載元）</a>","#2f8f4e",false,true),
       pin(34.788,139.048,"<b>東伊豆町白田 売戸建 140万(温泉引込・築33年)</b><br>140万円 ／ 静岡県賀茂郡東伊豆町白田<br>建物単価 2.64万/㎡<br><a href=\"https://higashiizu-t22301.akiya-athome.jp/bukken/detail/buy/37285\" target=\"_blank\" rel=\"noopener\">🏳️ この物件を見る（掲載元）</a>","#2c6fb0",false,true),
       pin(33.031,131.905,"<b>津久見市堅浦 5DK 木造(海沿い漁港・1978築)</b><br>200万円 ／ 大分県津久見市大字堅浦<br>建物単価 1.76万/㎡<br><a href=\"https://tsukumi-c44207.akiya-athome.jp/bukken/detail/buy/%E6%B4%A5%E4%B9%85%E8%A6%8B%E5%B8%82%E5%A3%B2%E6%88%B8%E5%BB%BA%E4%BD%8F%E5%AE%85-30681\" target=\"_blank\" rel=\"noopener\">🏳️ この物件を見る（掲載元）</a>","#2c6fb0",false,true),
       pin(33.51,135.792,"<b>串本町佐部 3DK コンパクト平屋(庭・納屋・駐車場3台・縁側)</b><br>250万円 ／ 和歌山県東牟婁郡串本町佐部<br>建物単価 2.56万/㎡<br><a href=\"https://akiya.sumai.biz/121382\" target=\"_blank\" rel=\"noopener\">🏳️ この物件を見る（掲載元）</a>","#c07a1e",false,true),
@@ -118,7 +119,7 @@
 
   const overlays = {
     "⭐ 殿堂<span class=cnt>8</span>": layer_hall,
-    "✓ 直リンク物件<span class=cnt>8</span>": layer_detail,
+    "✓ 直リンク物件<span class=cnt>9</span>": layer_detail,
     "〜 参考・要検索<span class=cnt>45</span>": layer_list
   };
   L.control.layers(null, overlays, {collapsed:false}).addTo(map);
