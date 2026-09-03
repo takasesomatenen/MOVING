@@ -1,9 +1,9 @@
 {
- "checked": "2026-09-02",
+ "checked": "2026-09-03",
  "counts": {
   "ALIVE": 1,
-  "GONE": 0,
-  "UNKNOWN": 55,
+  "GONE": 2,
+  "UNKNOWN": 56,
   "SKIP": 5
  },
  "results": [
@@ -36,6 +36,14 @@
    "location": "山口県長門市通",
    "price_man": "50.0",
    "url": "https://akiya.sumai.biz/111463",
+   "status": "UNKNOWN",
+   "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "311001405e76",
+   "location": "愛媛県宇和島市蒋淵",
+   "price_man": "60.0",
+   "url": "https://akiya.sumai.biz/108800",
    "status": "UNKNOWN",
    "reason": "一覧/バンクURL(個別判定不可)"
   },
@@ -494,6 +502,22 @@
    "url": "https://tsukumi-c44207.akiya-athome.jp/bukken/detail/buy/30665",
    "status": "SKIP",
    "reason": "HTTP 403(ブロック)"
+  },
+  {
+   "id": "173b4114b830",
+   "location": "",
+   "price_man": "",
+   "url": "https://resort-bukken.com/detail/4594",
+   "status": "GONE",
+   "reason": "本文に「商談中」"
+  },
+  {
+   "id": "554c94d2de06",
+   "location": "",
+   "price_man": "",
+   "url": "https://resort-bukken.com/detail/4868",
+   "status": "GONE",
+   "reason": "本文に「商談中」"
   }
  ]
 }
