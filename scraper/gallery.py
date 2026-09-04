@@ -80,6 +80,12 @@ def card(r):
         badges.append(f'<span>🚪 {html.escape(r["madori"])}</span>')
     if r["_unit"]:
         badges.append(f'<span>💴 {r["_unit"]}万/㎡</span>')
+    if r.get("sea_dist_m"):
+        badges.append(f'<span>🌊 海まで {html.escape(str(r["sea_dist_m"]))}m</span>')
+    if r.get("sea_view") and r.get("sea_view") not in ("—", ""):
+        badges.append(f'<span>👀 海見え {html.escape(r["sea_view"])}</span>')
+    if r.get("road_access") and r.get("road_access") not in ("—", ""):
+        badges.append(f'<span>🚗 車道 {html.escape(r["road_access"])}</span>')
     note = html.escape(r.get("note") or "")
     return f"""
     <article class="card">
