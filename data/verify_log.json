@@ -1,10 +1,10 @@
 {
- "checked": "2026-09-08",
+ "checked": "2026-09-09",
  "counts": {
-  "ALIVE": 2,
+  "ALIVE": 1,
   "GONE": 0,
   "UNKNOWN": 56,
-  "SKIP": 5
+  "SKIP": 6
  },
  "results": [
   {
@@ -444,8 +444,8 @@
    "location": "島根県出雲市多伎町小田",
    "price_man": "300.0",
    "url": "https://www.haruka-f.co.jp/sale/detail/320015-242556",
-   "status": "ALIVE",
-   "reason": "HTTP 200"
+   "status": "SKIP",
+   "reason": "接続不可: ReadTimeout"
   },
   {
    "id": "0171f5e449a0",
