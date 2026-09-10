@@ -1,10 +1,10 @@
 {
- "checked": "2026-09-09",
+ "checked": "2026-09-10",
  "counts": {
-  "ALIVE": 1,
-  "GONE": 0,
+  "ALIVE": 2,
+  "GONE": 1,
   "UNKNOWN": 56,
-  "SKIP": 6
+  "SKIP": 5
  },
  "results": [
   {
@@ -444,8 +444,8 @@
    "location": "島根県出雲市多伎町小田",
    "price_man": "300.0",
    "url": "https://www.haruka-f.co.jp/sale/detail/320015-242556",
-   "status": "SKIP",
-   "reason": "接続不可: ReadTimeout"
+   "status": "ALIVE",
+   "reason": "HTTP 200"
   },
   {
    "id": "0171f5e449a0",
@@ -510,6 +510,14 @@
    "url": "https://resort-bukken.com/detail/4427",
    "status": "ALIVE",
    "reason": "HTTP 200"
+  },
+  {
+   "id": "8873bb3feac8",
+   "location": "",
+   "price_man": "",
+   "url": "https://resort-bukken.com/detail/4838",
+   "status": "GONE",
+   "reason": "本文に「商談中」"
   }
  ]
 }
