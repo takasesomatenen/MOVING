@@ -1,7 +1,7 @@
 {
- "checked": "2026-09-10",
+ "checked": "2026-09-11",
  "counts": {
-  "ALIVE": 2,
+  "ALIVE": 1,
   "GONE": 1,
   "UNKNOWN": 56,
   "SKIP": 5
@@ -508,14 +508,6 @@
    "location": "",
    "price_man": "",
    "url": "https://resort-bukken.com/detail/4427",
-   "status": "ALIVE",
-   "reason": "HTTP 200"
-  },
-  {
-   "id": "8873bb3feac8",
-   "location": "",
-   "price_man": "",
-   "url": "https://resort-bukken.com/detail/4838",
    "status": "GONE",
    "reason": "本文に「商談中」"
   }
