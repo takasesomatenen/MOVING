@@ -1,8 +1,8 @@
 {
- "checked": "2026-09-11",
+ "checked": "2026-09-12",
  "counts": {
   "ALIVE": 1,
-  "GONE": 1,
+  "GONE": 0,
   "UNKNOWN": 56,
   "SKIP": 5
  },
@@ -502,14 +502,6 @@
    "url": "https://tsukumi-c44207.akiya-athome.jp/bukken/detail/buy/30665",
    "status": "SKIP",
    "reason": "HTTP 403(ブロック)"
-  },
-  {
-   "id": "bd5d727897c2",
-   "location": "",
-   "price_man": "",
-   "url": "https://resort-bukken.com/detail/4427",
-   "status": "GONE",
-   "reason": "本文に「商談中」"
   }
  ]
 }
