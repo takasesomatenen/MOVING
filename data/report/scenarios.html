@@ -1,0 +1,312 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>移住シナリオ・シミュレータ ― お金と自由時間</title>
+<style>
+  :root{
+    --bg:#eef4f5; --surface:#ffffff; --surface2:#f5fafb; --ink:#0f2a33; --sub:#5f7681;
+    --line:#d5e3e6; --accent:#0d7c94; --accent-soft:rgba(13,124,148,.12);
+    --in:#2f9163; --out:#c8384c; --gold:#b8862b;
+    --s1:#0d7c94; --s2:#2f9163; --s3:#c9821f;
+    --in-soft:rgba(47,145,99,.13); --out-soft:rgba(200,56,76,.12);
+    --shadow:0 1px 2px rgba(15,42,51,.05),0 8px 22px rgba(15,42,51,.06);
+  }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+    --bg:#081115; --surface:#11222a; --surface2:#0d1c22; --ink:#e7f1f3; --sub:#8ea6ad;
+    --line:#20353c; --accent:#3bb6cc; --accent-soft:rgba(59,182,204,.15);
+    --in:#57bd8a; --out:#e5697d; --gold:#d7a94b;
+    --s1:#3bb6cc; --s2:#57bd8a; --s3:#e2a24e;
+    --in-soft:rgba(87,189,138,.15); --out-soft:rgba(229,105,125,.15);
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 26px rgba(0,0,0,.4);
+  }}
+  :root[data-theme="dark"]{
+    --bg:#081115; --surface:#11222a; --surface2:#0d1c22; --ink:#e7f1f3; --sub:#8ea6ad;
+    --line:#20353c; --accent:#3bb6cc; --accent-soft:rgba(59,182,204,.15);
+    --in:#57bd8a; --out:#e5697d; --gold:#d7a94b;
+    --s1:#3bb6cc; --s2:#57bd8a; --s3:#e2a24e;
+    --in-soft:rgba(87,189,138,.15); --out-soft:rgba(229,105,125,.15);
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 26px rgba(0,0,0,.4);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; padding:26px 16px 72px; }
+  .wrap{ max-width:900px; margin:0 auto; }
+  a.back{ font-size:12px; color:var(--accent); text-decoration:none; font-weight:700; }
+  .eyebrow{ font-size:11px; letter-spacing:.2em; font-weight:700; color:var(--accent); text-transform:uppercase; margin-top:12px; }
+  h1{ font-size:25px; margin:5px 0 6px; letter-spacing:.01em; }
+  .lead{ font-size:12.5px; color:var(--sub); line-height:1.75; }
+  .num{ font-variant-numeric:tabular-nums; }
+  section{ background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:17px 17px 18px; margin-top:16px; box-shadow:var(--shadow); }
+  h2{ font-size:15px; margin-bottom:4px; display:flex; align-items:center; gap:8px; }
+  h2 .hint{ font-size:10.5px; color:var(--sub); font-weight:400; }
+  .subh{ font-size:11.5px; color:var(--sub); margin-bottom:12px; }
+  /* input grid */
+  .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:10px; }
+  .fld{ display:flex; flex-direction:column; gap:3px; }
+  .fld label{ font-size:11px; color:var(--sub); font-weight:600; }
+  .fld .inwrap{ display:flex; align-items:center; gap:5px; }
+  .fld input[type=number]{ font:inherit; font-size:13.5px; padding:7px 9px; border:1px solid var(--line);
+    border-radius:9px; background:var(--surface2); color:var(--ink); width:100%; text-align:right; font-variant-numeric:tabular-nums; }
+  .fld input:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent); }
+  .fld .u{ font-size:11px; color:var(--sub); white-space:nowrap; }
+  /* scenario cards */
+  .scen{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  @media(max-width:640px){ .scen{ grid-template-columns:1fr; } }
+  .sc{ border:1px solid var(--line); border-radius:13px; padding:13px 13px 14px; background:var(--surface2); }
+  .sc.h1c{ border-top:3px solid var(--s1); } .sc.h2c{ border-top:3px solid var(--s2); } .sc.h3c{ border-top:3px solid var(--s3); }
+  .sc h3{ font-size:13.5px; margin-bottom:2px; }
+  .sc .loc{ font-size:10.5px; color:var(--sub); margin-bottom:9px; }
+  .sc .fld{ margin-bottom:7px; }
+  .chk{ display:flex; align-items:center; gap:7px; font-size:12px; color:var(--sub); margin-top:2px; }
+  /* results */
+  .rescards{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  @media(max-width:640px){ .rescards{ grid-template-columns:1fr; } }
+  .rc{ border:1px solid var(--line); border-radius:13px; padding:14px; background:var(--surface2); }
+  .rc.best{ border-color:var(--in); box-shadow:0 0 0 1px var(--in) inset; }
+  .rc h3{ font-size:13.5px; margin-bottom:8px; display:flex; align-items:center; gap:6px; }
+  .rc .big{ font-size:23px; font-weight:800; letter-spacing:.01em; }
+  .rc .lbl{ font-size:10.5px; color:var(--sub); }
+  .rc .net.pos{ color:var(--in); } .rc .net.neg{ color:var(--out); }
+  .rc .line{ display:flex; justify-content:space-between; font-size:12px; margin-top:6px; padding-top:6px; border-top:1px solid var(--line); }
+  .rc .line b{ font-variant-numeric:tabular-nums; }
+  .badge{ font-size:10px; font-weight:800; padding:2px 7px; border-radius:999px; background:var(--in-soft); color:var(--in); }
+  /* comparison bars */
+  .cmp{ display:flex; flex-direction:column; gap:10px; margin-top:6px; }
+  .cmprow{ display:grid; grid-template-columns:130px 1fr auto; align-items:center; gap:10px; font-size:12.5px; }
+  .cmprow .nm{ color:var(--sub); }
+  .cmptrack{ background:var(--surface2); border-radius:6px; height:22px; overflow:hidden; }
+  .cmpfill{ height:100%; border-radius:6px; min-width:3px; display:flex; align-items:center; }
+  .cmprow .val{ font-weight:800; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  table{ border-collapse:collapse; width:100%; margin-top:10px; font-size:12px; }
+  th,td{ border:1px solid var(--line); padding:7px 9px; text-align:right; font-variant-numeric:tabular-nums; }
+  th:first-child,td:first-child{ text-align:left; }
+  th{ background:var(--surface2); font-size:11px; font-weight:700; }
+  .verdict{ background:var(--in-soft); border:1px solid var(--in); border-radius:12px; padding:13px 15px; margin-top:14px; font-size:13px; }
+  .verdict b{ color:var(--in); }
+  .note{ font-size:11.5px; color:var(--sub); line-height:1.75; margin-top:10px; }
+  ul{ margin:6px 0 2px 2px; padding-left:18px; } li{ font-size:12.3px; margin:3px 0; }
+  .disc{ font-size:11px; color:var(--sub); line-height:1.8; margin-top:20px; border-top:1px dashed var(--line); padding-top:13px; }
+  .aibox{ font-size:11.5px; color:var(--sub); background:var(--accent-soft); border-radius:10px; padding:9px 12px; margin-top:8px; }
+  .tools{ display:flex; gap:8px; margin-top:12px; }
+  .tools button{ font:inherit; font-size:12px; font-weight:700; padding:7px 13px; border:1px solid var(--line); border-radius:9px; background:var(--surface); color:var(--ink); cursor:pointer; }
+  .tools button:hover{ border-color:var(--accent); color:var(--accent); }
+</style></head>
+<body>
+<div class="wrap">
+  <a class="back" href="home.html">← レポートハブへ戻る</a>
+  <div class="eyebrow">MOVING ・ お金と自由時間</div>
+  <h1>🧭 移住シナリオ・シミュレータ</h1>
+  <div class="lead">「場所を決める前に、お金だけ先に出す」。夫婦2人・地方でのんびり暮らす前提で、固定費を積み上げ、<b>北軽井沢で賃貸／南房総に土地+古民家（所有）／鎌倉で賃貸</b>の3本を比較します。目的は総額だけでなく<b>“自分の時間を最大化する生活の形”</b>を見つけること。数字はすべて編集できます（初期値は2026年の実勢＝下部に出典）。</div>
+
+  <!-- 前提 -->
+  <section>
+    <h2>① 前提（世帯・収入）<span class="hint">2人分</span></h2>
+    <div class="subh">「仕事は今より軽く、2人ともバイト or 同等以下」を想定。</div>
+    <div class="grid">
+      <div class="fld"><label>世帯月収（2人合計）</label><div class="inwrap"><input type="number" id="income" value="230000" step="10000"><span class="u">円/月</span></div></div>
+      <div class="fld"><label>時給（賄うのに必要な労働時間の計算用）</label><div class="inwrap"><input type="number" id="wage" value="1100" step="50"><span class="u">円/h</span></div></div>
+    </div>
+  </section>
+
+  <!-- 共通固定費 -->
+  <section>
+    <h2>② 共通の固定費 <span class="hint">場所によらずかかる分</span></h2>
+    <div class="grid" id="common">
+      <div class="fld"><label>車ローン（ジムニー・5年）</label><div class="inwrap"><input type="number" id="carLoan" value="33000" step="1000"><span class="u">円/月</span></div></div>
+      <div class="fld"><label>車の維持（保険/税/ガソリン/車検）</label><div class="inwrap"><input type="number" id="carRun" value="15000" step="1000"><span class="u">円/月</span></div></div>
+      <div class="fld"><label>通信（スマホ2台＋ネット）</label><div class="inwrap"><input type="number" id="tsushin" value="12000" step="500"><span class="u">円/月</span></div></div>
+      <div class="fld"><label>AIサブスク（下の内訳）</label><div class="inwrap"><input type="number" id="ai" value="8900" step="100"><span class="u">円/月</span></div></div>
+      <div class="fld"><label>その他サブスク（動画等）</label><div class="inwrap"><input type="number" id="subOther" value="1500" step="500"><span class="u">円/月</span></div></div>
+      <div class="fld"><label>国民年金（2人）</label><div class="inwrap"><input type="number" id="nenkin" value="35840" step="100"><span class="u">円/月</span></div></div>
+      <div class="fld"><label>国民健康保険（2人・低所得目安）</label><div class="inwrap"><input type="number" id="kokuho" value="15000" step="1000"><span class="u">円/月</span></div></div>
+      <div class="fld"><label>食費（2人）</label><div class="inwrap"><input type="number" id="food" value="55000" step="1000"><span class="u">円/月</span></div></div>
+      <div class="fld"><label>日用品・雑費</label><div class="inwrap"><input type="number" id="misc" value="25000" step="1000"><span class="u">円/月</span></div></div>
+      <div class="fld"><label>娯楽・交際</label><div class="inwrap"><input type="number" id="fun" value="20000" step="1000"><span class="u">円/月</span></div></div>
+      <div class="fld"><label>予備・その他</label><div class="inwrap"><input type="number" id="yobi" value="10000" step="1000"><span class="u">円/月</span></div></div>
+    </div>
+    <div class="aibox">🤖 AIサブスク内訳の目安：Claude Pro ≈¥3,000＋ChatGPT Plus ≈¥3,000＋Google One AI Premium（Gemini＋2TBストレージ込み）¥2,900 ＝ <b>約¥8,900/月</b>。生活の道具として固定費に計上（削るなら1本に集約で ¥3,000 前後まで圧縮可）。</div>
+  </section>
+
+  <!-- シナリオ -->
+  <section>
+    <h2>③ シナリオ別（住居・光熱・車） <span class="hint">ここだけ場所で変わる</span></h2>
+    <div class="scen">
+      <div class="sc h1c">
+        <h3>A. 北軽井沢 賃貸</h3><div class="loc">友人が近く／高原・寒冷地</div>
+        <div class="fld"><label>住居（家賃）</label><div class="inwrap"><input type="number" id="a_rent" value="70000" step="5000"><span class="u">円/月</span></div></div>
+        <div class="fld"><label>水道光熱（冬の暖房で高め）</label><div class="inwrap"><input type="number" id="a_util" value="25000" step="1000"><span class="u">円/月</span></div></div>
+        <label class="chk"><input type="checkbox" id="a_car" checked> 車を持つ</label>
+      </div>
+      <div class="sc h2c">
+        <h3>B. 南房総 土地+古民家</h3><div class="loc">土地・古民家を所有（家賃なし）</div>
+        <div class="fld"><label>住居（固定資産税/浄化槽/維持）</label><div class="inwrap"><input type="number" id="b_rent" value="12000" step="1000"><span class="u">円/月</span></div></div>
+        <div class="fld"><label>水道光熱（温暖）</label><div class="inwrap"><input type="number" id="b_util" value="18000" step="1000"><span class="u">円/月</span></div></div>
+        <label class="chk"><input type="checkbox" id="b_car" checked> 車を持つ</label>
+      </div>
+      <div class="sc h3c">
+        <h3>C. 鎌倉 賃貸</h3><div class="loc">都心近い／家賃高い・交通良い</div>
+        <div class="fld"><label>住居（家賃）</label><div class="inwrap"><input type="number" id="c_rent" value="130000" step="5000"><span class="u">円/月</span></div></div>
+        <div class="fld"><label>水道光熱</label><div class="inwrap"><input type="number" id="c_util" value="18000" step="1000"><span class="u">円/月</span></div></div>
+        <label class="chk"><input type="checkbox" id="c_car"> 車を持つ（鎌倉は無しも可）</label>
+      </div>
+    </div>
+    <div class="tools"><button id="reset">初期値に戻す</button></div>
+  </section>
+
+  <!-- 結果 -->
+  <section>
+    <h2>④ 結果 ― 月々いくら？ どれだけ働く？</h2>
+    <div class="subh">「賄う総労働時間」＝総支出÷時給。少ないほど<b>自由時間が多い</b>（2人で分担した1人あたり週の労働時間も表示）。</div>
+    <div class="rescards" id="rescards"></div>
+    <h2 style="margin-top:18px">総支出の比較</h2>
+    <div class="cmp" id="cmp"></div>
+    <div style="overflow-x:auto"><table id="tbl"></table></div>
+    <div class="verdict" id="verdict"></div>
+  </section>
+
+  <!-- 初期費用 -->
+  <section>
+    <h2>⑤ 初期費用（一度きり）の目安 <span class="hint">月々とは別</span></h2>
+    <ul>
+      <li><b>南房総（土地+古民家）</b>：物件取得 約150〜300万＋リノベ 約200〜500万＋諸費用/引越 約50〜100万 ＝ <b>おおむね450〜900万</b>（本サイト「リノベ手引き」参照）。現金購入なら月の住居費がほぼ消える＝自由時間の最大化に直結。</li>
+      <li><b>工作物・コンテナ</b>を土地に置く場合：中古コンテナ改装 約100〜300万／基礎・電気・水道引込 別途。母屋のサブや仕事場に。</li>
+      <li><b>車（ジムニー）頭金</b>：0〜30万（頭金を入れると月々ローンが下がる）。</li>
+      <li><b>賃貸（北軽井沢/鎌倉）</b>：敷金礼金・仲介・引越で <b>家賃の4〜6か月分</b>（鎌倉なら50〜80万規模）。</li>
+    </ul>
+    <div class="note">※初期費用は月額に含めていません。南房総型は「初期にまとめて払い、月々を極小化」する形で、下の結論の鍵になります。</div>
+  </section>
+
+  <!-- 結論 -->
+  <section>
+    <h2>⑥ 結論 ― 自由時間を最大化する形</h2>
+    <div id="conclusion" class="note" style="font-size:12.8px;color:var(--ink)"></div>
+  </section>
+
+  <div class="disc">
+    出典/前提：国民年金 2026年度 月額 ¥17,920/人（日本年金機構・各種報道）。AIサブスクは各社公表（Claude Pro/ChatGPT Plus ≈$20≈¥3,000、Google One AI Premium ¥2,900）。ジムニーシエラ 車両 ¥1,962,400〜¥2,183,500（スズキ/グーネット）を5年ローン想定。国保・家賃・光熱・食費は世帯構成/自治体/季節で大きく変動する概算です。実際の判断は各自治体・不動産・販売店にご確認ください。数値はこの端末に保存されます（localStorage）。
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var KEY="moving_scenarios_v1";
+  var IDS=["income","wage","carLoan","carRun","tsushin","ai","subOther","nenkin","kokuho","food","misc","fun","yobi",
+           "a_rent","a_util","c_rent","c_util","b_rent","b_util"];
+  var CHK=["a_car","b_car","c_car"];
+  var defaults={};
+  IDS.forEach(function(id){ defaults[id]=+document.getElementById(id).value; });
+  CHK.forEach(function(id){ defaults[id]=document.getElementById(id).checked; });
+
+  function yen(n){ n=Math.round(n); return (n<0?"-":"")+"¥"+Math.abs(n).toLocaleString("ja-JP"); }
+  function man(n){ return (n/10000).toFixed(1)+"万"; }
+  function g(id){ return +document.getElementById(id).value||0; }
+  function gc(id){ return document.getElementById(id).checked; }
+
+  function saveState(){
+    var s={}; IDS.forEach(function(id){ s[id]=g(id); }); CHK.forEach(function(id){ s[id]=gc(id); });
+    try{ localStorage.setItem(KEY, JSON.stringify(s)); }catch(e){}
+  }
+  function loadState(){
+    try{ var s=JSON.parse(localStorage.getItem(KEY)); if(!s) return;
+      IDS.forEach(function(id){ if(s[id]!=null) document.getElementById(id).value=s[id]; });
+      CHK.forEach(function(id){ if(s[id]!=null) document.getElementById(id).checked=s[id]; });
+    }catch(e){}
+  }
+
+  function base(){
+    return g("tsushin")+g("ai")+g("subOther")+g("nenkin")+g("kokuho")+g("food")+g("misc")+g("fun")+g("yobi");
+  }
+  function scenarioTotal(rent,util,car){
+    return base()+rent+util+(car? g("carLoan")+g("carRun") : 0);
+  }
+
+  var SC=[
+    {key:"A",name:"北軽井沢 賃貸",cls:"s1",rent:"a_rent",util:"a_util",car:"a_car"},
+    {key:"B",name:"南房総 土地+古民家",cls:"s2",rent:"b_rent",util:"b_util",car:"b_car"},
+    {key:"C",name:"鎌倉 賃貸",cls:"s3",rent:"c_rent",util:"c_util",car:"c_car"}
+  ];
+
+  function compute(){
+    var income=g("income"), wage=Math.max(1,g("wage"));
+    var rows=SC.map(function(s){
+      var tot=scenarioTotal(g(s.rent),g(s.util),gc(s.car));
+      var net=income-tot;
+      var hrs=tot/wage;
+      var per=(hrs/2)/4.33;
+      return {s:s,tot:tot,net:net,hrs:hrs,per:per};
+    });
+    var minTot=Math.min.apply(null,rows.map(function(r){return r.tot;}));
+    var maxTot=Math.max.apply(null,rows.map(function(r){return r.tot;}));
+    var best=rows.reduce(function(a,b){return b.tot<a.tot?b:a;});
+
+    // result cards
+    var rc=document.getElementById("rescards"); rc.innerHTML="";
+    rows.forEach(function(r){
+      var el=document.createElement("div"); el.className="rc"+(r===best?" best":"");
+      el.innerHTML=
+        '<h3>'+r.s.name+(r===best?' <span class="badge">自由時間◎</span>':'')+'</h3>'+
+        '<div class="big num">'+yen(r.tot)+'<span class="lbl"> /月</span></div>'+
+        '<div class="line"><span class="lbl">収支（月収−支出）</span><b class="net num '+(r.net>=0?"pos":"neg")+'">'+(r.net>=0?"+":"")+yen(r.net)+'</b></div>'+
+        '<div class="line"><span class="lbl">賄う総労働</span><b class="num">'+Math.round(r.hrs)+' h/月</b></div>'+
+        '<div class="line"><span class="lbl">1人あたり</span><b class="num">週 '+r.per.toFixed(1)+' h</b></div>';
+      rc.appendChild(el);
+    });
+
+    // comparison bars
+    var cmp=document.getElementById("cmp"); cmp.innerHTML="";
+    rows.forEach(function(r){
+      var col=getComputedStyle(document.documentElement).getPropertyValue("--"+r.s.cls);
+      var row=document.createElement("div"); row.className="cmprow";
+      row.innerHTML='<div class="nm">'+r.s.name+'</div>'+
+        '<div class="cmptrack"><div class="cmpfill" style="width:'+(r.tot/maxTot*100)+'%;background:'+col+'"></div></div>'+
+        '<div class="val">'+yen(r.tot)+'</div>';
+      cmp.appendChild(row);
+    });
+
+    // table
+    var t=document.getElementById("tbl");
+    t.innerHTML="<tr><th>項目</th><th>A 北軽井沢</th><th>B 南房総(所有)</th><th>C 鎌倉</th></tr>"+
+      trow("住居",[g("a_rent"),g("b_rent"),g("c_rent")])+
+      trow("水道光熱",[g("a_util"),g("b_util"),g("c_util")])+
+      trow("車（ローン+維持）",[gc("a_car")?g("carLoan")+g("carRun"):0, gc("b_car")?g("carLoan")+g("carRun"):0, gc("c_car")?g("carLoan")+g("carRun"):0])+
+      trow("共通固定費",[base(),base(),base()])+
+      "<tr style='font-weight:800'><td>総支出/月</td><td>"+yen(rows[0].tot)+"</td><td>"+yen(rows[1].tot)+"</td><td>"+yen(rows[2].tot)+"</td></tr>"+
+      "<tr><td>1人・週の労働時間</td><td>"+rows[0].per.toFixed(1)+"h</td><td>"+rows[1].per.toFixed(1)+"h</td><td>"+rows[2].per.toFixed(1)+"h</td></tr>";
+
+    // verdict
+    var diff=maxTot-minTot;
+    var bestHours=best.per.toFixed(1);
+    document.getElementById("verdict").innerHTML=
+      "最も月々が軽いのは <b>"+best.s.name+"（"+yen(best.tot)+"/月）</b>。最も重い案との差は <b>"+yen(diff)+"/月（年 "+yen(diff*12)+"）</b>。"+
+      "時給"+yen(g("wage")).replace("¥","¥")+"換算で、"+best.s.name+"なら生活費を賄うのに <b>1人あたり週 "+bestHours+"時間</b>の労働で足ります。"+
+      "住居費を小さくするほど、必要な労働＝拘束時間が減り、<b>自由時間が増えます</b>。";
+
+    // conclusion
+    var income2=g("income");
+    var bNet=rows[1].net;
+    document.getElementById("conclusion").innerHTML=
+      "<p><b>自由時間の最大化＝「月々の固定費（とくに住居）を極小化」すること。</b>収入を増やすより、毎月出ていく額を下げる方が、必要な労働時間を確実に減らせます。</p>"+
+      "<ul>"+
+      "<li><b>勝ち筋は B（南房総に土地+古民家を所有）。</b>家賃ゼロで住居が月1万円台になり、総支出が3案で最小。初期にまとめて払う代わりに、月々を軽くして"+(bNet>=0?"黒字":"ほぼ均衡")+"に近づけられる。</li>"+
+      "<li><b>A（北軽井沢賃貸）</b>は友人が近い安心感が魅力だが、家賃＋寒冷地の光熱で月が重く、必要労働が増える。「まず賃貸で土地勘を作り→良い土地/古民家を買ってBへ移行」の“試住”に向く。</li>"+
+      "<li><b>C（鎌倉賃貸）</b>は都心近接・交通の自由度が最大だが、家賃で固定費が突出。ここは“自由時間”より“利便・刺激”を買う選択。車を手放せば差は縮む。</li>"+
+      "<li><b>理想の形</b>：①住まいは<b>安く買って所有</b>（家賃という一生の固定費を消す）→ ②車・AI・保険年金など削れない固定費は残す前提で見積もる → ③生活費を<b>2人で週20〜30時間程度の軽い労働</b>で賄える水準まで下げる → 残りを<b>自分の時間</b>に。南房総型はこれに最も近い。</li>"+
+      "<li>現金が足りず古民家を<b>ローン</b>にする場合でも、月返済（例：600万を15年で約3.9万）を上乗せしてBを再計算すれば、多くの場合まだAより軽い。上の住居欄に返済額を入れて試せる。</li>"+
+      "</ul>";
+
+    saveState();
+  }
+  function trow(name,vals){ return "<tr><td>"+name+"</td>"+vals.map(function(v){return "<td>"+yen(v)+"</td>";}).join("")+"</tr>"; }
+
+  document.querySelectorAll("input").forEach(function(el){ el.addEventListener("input",compute); el.addEventListener("change",compute); });
+  document.getElementById("reset").addEventListener("click",function(){
+    IDS.forEach(function(id){ document.getElementById(id).value=defaults[id]; });
+    CHK.forEach(function(id){ document.getElementById(id).checked=defaults[id]; });
+    compute();
+  });
+
+  loadState();
+  compute();
+})();
+</script>
+</body></html>

@@ -90,7 +90,7 @@ def build_html(rows, today):
         </tr>""")
 
     return f"""<!doctype html><html lang="ja"><head><meta charset="utf-8">
-<title>海沿い格安物件レポート {today}</title>
+<title>海沿い物件レポート {today}</title>
 <style>
   * {{ box-sizing: border-box; margin: 0; padding: 0; }}
   body {{ font-family: "IPAGothic","Noto Sans JP",sans-serif; color:#0f2733;
@@ -145,8 +145,8 @@ def build_html(rows, today):
 </style></head>
 <body><div class="wrap">
   <header>
-    <div class="kicker">SEASIDE HOUSE FINDER ・ 海沿い格安物件</div>
-    <h1>海沿い・田舎の激安物件レポート</h1>
+    <div class="kicker">SEASIDE PROPERTY REPORT ・ 海沿い物件レポート</div>
+    <h1>海沿い物件レポート</h1>
     <div class="sub">条件: 海沿い / 土地＋上物 〜300万円 / 多少ボロOK / 上物は面積(㎡)付き　—　{today} 時点</div>
   </header>
 
