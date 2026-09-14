@@ -1,8 +1,8 @@
 {
- "checked": "2026-09-13",
+ "checked": "2026-09-14",
  "counts": {
   "ALIVE": 1,
-  "GONE": 0,
+  "GONE": 1,
   "UNKNOWN": 56,
   "SKIP": 5
  },
@@ -110,6 +110,14 @@
    "url": "https://tsukumi-c44207.akiya-athome.jp/buy/house/area/oitaken/tsukumishi/list?gyosei_cd%5B%5D=44207#no141-ajiroakasaki",
    "status": "UNKNOWN",
    "reason": "一覧/バンクURL(個別判定不可)"
+  },
+  {
+   "id": "64856e851d56",
+   "location": "徳島県小松島市田野町字仮家",
+   "price_man": "100.0",
+   "url": "https://resort-bukken.com/detail/4993",
+   "status": "GONE",
+   "reason": "本文に「商談中」"
   },
   {
    "id": "1215b3f85ea6",
