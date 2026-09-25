@@ -1,0 +1,8 @@
+# Vercelは静的サイト(index.html + data/report/…)のみを配信する。
+# 直下の requirements.txt / scraper(*.py) があるとVercelがPythonアプリと誤検出し
+# 「No python entrypoint found」でビルド失敗するため、配信対象から除外する。
+# ※これらはGitHub Actions(daily-scrape.yml)がリポジトリ本体で使うので残す。
+requirements.txt
+scraper/
+**/__pycache__/
+*.pyc

@@ -9,6 +9,7 @@ from typing import Optional
 FIELDNAMES = [
     "id", "source", "title", "price_man", "location",
     "land_m2", "building_m2", "madori", "coastal",
+    "sea_dist_m", "sea_view", "road_access",
     "url", "first_seen", "last_seen", "note",
 ]
 
@@ -24,6 +25,9 @@ class Listing:
     building_m2: Optional[float] = None
     madori: str = ""
     coastal: bool = False
+    sea_dist_m: str = ""      # 海までの距離(m)。徒歩分由来は概算(≈)
+    sea_view: str = ""        # 海見え: ◎/○/△/—(要確認)
+    road_access: str = ""     # 車道接道・車進入: ○/△/✕/—(要確認)
     note: str = ""
     first_seen: str = ""
     last_seen: str = ""
