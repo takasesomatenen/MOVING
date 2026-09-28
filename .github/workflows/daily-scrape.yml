@@ -6,8 +6,9 @@ name: daily-coastal-scrape
 # (PR マージ後に有効。マージ前は workflow_dispatch で手動実行して検証する)。
 
 on:
-  schedule:
-    - cron: "17 21 * * *"   # 06:17 JST 相当 (UTC 21:17)
+  # 毎日の自動実行はユーザー依頼により停止(2026-09-28)。再開する場合は下記scheduleのコメントを外す。
+  # schedule:
+  #   - cron: "17 21 * * *"   # 06:17 JST 相当 (UTC 21:17)
   workflow_dispatch:
     inputs:
       price_cap:
