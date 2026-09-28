@@ -125,8 +125,96 @@ def parse_madori(text: str):
     return m.group(1).upper() if m else None
 
 
+# ---- 海までの距離 / 海見え / 車道 -------------------------------------------
+# いずれも掲載テキスト(タイトル+備考)からの推定。正確値は現地/掲載元で要確認。
+_WALK_MIN_TO_M = 80  # 不動産表記の徒歩1分=80m 慣行
+
+_DIST_M_RE = re.compile(
+    r"(?:海|海岸|海水浴場|浜|漁港|ビーチ|渚)(?:まで|へ)?\s*(?:約\s*)?(\d+(?:\.\d+)?)\s*(m|ｍ|メートル|km|ｋｍ)"
+)
+_DIST_WALK_RE = re.compile(
+    r"(?:海|海岸|海水浴場|浜|漁港|ビーチ|渚)(?:まで|へ)?\s*(?:徒歩|歩いて)\s*(?:約\s*)?(\d+(?:\.\d+)?)\s*分"
+)
+# 距離数値は無いが「至近」を示す語 → 概算メートル
+_VERY_CLOSE = {
+    "海が目の前": 30, "目の前が海": 30, "オーシャンフロント": 20, "波打ち際": 20,
+    "海際": 30, "海に面": 30, "海まで徒歩数秒": 50, "徒歩数秒": 50, "渚まで": 60,
+}
+
+
+def parse_sea_distance_m(text: str):
+    """海までの距離を m(概算含む)で返す。取れなければ None。
+    戻り値は文字列: 実測=`300`, 徒歩/至近由来の概算=`≈160`。
+    """
+    if not text:
+        return None
+    t = normalize(text)
+    m = _DIST_M_RE.search(t)
+    if m:
+        v = float(m.group(1))
+        if m.group(2) in ("km", "ｋｍ"):
+            v *= 1000
+        return str(int(round(v)))
+    m = _DIST_WALK_RE.search(t)
+    if m:
+        v = float(m.group(1)) * _WALK_MIN_TO_M
+        return f"≈{int(round(v))}"
+    for kw, meters in _VERY_CLOSE.items():
+        if kw in t:
+            return f"≈{meters}"
+    return None
+
+
+_VIEW_STRONG = ["オーシャンビュー", "海一望", "海を望む", "海が見える", "海望む",
+                "全室海", "海望", "海ビュー", "海見え", "海が一望"]
+_VIEW_MAYBE = ["高台", "見晴らし", "見晴し", "眺望", "展望", "小高い", "高台から海"]
+
+
+def infer_sea_view(text: str):
+    """海見え(高さ的に海が見えるか)を ◎/○/△/— で推定。—=不明(要確認)。"""
+    t = normalize(text)
+    if any(k in t for k in _VIEW_STRONG):
+        return "◎"
+    if "堤防越し" in t or "堤防越" in t:
+        return "△"
+    if any(k in t for k in _VIEW_MAYBE):
+        return "○"
+    return "—"
+
+
+_ROAD_OK = ["駐車", "車庫", "ガレージ", "カーポート", "接道", "前面道路", "車進入可",
+            "2台", "２台", "車庫あり", "駐車場あり", "私道負担なし"]
+_ROAD_BAD = ["車進入不可", "車不可", "接道なし", "未接道", "階段のみ", "車入らない",
+             "車が入らない", "無接道"]
+_ROAD_WARN = ["軽自動車", "幅員狭", "狭い道", "路地", "私道", "旗竿"]
+
+
+def infer_road_access(text: str):
+    """車道接道・車の進入可否を ○/△/✕/— で推定。—=不明(要確認)。"""
+    t = normalize(text)
+    if any(k in t for k in _ROAD_BAD):
+        return "✕"
+    if any(k in t for k in _ROAD_OK):
+        return "○"
+    if any(k in t for k in _ROAD_WARN):
+        return "△"
+    return "—"
+
+
 if __name__ == "__main__":
     # 簡易セルフテスト
+    assert parse_sea_distance_m("海まで300m") == "300"
+    assert parse_sea_distance_m("海まで徒歩5分") == "≈400"
+    assert parse_sea_distance_m("海が目の前") == "≈30"
+    assert parse_sea_distance_m("海まで1.2km") == "1200"
+    assert infer_sea_view("オーシャンビュー") == "◎"
+    assert infer_sea_view("高台から海望む") == "◎"
+    assert infer_sea_view("高台の分譲地") == "○"
+    assert infer_sea_view("堤防越しに海") == "△"
+    assert infer_sea_view("駅前の家") == "—"
+    assert infer_road_access("駐車2台可") == "○"
+    assert infer_road_access("車進入不可の高台") == "✕"
+    assert infer_road_access("軽自動車のみ") == "△"
     assert parse_price_man("1,280万円") == 1280
     assert parse_price_man("980万") == 980
     assert parse_price_man("1億2000万円") == 12000
