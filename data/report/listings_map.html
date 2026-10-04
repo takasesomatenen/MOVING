@@ -1,0 +1,127 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>海沿い格安物件マップ</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  html,body { margin:0; height:100%; font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif; }
+  #map { position:absolute; inset:0; }
+  .title { position:absolute; z-index:1000; top:12px; left:12px; background:rgba(255,255,255,.94);
+           padding:10px 14px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,.2); max-width:min(76vw,360px); }
+  .title h1 { margin:0; font-size:15px; }
+  .title p { margin:4px 0 0; font-size:11px; color:#556; line-height:1.55; }
+  .title .warn { color:#b4531f; font-weight:700; }
+  .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin:0 3px -1px 8px; }
+  .ring { display:inline-block; width:10px; height:10px; border-radius:50%; border:2px solid #7a8a90; margin:0 3px -1px 8px; }
+  .pin-dot { width:16px; height:16px; border-radius:50%; border:2px solid #fff; box-shadow:0 1px 3px rgba(0,0,0,.5); }
+  .pin-ring { width:14px; height:14px; border-radius:50%; border:2px dashed #8a8f93; background:rgba(255,255,255,.55); box-shadow:0 1px 2px rgba(0,0,0,.35); }
+  .pin-hall { font-size:24px; line-height:24px; text-align:center; filter:drop-shadow(0 1px 2px rgba(0,0,0,.55)); }
+  .leaflet-popup-content { font-size:13px; line-height:1.55; }
+  .cnt { display:inline-block; margin-left:5px; color:#888; font-size:11px; }
+  .leaflet-control-layers { font-size:13px; }
+</style></head>
+<body>
+<div class="title"><h1>🗾 海沿い格安物件マップ</h1>
+<p>全<b>62</b>件。<span class="warn">個別ページに直接飛べるのは 10件</span>、残り<b>45</b>件は掲載元サイトでの<b>検索リンク</b>（その物件が今も掲載中とは限りません）。<br>
+<b>⭐殿堂8</b>／<span class="dot" style="background:#2c6fb0"></span>✓直リンク9／<span class="ring"></span>〜参考45。ピンをタップで詳細。</p></div>
+<div id="map"></div>
+<script>
+  const map = L.map('map', { center:[36.2,137.0], zoom:5 });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom:19, attribution:'&copy; OpenStreetMap'
+  }).addTo(map);
+
+  function pin(lat,lng,popup,color,isHall,detail) {
+    let icon;
+    if (isHall) {
+      icon = L.divIcon({ className:'', html:'<div class="pin-hall">⭐</div>', iconSize:[26,26], iconAnchor:[13,13] });
+    } else if (detail) {
+      icon = L.divIcon({ className:'', html:'<div class="pin-dot" style="background:'+color+'"></div>', iconSize:[16,16], iconAnchor:[8,8] });
+    } else {
+      icon = L.divIcon({ className:'', html:'<div class="pin-ring"></div>', iconSize:[14,14], iconAnchor:[7,7] });
+    }
+    const m = L.marker([lat,lng], {icon, zIndexOffset: isHall?1000:(detail?500:0)});
+    m.bindPopup(popup);
+    return m;
+  }
+
+  const layer_hall = L.layerGroup([
+      pin(32.923,131.928,"【殿堂・王座】<b>佐伯市二栄 6DK 海の見える景観(1967築)</b><br>30万円 ／ 大分県佐伯市大字二栄<br>建物単価 0.20万/㎡<br><a href=\"https://saiki-c44205.akiya-athome.jp/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2f8f4e",true,false),
+      pin(32.933,129.632,"【殿堂・破格】<b>西海市大瀬戸町瀬戸板浦郷 木造2階(125.45㎡)</b><br>50万円 ／ 長崎県西海市大瀬戸町瀬戸板浦郷<br>建物単価 0.40万/㎡<br><a href=\"https://www.city.saikai.nagasaki.jp/kurashi/jutaku/2/5561.html\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2f8f4e",true,false),
+      pin(34.031,136.249,"【殿堂・渚百選】<b>尾鷲市三木里町 7DK 木造2階(海水浴場の集落)</b><br>50万円 ／ 三重県尾鷲市三木里町<br>建物単価 0.55万/㎡<br><a href=\"https://mrt.jpn.org/inakaakiya/post-3710/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2f8f4e",true,false),
+      pin(42.369,140.938,"【殿堂・北天】<b>北海道 室蘭市白鳥台 5LDK 海の街</b><br>100万円 ／ 北海道室蘭市白鳥台<br>建物単価 0.80万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/hokkaido/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2f8f4e",true,false),
+      pin(33.021,131.872,"【殿堂・豪】<b>佐伯市上浦 9K 広め 海に近い(空き家バンク)</b><br>200万円 ／ 大分県佐伯市上浦<br>建物単価 1.10万/㎡<br><a href=\"https://www.homes.co.jp/akiyabank/oita/saiki/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2c6fb0",true,false),
+      pin(34.401,131.383,"【殿堂・波打ち際】<b>萩市大字山田玉江浦 6DK 家の前が海(日本海)</b><br>200万円 ／ 山口県萩市大字山田玉江浦<br>建物単価 2.22万/㎡<br><a href=\"https://hagiporto.com/banklist/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2c6fb0",true,false),
+      pin(35.091,140.131,"【殿堂・全面展望】<b>鴨川市太海浜 2K 木造 オーシャンビュー</b><br>220万円 ／ 千葉県鴨川市太海浜<br>建物単価 4.33万/㎡<br><a href=\"https://www.homes.co.jp/akiyabank/btag/1/chiba/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",true,false),
+      pin(35.331,132.621,"【殿堂・黄昏】<b>出雲市多伎町小田 6DK 木造2階(海近・夕日海岸)</b><br>300万円 ／ 島根県出雲市多伎町小田<br>建物単価 1.96万/㎡<br><a href=\"https://www.haruka-f.co.jp/sale/detail/320015-242556\" target=\"_blank\" rel=\"noopener\">🏳️ この物件を見る（掲載元）</a>","#c07a1e",true,true)
+  ]);
+  const layer_detail = L.layerGroup([
+      pin(34.378,131.138,"<b>長門市通 6DK 海望むバルコニー(離れ・畑付き)</b><br>50万円 ／ 山口県長門市通<br>建物単価 0.47万/㎡<br><a href=\"https://akiya.sumai.biz/111463\" target=\"_blank\" rel=\"noopener\">🏳️ この物件を見る（掲載元）</a>","#2f8f4e",false,true),
+      pin(33.185,132.415,"<b>宇和島市蒋淵 2DK 平屋(宇和海の漁村)</b><br>60万円 ／ 愛媛県宇和島市蒋淵<br>建物単価 0.96万/㎡<br><a href=\"https://akiya.sumai.biz/108800\" target=\"_blank\" rel=\"noopener\">🏳️ この物件を見る（掲載元）</a>","#2f8f4e",false,true),
+      pin(34.788,139.048,"<b>東伊豆町白田 売戸建 140万(温泉引込・築33年)</b><br>140万円 ／ 静岡県賀茂郡東伊豆町白田<br>建物単価 2.64万/㎡<br><a href=\"https://higashiizu-t22301.akiya-athome.jp/bukken/detail/buy/37285\" target=\"_blank\" rel=\"noopener\">🏳️ この物件を見る（掲載元）</a>","#2c6fb0",false,true),
+      pin(33.031,131.905,"<b>津久見市堅浦 5DK 木造(海沿い漁港・1978築)</b><br>200万円 ／ 大分県津久見市大字堅浦<br>建物単価 1.76万/㎡<br><a href=\"https://tsukumi-c44207.akiya-athome.jp/bukken/detail/buy/%E6%B4%A5%E4%B9%85%E8%A6%8B%E5%B8%82%E5%A3%B2%E6%88%B8%E5%BB%BA%E4%BD%8F%E5%AE%85-30681\" target=\"_blank\" rel=\"noopener\">🏳️ この物件を見る（掲載元）</a>","#2c6fb0",false,true),
+      pin(33.51,135.792,"<b>串本町佐部 3DK コンパクト平屋(庭・納屋・駐車場3台・縁側)</b><br>250万円 ／ 和歌山県東牟婁郡串本町佐部<br>建物単価 2.56万/㎡<br><a href=\"https://akiya.sumai.biz/121382\" target=\"_blank\" rel=\"noopener\">🏳️ この物件を見る（掲載元）</a>","#c07a1e",false,true),
+      pin(32.03,130.178,"<b>阿久根市脇本 平屋古民家 5部屋(畑・山林・駐車場付き)</b><br>250万円 ／ 鹿児島県阿久根市脇本<br>建物単価 1.39万/㎡<br><a href=\"https://akiya.sumai.biz/113881\" target=\"_blank\" rel=\"noopener\">🏳️ この物件を見る（掲載元）</a>","#c07a1e",false,true),
+      pin(33.421,133.301,"<b>須崎市上分丙 木造2階(築25年・檜床)</b><br>300万円 ／ 高知県須崎市上分丙<br>建物単価 3.81万/㎡<br><a href=\"https://susaki-c39206.akiya-athome.jp/bukken/detail/buy/33919\" target=\"_blank\" rel=\"noopener\">🏳️ この物件を見る（掲載元）</a>","#c07a1e",false,true),
+      pin(33.071,131.861,"<b>津久見市文京町 4DK 木造(リアス港町・1962築)</b><br>300万円 ／ 大分県津久見市文京町<br>建物単価 3.49万/㎡<br><a href=\"https://tsukumi-c44207.akiya-athome.jp/bukken/detail/buy/30682\" target=\"_blank\" rel=\"noopener\">🏳️ この物件を見る（掲載元）</a>","#c07a1e",false,true),
+      pin(33.071,131.871,"<b>津久見市中田町 5DK 木造(リアス港町・駅徒歩1分)</b><br>350万円 ／ 大分県津久見市中田町<br>建物単価 3.04万/㎡<br><a href=\"https://tsukumi-c44207.akiya-athome.jp/bukken/detail/buy/30665\" target=\"_blank\" rel=\"noopener\">🏳️ この物件を見る（掲載元）</a>","#8a4b9c",false,true)
+  ]);
+  const layer_list = L.layerGroup([
+      pin(32.968,129.719,"<b>西海市西彼町白崎郷 木造2階(151.77㎡)</b><br>69万円 ／ 長崎県西海市西彼町白崎郷<br>建物単価 0.45万/㎡<br><a href=\"https://www.city.saikai.nagasaki.jp/kurashi/jutaku/2/5561.html\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2f8f4e",false,false),
+      pin(35.119,140.18,"<b>鴨川市小湊 バルコニーから海 5K(空き家バンク)</b><br>70万円 ／ 千葉県鴨川市小湊<br><a href=\"https://www.city.kamogawa.lg.jp/site/iju/177.html\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2f8f4e",false,false),
+      pin(34.203,129.291,"<b>対馬市 4DK 海まで徒歩数秒</b><br>100万円 ／ 長崎県対馬市<br>建物単価 0.87万/㎡<br><a href=\"https://www.akiya-athome.jp/buy/42/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2f8f4e",false,false),
+      pin(33.368,129.553,"<b>平戸市 海が目の前</b><br>100万円 ／ 長崎県平戸市<br><a href=\"https://www.homes.co.jp/akiyabank/btag/1/nagasaki/hirado/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2f8f4e",false,false),
+      pin(33.29,134.152,"<b>高知 室戸市 土地95㎡ 海近(格安)</b><br>100万円 ／ 高知県室戸市<br><a href=\"https://www.homes.co.jp/akiyabank/kochi/muroto/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2f8f4e",false,false),
+      pin(35.083,140.16,"<b>鴨川市宮 売地(江見小徒歩7分・江見海岸)</b><br>100万円 ／ 千葉県鴨川市宮<br><a href=\"https://suumo.jp/tochi/chiba/sc_kamogawa/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2f8f4e",false,false),
+      pin(33.041,131.921,"<b>津久見市網代赤崎 5DK 木造(四浦半島の漁村)</b><br>100万円 ／ 大分県津久見市大字網代赤崎<br>建物単価 0.98万/㎡<br><a href=\"https://tsukumi-c44207.akiya-athome.jp/buy/house/area/oitaken/tsukumishi/list?gyosei_cd%5B%5D=44207\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2f8f4e",false,false),
+      pin(42.361,140.958,"<b>北海道 室蘭市大沢町 5SLDK 海の街</b><br>120万円 ／ 北海道室蘭市大沢町<br>建物単価 1.09万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/hokkaido/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2c6fb0",false,false),
+      pin(34.91,139.901,"<b>南房総市白浜町滝口 売地413㎡</b><br>150万円 ／ 千葉県南房総市白浜町滝口<br><a href=\"https://www.athome.co.jp/tochi/chiba/minamiboso-city/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2c6fb0",false,false),
+      pin(33.531,135.829,"<b>串本町古座 6SDK 2階建(古座川河口の港町・1925築)</b><br>150万円 ／ 和歌山県東牟婁郡串本町古座<br>建物単価 1.37万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/wakayama/higashimuro_kushimoto-city/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2c6fb0",false,false),
+      pin(35.019,140.001,"<b>南房総市和田町和田 5DK 中古住宅 海近</b><br>180万円 ／ 千葉県南房総市和田町和田<br>建物単価 1.79万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2c6fb0",false,false),
+      pin(34.769,138.761,"<b>西伊豆町田子 平屋4DK(駿河湾の漁港集落)</b><br>180万円 ／ 静岡県賀茂郡西伊豆町田子<br>建物単価 2.76万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/shizuoka/kamo_nishiizu-city/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2c6fb0",false,false),
+      pin(34.301,129.321,"<b>対馬市 5K 海沿い</b><br>200万円 ／ 長崎県対馬市<br>建物単価 2.79万/㎡<br><a href=\"https://www.akiya-athome.jp/buy/42/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2c6fb0",false,false),
+      pin(32.96,131.9,"<b>佐伯市 6DK 海沿いの集落</b><br>200万円 ／ 大分県佐伯市<br>建物単価 1.79万/㎡<br><a href=\"https://www.akiya-athome.jp/buy/44/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2c6fb0",false,false),
+      pin(34.783,134.551,"<b>兵庫 姫路市網干区興浜 6DK 1969築 播磨灘</b><br>200万円 ／ 兵庫県姫路市網干区興浜<br>建物単価 1.21万/㎡<br><a href=\"https://suumo.jp/chukoikkodate/hyogo/nj_175/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2c6fb0",false,false),
+      pin(34.768,134.503,"<b>兵庫 たつの市 海近 広め 中古戸建</b><br>200万円 ／ 兵庫県たつの市<br>建物単価 1.62万/㎡<br><a href=\"https://www.iju-style.jp/bukken/list\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2c6fb0",false,false),
+      pin(32.091,130.352,"<b>鹿児島 出水市 4DK 八代海沿い</b><br>200万円 ／ 鹿児島県出水市<br>建物単価 2.23万/㎡<br><a href=\"https://www.akiya-athome.jp/buy/46/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2c6fb0",false,false),
+      pin(32.791,131.899,"<b>佐伯市蒲江大字丸市尾浦 4DK 漁村・海沿い(1975築)</b><br>200万円 ／ 大分県佐伯市蒲江大字丸市尾浦<br>建物単価 2.02万/㎡<br><a href=\"https://saiki-c44205.akiya-athome.jp/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2c6fb0",false,false),
+      pin(33.371,129.421,"<b>平戸市生月町壱部浦 5DK 3階建(生月島・海望む高台)</b><br>200万円 ／ 長崎県平戸市生月町壱部浦<br>建物単価 1.52万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/nagasaki/hirado-city/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#2c6fb0",false,false),
+      pin(32.901,131.981,"<b>佐伯市米水津色利浦 7DK 2階 古民家 リアス海岸</b><br>235万円 ／ 大分県佐伯市米水津色利浦<br>建物単価 1.63万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/oita/saiki-city/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(33.681,135.351,"<b>和歌山 白浜町堅田 1LDK 1984築 海近</b><br>248万円 ／ 和歌山県西牟婁郡白浜町堅田<br>建物単価 4.07万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/wakayama/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(34.901,139.901,"<b>南房総市白浜町白浜 2SDK 灯台/海釣り</b><br>280万円 ／ 千葉県南房総市白浜町白浜<br>建物単価 3.05万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(33.481,133.441,"<b>高知 土佐市新居 6DK 広め 海沿い</b><br>290万円 ／ 高知県土佐市新居<br>建物単価 1.86万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/kochi/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(33.921,132.241,"<b>山口 周防大島町 7DK 木造2階 瀬戸内</b><br>290万円 ／ 山口県大島郡周防大島町<br><a href=\"https://teiju-suo-oshima.com/akiya/akiya_condition_category/oceanview\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(34.661,138.961,"<b>下田市須崎 平屋1LDK 海近(別荘可)</b><br>290万円 ／ 静岡県下田市須崎<br>建物単価 6.76万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/shizuoka/shimoda-city/020-town/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(35.031,139.991,"<b>南房総市和田町小川 3DK 中古住宅(外房・和田)</b><br>290万円 ／ 千葉県南房総市和田町小川<br>建物単価 4.38万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/102-town/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(34.281,136.831,"<b>志摩市大王町畔名 堤防越しに海</b><br>298万円 ／ 三重県志摩市大王町畔名<br>建物単価 2.66万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/mie/shima-city/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(35.111,140.101,"<b>鴨川市広場 平屋2K スーパー徒歩圏</b><br>300万円 ／ 千葉県鴨川市広場<br>建物単価 7.56万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/chiba/kamogawa-city/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(35.701,140.581,"<b>匝瑳市 2LDK 新堀浜まで450m</b><br>300万円 ／ 千葉県匝瑳市<br><a href=\"https://www.akiya-athome.jp/buy/12/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(33.941,135.101,"<b>和歌山 由良町大引 高台から海望む リフォーム済</b><br>300万円 ／ 和歌山県日高郡由良町大引<br><a href=\"https://www.wakayamagurashi.jp/house/search/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(33.301,134.181,"<b>高知 室戸市 土地111㎡ 海近</b><br>300万円 ／ 高知県室戸市<br><a href=\"https://www.homes.co.jp/akiyabank/kochi/muroto/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(33.361,132.421,"<b>西予市三瓶町下泊 2SLDK 平屋 宇和海沿い</b><br>300万円 ／ 愛媛県西予市三瓶町下泊<br>建物単価 3.56万/㎡<br><a href=\"https://www.homes.co.jp/akiyabank/btag/1/ehime/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(32.081,130.301,"<b>鹿児島 出水市 5DK 広め 八代海沿い</b><br>300万円 ／ 鹿児島県出水市<br>建物単価 1.40万/㎡<br><a href=\"https://www.akiya-athome.jp/buy/46/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(34.905,139.911,"<b>南房総市白浜町白浜 平屋 5K</b><br>300万円 ／ 千葉県南房総市白浜町白浜<br>建物単価 3.06万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(34.941,139.951,"<b>南房総市千倉町平磯 平屋 4DK(1970築)</b><br>300万円 ／ 千葉県南房総市千倉町平磯<br>建物単価 2.48万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/chiba/minamiboso-city/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(34.631,137.101,"<b>田原市 空き家バンク(伊良湖岬周辺)</b><br>300万円 ／ 愛知県田原市<br><a href=\"https://tahara-c23231.akiya-athome.jp/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(35.061,139.081,"<b>南熱海 オーシャンビュー温泉リゾマン 1K</b><br>300万円 ／ 静岡県熱海市(南熱海)<br>建物単価 13.64万/㎡<br><a href=\"https://suumo.jp/ms/chuko/shizuoka/sc_atami/nj_175/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(34.301,136.841,"<b>志摩市大王町船越 中古住宅 海近(大王埼)</b><br>300万円 ／ 三重県志摩市大王町船越<br>建物単価 2.52万/㎡<br><a href=\"https://suumo.jp/chukoikkodate/mie/sc_shima/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(34.971,138.781,"<b>沼津市戸田 4DK 海沿いの漁港(1972築)</b><br>300万円 ／ 静岡県沼津市戸田<br>建物単価 3.13万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/shizuoka/numazu-city/158-town/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(34.391,131.201,"<b>長門市仙崎白潟 5DK 漁港の町(築64年)</b><br>300万円 ／ 山口県長門市仙崎白潟<br>建物単価 2.85万/㎡<br><a href=\"https://myhome.nifty.com/chuko-ikkodate/yamaguchi/nagatoshi_ct/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(35.241,139.661,"<b>横須賀市武 3K 中古戸建(都心近め・築49年)</b><br>300万円 ／ 神奈川県横須賀市武3丁目<br>建物単価 5.11万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/kanagawa/yokosuka-city/057-town/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#c07a1e",false,false),
+      pin(35.251,140.381,"<b>いすみ市大原 平屋3DK(大原漁港近)</b><br>350万円 ／ 千葉県いすみ市大原<br><a href=\"https://www.athome.co.jp/kodate/theme/hiraya/chiba/isumi-city/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#8a4b9c",false,false),
+      pin(34.631,138.811,"<b>南伊豆町妻良 海まで300m 中古戸建</b><br>350万円 ／ 静岡県賀茂郡南伊豆町妻良<br><a href=\"https://www.kahoufudousan.com/database.cgi\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#8a4b9c",false,false),
+      pin(34.621,138.131,"<b>御前崎市白羽 5DK 高台(海徒歩数分)</b><br>350万円 ／ 静岡県御前崎市白羽<br>建物単価 1.94万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/shizuoka/omaezaki-city/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#8a4b9c",false,false),
+      pin(34.621,137.181,"<b>田原市小中山町 8LDK(渥美・三河湾)</b><br>350万円 ／ 愛知県田原市小中山町<br>建物単価 1.42万/㎡<br><a href=\"https://www.athome.co.jp/kodate/chuko/aichi/tahara-city/list/\" target=\"_blank\" rel=\"noopener\">🔎 掲載元サイトで探す（個別ページ未確定）</a>","#8a4b9c",false,false)
+  ]);
+  layer_hall.addTo(map);
+  layer_detail.addTo(map);
+  layer_list.addTo(map);
+
+  const overlays = {
+    "⭐ 殿堂<span class=cnt>8</span>": layer_hall,
+    "✓ 直リンク物件<span class=cnt>9</span>": layer_detail,
+    "〜 参考・要検索<span class=cnt>45</span>": layer_list
+  };
+  L.control.layers(null, overlays, {collapsed:false}).addTo(map);
+</script>
+</body></html>

@@ -15,7 +15,8 @@ import datetime as dt
 import os
 import re
 
-from .filters import parse_price_man, normalize, TSUBO_TO_M2
+from .filters import (parse_price_man, normalize, TSUBO_TO_M2,
+                      parse_sea_distance_m, infer_sea_view, infer_road_access)
 from .store import Listing, load_master, merge, write_master
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -56,10 +57,14 @@ def main(argv=None):
     ap.add_argument("--source", default="websearch-daily")
     ap.add_argument("--coastal", type=int, default=1, help="海沿い(1/0)")
     ap.add_argument("--note", default=DEFAULT_NOTE)
+    ap.add_argument("--sea-dist", default=None, help="海までの距離(m)。未指定なら文言から推定")
+    ap.add_argument("--sea-view", default=None, help="海見え ◎/○/△/—。未指定なら推定")
+    ap.add_argument("--road", default=None, help="車道 ○/△/✕/—。未指定なら推定")
     ap.add_argument("--today", default=None)
     args = ap.parse_args(argv)
 
     today = args.today or dt.date.today().isoformat()
+    _text = f"{args.title} {args.note}"
     lst = Listing(
         source=args.source,
         title=args.title[:120],
@@ -70,6 +75,9 @@ def main(argv=None):
         building_m2=_num(args.building),
         madori=args.madori,
         coastal=bool(args.coastal),
+        sea_dist_m=args.sea_dist if args.sea_dist is not None else (parse_sea_distance_m(_text) or ""),
+        sea_view=args.sea_view if args.sea_view is not None else infer_sea_view(_text),
+        road_access=args.road if args.road is not None else infer_road_access(_text),
         note=args.note,
     )
     master = load_master(MASTER_PATH)

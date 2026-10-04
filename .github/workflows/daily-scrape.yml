@@ -6,8 +6,9 @@ name: daily-coastal-scrape
 # (PR マージ後に有効。マージ前は workflow_dispatch で手動実行して検証する)。
 
 on:
-  schedule:
-    - cron: "17 21 * * *"   # 06:17 JST 相当 (UTC 21:17)
+  # 毎日の自動実行はユーザー依頼により停止(2026-09-28)。再開する場合は下記scheduleのコメントを外す。
+  # schedule:
+  #   - cron: "17 21 * * *"   # 06:17 JST 相当 (UTC 21:17)
   workflow_dispatch:
     inputs:
       price_cap:
@@ -39,6 +40,12 @@ jobs:
         run: |
           python -m scraper.scrape --price-cap "${{ github.event.inputs.price_cap || '300' }}" | tee scrape.log
 
+      - name: Verify listings (retire sold/expired)
+        # Actions ランナーは外部ネットワークが開いているので、開発サンドボックスと違い
+        # 実サイトへアクセスできる。個別物件URLの成約/掲載終了/404 を検出したものだけを
+        # data/listings_retired.csv へ退避し master から外す(一覧URLや403/timeoutは現状維持)。
+        run: python -m scraper.verify --apply | tee verify.log || true
+
       - name: Build report HTML
         run: python -m scraper.report
 
@@ -54,7 +61,21 @@ jobs:
             echo "変更なし(新規物件なし)"
           else
             git commit -m "data: 海沿い格安物件 日次更新"
-            git push origin HEAD:${{ github.ref_name }}
+            # feature branch は日次チェーン等が同時刻に push するため、
+            # 単純 push は non-fast-forward で弾かれることがある。
+            # rebase してからリトライし、push レースに耐えるようにする。
+            pushed=""
+            for i in 1 2 3 4 5; do
+              git pull --rebase --autostash origin "${{ github.ref_name }}" || true
+              if git push origin HEAD:"${{ github.ref_name }}"; then
+                pushed="yes"; break
+              fi
+              echo "push rejected, retrying ($i) ..."
+              sleep $(( (RANDOM % 5) + 2 ))
+            done
+            if [ -z "$pushed" ]; then
+              echo "::error::push failed after retries"; exit 1
+            fi
           fi
 
       - name: Upload log artifact
